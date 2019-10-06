@@ -15,6 +15,18 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function feedback()
+    {
+        return $this->hasMany('App\FeedBack','id_user','id');
+    }
+    public function bill_import()
+    {
+        return $this->hasMany('App\BillImport','id_user','id');
+    }
+    public function bill_export()
+    {
+        return $this->hasMany('App\BillExport','id_user','id');
+    }
     protected $fillable = [
         'name', 'email', 'password',
     ];

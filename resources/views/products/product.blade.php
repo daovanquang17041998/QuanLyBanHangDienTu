@@ -1,0 +1,1 @@
+hello detail product {{$product_id}}
