@@ -35,7 +35,7 @@
                                 {{session('loi')}}
                             </div>
                         @endif
-                        <form action="" method="POST">
+                        <form action="" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Họ tên</label>
                                 <input class="form-control" name="txtFullName" placeholder="Điền vào họ và tên User" value="{!! old('txtFullName') !!}"/>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Avatar</label>
-                                <input type='text' class="form-control" name="txtAvatar" placeholder="Nhập vào ảnh đại diện" />
+                                <input type='file' class="form-control" name="txtAvatar" placeholder="Nhập vào ảnh đại diện" />
                             </div>
                             <div class="form-group">
                                 <label style="margin-right: 20px">Trạng thái</label>

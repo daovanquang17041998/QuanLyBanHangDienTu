@@ -3,6 +3,56 @@
 Route::get('/welcome', function () {
     return view('welcome');
 });
+/* user */
+Route::get('dang-nhap',['as'=>'dangnhap', 'uses'=>'PageController@getLogin']);
+
+Route::post('dang-nhap',['as'=>'dangnhap', 'uses'=>'PageController@postLogin']);
+
+Route::get('dang-xuat',['as'=>'dangxuat', 'uses'=>'PageController@getLogout']);
+
+Route::get('dang-ky',['as'=>'dangky', 'uses'=>'PageController@getSignup']);
+
+Route::post('dang-ky',['as'=>'dangky', 'uses'=>'PageController@postSignup']);
+
+Route::get('tim-kiem',['as'=>'search', 'uses'=>'PageController@getSearch']);
+
+Route::get('loai-san-pham/{type}',['as'=>'loaisanpham','uses'=>'PageController@getLoaisanpham']);
+
+Route::get('chi-tiet-san-pham/{id}',['as'=>'chitietsanpham', 'uses'=>'PageController@getChitietsanpham']);
+
+Route::get('lien-he',['as'=>'thongtinlienhe', 'uses'=>'PageController@getLienhe']);
+
+Route::get('gioi-thieu',['as'=>'gioithieu', 'uses'=>'PageController@getGioithieu']);
+
+Route::get('add-to-cart/{id}',['as'=>'themgiohang', 'uses'=>'PageController@getAddToCart']);
+
+Route::get('del-cart/{id}',['as'=>'xoagiohang', 'uses'=>'PageController@getDelItemCart']);
+
+Route::get('dat-hang',['as'=>'dathang', 'uses'=>'PageController@getCheckout']);
+
+Route::post('dat-hang',['as'=>'dathang', 'uses'=>'PageController@postCheckout']);
+
+Route::get('/',['as'=>'trang-chu','uses'=>'PageController@getIndexPage']);
+
+Route::get('danh-muc/{id}/{url}',['as'=>'chuyen-muc','uses'=>'PageController@getCategory']);
+
+Route::get('san-pham/{id}/{url}',['as'=>'san-pham','uses'=>'PageController@getDetailProduct']);
+
+Route::group(['prefix'=>'user','middleware'=>'userLogin'], function (){
+
+    Route::get('profile',['as'=>'user.profile', 'uses'=>'PageController@getUserProfile']);
+
+    Route::post('profile',['as'=>'user.profile', 'uses'=>'PageController@postEditProfile']);
+
+    Route::get('password',['as'=>'get.password', 'uses'=>'PageController@getChangePassword']);
+
+    Route::post('password',['as'=>'post.password', 'uses'=>'PageController@postChangePassword']);
+
+    Route::get('danh-sach-hoa-don',['as'=>'list.bill', 'uses'=>'PageController@getListBill']);
+
+    Route::post('danh-sach-hoa-don','AjaxController@postAjaxShowBills');
+});
+/* admin */
 
 /*login*/
 Route::get('admin/dang-nhap','Admin\UserController@getAdminLogin');

@@ -29,9 +29,18 @@ class UserController extends Controller
         $user->phone     = $request->txtPhoneNumber;
         $user->birthday     = $request->txtBirthday;
         $user->address     = $request->txtAddress;
-        $user->avatar     = $request->txtAvatar;
         $user->status     = $request->rdoStatus;
 		$user->level    = $request->rdoQuyen;
+        $get_image = $request->file('txtAvatar');
+        if($get_image){
+            $get_name_image = $get_image->getClientOriginalName();
+            $get_image->move('uploads/users',$get_name_image);
+            $user->avatar = $get_name_image;
+            $user->save();
+            return redirect('admin/user/them')->with('message','Thêm thành công');
+        }
+        else
+        $user->avatar ="";
     	$user->save();
     	return redirect('admin/user/them')->with('message','Thêm thành công');
     }

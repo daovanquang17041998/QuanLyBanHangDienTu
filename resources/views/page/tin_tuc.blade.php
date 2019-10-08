@@ -1,1 +1,0 @@
-hello view tin tuc

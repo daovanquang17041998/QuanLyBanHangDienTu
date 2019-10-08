@@ -16,11 +16,11 @@
                                 <th>ID</th>
                                 <th>Tên sản phẩm</th>
                                 <th>Chuyên mục</th>
-                                <th>Date</th>
+                                <th>Mô tả</th>
+                                <th>Hình ảnh</th>
                                 <th>Đơn giá</th>
-                                <th>Sale</th>
+                                <th>Giá khuyễn mãi</th>
                                 <th>Status</th>
-                                <th>Size</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -30,23 +30,12 @@
                             <tr class="odd gradeX" align="center">
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->category->full_name}}</td>
-                                <td><?php Carbon\Carbon::setLocale('vi') ; //dùng để đinh nghĩa time
-                                    if(Carbon\Carbon::createFromTimestamp(strtotime($product->created_at))->diffInHours() >= 24)
-                                    {
-                                        $date =  $product->created_at;
-                                    }
-                                    else {
-                                        $date =  Carbon\Carbon::createFromTimestamp(strtotime($product->created_at))->diffforHumans();
-                                    }
-                                    ?>
-                                    {{$date}}
-                                    </td>
+                                <td>{{$product->category->name}}</td>
+                                <td>{{$product->description}}</td>
+                                <td><img src="../public/uploads/product/{{$product->image}}" height="100" width="100"> </td>
                                 <td>{{$product->unit_price}}</td>
                                 <td>{{$product->promotion_price}}</td>
-                                <td>Hiện</td>
-                                <td class="center"><i class="fa fa-plus-square fa-fw"></i> <a href=""  class="view-size"  data-toggle="modal" data-target="#myModal"  data-viewid='{{$product->id}}'>Xem</a></td>
-                                
+                                <td>Active</td>
                                 <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="javascript:void(0)"  >Xóa</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/sua/{{$product->id}}">Sửa</a></td>
                             </tr>
