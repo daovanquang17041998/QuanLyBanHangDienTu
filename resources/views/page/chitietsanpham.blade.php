@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-sm-4">
-                        <img src="source/image/product/{{$sanpham->image}}" alt="">
+                        <img src="uploads/product/{{$sanpham->image}}" alt="">
                     </div>
                     <div class="col-sm-8">
                         <div class="single-item-body">
@@ -42,18 +42,10 @@
                         <div class="single-item-desc">
                             <p>{{$sanpham->description}}</p>
                         </div>
-                        <div class="space20">&nbsp;</div>
-
-                        <p>Số lượng:</p>
+                        <div class="single-item-desc">
+                            <p>{{$detail_product->id_color}}</p>
+                        </div>
                         <div class="single-item-options">
-                            <select class="wc-select" name="color">
-                                <option>Số lượng</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
                             <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
                             <div class="clearfix"></div>
                         </div>
@@ -78,7 +70,7 @@
                         <div class="col-sm-4">
                             <div class="single-item">
                                 <div class="single-item-header">
-                                    <a href="{{route('trang-chu')}}"><img src="source/image/product/{{$sptt->image}}" alt="" height="250px"></a>
+                                    <a href="{{route('trang-chu')}}"><img src="uploads/product/{{$sptt->image}}" alt="" height="250px"></a>
                                 </div>
                                 <div class="single-item-body">
                                     <p class="single-item-title">{{$sptt->name}}</p>

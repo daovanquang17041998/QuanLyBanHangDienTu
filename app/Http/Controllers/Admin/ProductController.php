@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 
+use App\DetailProduct;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -95,5 +96,20 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->delete();
         return redirect(route('listsanpham'))->with('message','xóa thành công');
+    }
+
+    public function getDetailProduct($id)
+    {
+        $product_items = DetailProduct::where('id_product',$id)->get();
+        $detail_product_items = DetailProduct::where('id_detail_product',$id)->get();
+        $bill = DetailProduct::find($id);
+        $customer = User::find($bill->id_user);
+        return view('admin.product.detail_product',compact('bill','product_items','customer','detail_product_items'));
+    }
+    public function getDelDetailProduct($id)
+    {
+        $bill = DetailProduct::find($id);
+        $bill->delete();
+        return redirect('admin/san-pham/danh-sach');
     }
 }

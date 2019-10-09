@@ -96,6 +96,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
 
         Route::get('xoa/{id}',"ProductController@getDelProduct");
 
+        Route::get('chi-tiet/{id}',['as'=>'admin.detail.product', 'uses'=>'ProductController@getDetailProduct']);
+
+        Route::get('chi-tiet/xoa/{id}','ProductController@getDelDetailProduct');
 
     });
     /*trang nhà cung cấp*/

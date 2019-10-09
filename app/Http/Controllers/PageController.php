@@ -6,6 +6,7 @@ use App\Bill;
 use App\BillDetail;
 use App\Category;
 use App\Customer;
+use App\DetailProduct;
 use App\Product;
 use App\ProductType;
 use App\Slide;
@@ -29,9 +30,10 @@ class PageController extends Controller
         return view('page.loaisanpham',compact('sp_theoloai','sp_khac','loai','loai_sp'));
     }
     public function getChitietsanpham(Request $request){
+        $detail_product        = DetailProduct::find($request->id);
         $sanpham = Product::where('id',$request->id)->first();
-        $sanpham_tuongtu = Product::where('id_category',$sanpham->id_type)->paginate(6);
-        return view('page.chitietsanpham',compact('sanpham','sanpham_tuongtu'));
+        $sanpham_tuongtu = Product::where('id_category',$sanpham->id_category)->paginate(6);
+        return view('page.chitietsanpham',compact('sanpham','detail_product','sanpham_tuongtu'));
     }
     public function getLienhe(){
         return view('page.thongtinlienhe');
