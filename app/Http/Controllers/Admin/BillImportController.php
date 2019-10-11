@@ -102,7 +102,7 @@ class BillImportController extends Controller
         $detail_import->price = $request->txtPrice;
         $detail_import->quanlity = $request->txtQuanlity;
         $detail_import->save();
-        return redirect("admin/nhap-hang/danh-sach")->with("message","Sửa chi tiết sản phẩm thành công");
+        return redirect("admin/nhap-hang/danh-sach")->with("message","Sửa chi tiết nhập hàng thành công");
     }
     public function getDelDetailBillImport($id)
     {

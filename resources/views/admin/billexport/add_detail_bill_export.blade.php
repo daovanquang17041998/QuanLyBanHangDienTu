@@ -36,9 +36,9 @@
                         </div>
                         <div class="form-group">
                             <label>Số hóa đơn bán</label>
-                            <select class="form-control" name="selectBillImportId">
-                                @foreach($bill_import as $bill_imports)
-                                    <option value='{{$bill_imports->id}}'>{{$bill_imports->id}}</option>
+                            <select class="form-control" name="selectBillExportId">
+                                @foreach($bill_export as $bill_exports)
+                                    <option value='{{$bill_exports->id}}'>{{$bill_exports->id}}</option>
                                 @endforeach
                             </select>
                         </div>

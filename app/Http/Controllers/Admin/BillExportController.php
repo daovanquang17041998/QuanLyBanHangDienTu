@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\BillExport;
 use App\DetailBillExport;
+use App\DetailBillImport;
+use App\DetailProduct;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -59,22 +61,22 @@ class BillExportController extends Controller
         $bill_export->delete();
         return redirect('admin/don-hang/danh-sach')->with('message','xóa đơn hàng thành công');
     }
-    public function getAddDetailBillImport($id)
+    public function getAddDetailBillExport($id)
     {
         $detail_product = DetailProduct::all();
         $bill_export =  BillExport::all();
         return view('admin.billexport.add_detail_bill_export',compact('detail_product','bill_export'));
     }
 
-    public function postAddDetailBillImport(Request $request,$id)
+    public function postAddDetailBillExport(Request $request,$id)
     {
-        $detail_import = DetailBillImport::find($id);
-        $detail_import->id_detail_product = $request->selectDetailProductId;
-        $detail_import->id_bill_import = $request->selectBillImportId;
-        $detail_import->price = $request->txtPrice;
-        $detail_import->quanlity = $request->txtQuanlity;
-        $detail_import->save();
-        return redirect("admin/nhap-hang/danh-sach")->with("message","Thêm chi tiết hóa đơn nhập thành công");
+        $detail_export = DetailBillImport::find($id);
+        $detail_export->id_detail_product = $request->selectDetailProductId;
+        $detail_export->id_bill_export = $request->selectBillExportId;
+        $detail_export->price = $request->txtPrice;
+        $detail_export->quanlity = $request->txtQuanlity;
+        $detail_export->save();
+        return redirect("admin/don-hang/danh-sach")->with("message","Thêm chi tiết hóa đơn bán thành công");
 
     }
    	public function getListDetailBillExport($id)
@@ -85,11 +87,27 @@ class BillExportController extends Controller
         $customer = User::find($bill->id_user);
    		return view('admin.billexport.list_detail_bill_export',compact('bill','product_items','customer','detail_product_items'));
    	}
+    public function getEditDetailBillExport($id)
+    {
+        $bill_detail = DetailBillExport::find($id) ;
+        $detail_product = DetailProduct::all();
+        $bill_export =  BillExport::all();
+        return view('admin.billexport.edit_detail_bill_export',compact('bill_detail','detail_product','bill_export'));
+    }
 
+    public function postEditDetailBillExport(Request $request, $id){
+
+        $detail_export = DetailBillExport::find($id);
+        $detail_export->id_detail_product = $request->selectDetailBillExportId;
+        $detail_export->price = $request->txtPrice;
+        $detail_export->quanlity = $request->txtQuanlity;
+        $detail_export->save();
+        return redirect("admin/don-hang/danh-sach")->with("message","Sửa chi tiết đơn hàng thành công");
+    }
       public function getDelDetailBillExport($id)
       {
-         $bill = DetailBillExport::find($id);
-         $bill->delete();
+         $bill_export = DetailBillExport::find($id);
+         $bill_export->delete();
          return redirect('admin/don-hang/danh-sach');
       }
 }

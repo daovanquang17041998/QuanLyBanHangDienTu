@@ -31,7 +31,7 @@
                                 <td>{{$product->name}}</td>
                                 <td>{{$product->category->name}}</td>
                                 <td>{{$product->description}}</td>
-                                <td>Active</td>
+                                <td> @if($product->status==1) Còn hàng @else Hết hàng @endif</td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/chi-tiet/them/{{$product->id}}">Thêm</a></td>
                                 <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="admin/san-pham/xoa/{{$product->id}})"  >Xóa</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/sua/{{$product->id}}">Sửa</a></td>

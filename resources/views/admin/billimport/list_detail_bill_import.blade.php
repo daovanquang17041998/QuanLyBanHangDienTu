@@ -49,7 +49,7 @@
                             <td><img src="../public/uploads/product/{{$item->detail_product->image}}" height="100" width="100">
                             <td>Màu: {{$item->detail_product->color->name}} Màn hình: {{$item->detail_product->screem->name}} Bộ nhớ: {{$item->detail_product->memory->name}}</td>
                             <td>
-                                @if($item->price != null) {{$item->price}} vnđ @else Không xác định @endif
+                                @if($item->price != null) {{number_format($item->price)}} vnđ @else Không xác định @endif
                             </td>
                             <td>{{$item->quanlity}}</td>
                             <td class="center"><i class="fa fa-pencil fa-fw "></i><a href="admin/nhap-hang/chi-tiet/sua/{{$item->id}}"> Edit </a></td>

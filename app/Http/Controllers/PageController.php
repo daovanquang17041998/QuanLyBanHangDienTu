@@ -18,8 +18,8 @@ class PageController extends Controller
     public function getIndexPage()
     {
         $slide = Slide::all();
-        $new_product = product::where('status',1)->paginate(4);
-        $sale_product = product::where('promotion_price','<>',0)->paginate(8);
+        $new_product = DetailProduct::where('unit_price','<>',0)->paginate(4);
+        $sale_product = DetailProduct::where('promotion_price','<>',0)->paginate(8);
         return view('page.trangchu',compact('slide','new_product','sale_product'));
     }
     public function getLoaisanpham($type){

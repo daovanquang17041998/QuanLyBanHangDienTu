@@ -30,8 +30,8 @@
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->product->name}}</td>
                                 <td><img src="../public/uploads/product/{{$product->image}}" height="100" width="100"> </td>
-                                <td>{{$product->unit_price}}</td>
-                                <td>{{$product->promotion_price}}</td>
+                                <td>{{number_format($product->unit_price)}}</td>
+                                <td>{{number_format($product->promotion_price)}}</td>
                                 <td>{{$product->quanlity}}</td>
                                 <td>Màu: {{$product->color->name}} Màn hình:  {{$product->screem->name}} Bộ nhớ:  {{$product->memory->name}}</td>
                                 <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="admin/san-pham/chi-tiet/xoa/{{$product->id}}))">Xóa</a></td>
