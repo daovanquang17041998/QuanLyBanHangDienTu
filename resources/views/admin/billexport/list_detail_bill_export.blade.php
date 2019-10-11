@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                                 <td>Tổng tiền</td>
-                                <td>{{number_format($bill->total_price)}} vnđ</td>
+                                <td>{{number_format($bill->totalmoney)}} vnđ</td>
                             </tr>
                         </table>
                     </div>
@@ -38,8 +38,11 @@
                             <tr align="center">
                                 <th>ID</th>
                                 <th>Sản phẩm</th>
-                                <th>Số seri</th>
+                                <th>Ảnh</th>
+                                <th>Mô tả</th>
                                 <th>Đơn giá</th>
+                                <th>Số lượng</th>
+                                <th>Edit</th>
                                 <th>Delete</th>
                               
                             </tr>
@@ -48,11 +51,14 @@
                             @foreach($product_items as $item)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$item->id}}</td>
-                                <td>{{$item->color}}</td>
-                                <td>{{$item->detail_product->serial}}</td>
+                                <td>{{$item->detail_product->product->name}}</td>
+                                <td><img src="../public/uploads/product/{{$item->detail_product->image}}" height="100" width="100">
+                                <td>Màu: {{$item->detail_product->color->name}} Màn hình: {{$item->detail_product->screem->name}} Bộ nhớ: {{$item->detail_product->memory->name}}</td>
                                 <td>
                                     @if($item->price != null) {{$item->price}} vnđ @else Không xác định @endif
                                 </td>
+                                <td>{{$item->quanlity}}</td>
+                                <td class="center"><i class="fa fa-pencil fa-fw "></i><a href="admin/don-hang/chi-tiet/sua/{{$item->id}}"> Edit </a></td>
                                 <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/don-hang/chi-tiet/xoa/{{$item->id}}" class='btn-del'> Delete</a></td>
                             </tr>
                             @endforeach

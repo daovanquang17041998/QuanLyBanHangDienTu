@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Product
-                            <small>Add</small>
+                        <h1 class="page-header">Chi Tiết Hóa Đơn Nhập
+                            <small>Thêm</small>
                         </h1>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -25,31 +25,30 @@
                             {{session('message')}}
                         </div>
                     @endif
-                    <a href="admin/san-pham/danh-sach" class="btn btn-default">Trở về</a>
+                    <a href="admin/nhap-hang/chi-tiet/{$id}" class="btn btn-default">Trở về</a>
                         <div class="form-group">
-                            <label>Tên sản phẩm</label>
-                            <input class="form-control" name="txtName" placeholder="Nhập tên đầy đủ" value="{{old('txtName')}}"/>
+                            <label>Tên sản phẩm</label><br>
+                            <select class="form-control" name="selectDetailProductId">
+                                @foreach($detail_product as $detail_products)
+                                    <option value='{{$detail_products->id}}'>{{$detail_products->product->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
-                                <label>Danh mục</label>
-                                <select class="form-control" name="selectCategoryId">
-                                    @foreach($cates as $cate)
-                                        <option value='{{$cate->id}}'>{{$cate->name}}</option>
-                                    @endforeach
-                                </select>
+                            <label>Số hóa đơn nhập</label>
+                            <select class="form-control" name="selectBillImportId">
+                                @foreach($bill_import as $bill_imports)
+                                    <option value='{{$bill_imports->id}}'>{{$bill_imports->id}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
-                            <label>Mô tả</label>
-                            <input class="form-control" name="txtDescription" placeholder="Nhập mô tả" value="{{old('txtDescription')}}"/>
+                            <label>Đơn giá</label>
+                            <input class="form-control" name="txtPrice" placeholder="Nhập đơn giá" value="{{old('txtPrice')}}"/>
                         </div>
                             <div class="form-group">
-                                <label>Trạng thái</label>
-                                <label class="radio-inline">
-                                    <input name="rdoNew" value="1" checked="" type="radio">Mới
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="rdoNew" value="0" type="radio">Cũ
-                                </label>
+                                <label>Số lượng</label>
+                                <input class="form-control" name="txtQuanlity" placeholder="Nhập số lượng" value="{{old('txtQuanlity')}}"/>
                             </div>
 
                             <button type="submit" class="btn btn-default">Thêm</button>

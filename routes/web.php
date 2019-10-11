@@ -96,9 +96,17 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
 
         Route::get('xoa/{id}',"ProductController@getDelProduct");
 
-        Route::get('chi-tiet/{id}',['as'=>'admin.detail.product', 'uses'=>'ProductController@getDetailProduct']);
+        Route::get("chi-tiet/them/{id}",['as'=>'themchitietsanpham','uses'=>'ProductController@getAddDetailProduct']);
 
-        Route::get('chi-tiet/xoa/{id}','ProductController@getDelDetailProduct');
+        Route::post("chi-tiet/them/{id}",['as'=>'themchitietsanpham','uses'=>'ProductController@postAddDetailProduct']);
+
+        Route::get("chi-tiet/{id}",['as'=>'listchitietsanpham','uses'=>'ProductController@getListDetailProduct']);
+
+        Route::get("chi-tiet/sua/{id}","ProductController@getEditDetailProduct");
+
+        Route::post("chi-tiet/sua/{id}","ProductController@postEditDetailProduct");
+
+        Route::get('chi-tiet/xoa/{id}',"ProductController@getDelDetailProduct");
 
     });
     /*trang nhà cung cấp*/
@@ -121,25 +129,57 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
 
     Route::group(['prefix'=>'nhap-hang'],function (){
 
+        Route::get("them",['as'=>'themnhaphang','uses'=>'BillImportController@getAddBillImport']);
+
+        Route::post("them",['as'=>'themnhaphang','uses'=>'BillImportController@postAddBillImport']);
+
         Route::get('danh-sach','BillImportController@getListBillImport');
 
-        Route::get('xoa/{id}','BillController@getDelBillImport');
+        Route::get("sua/{id}","BillImportController@getEditBillImport");
 
-        Route::get('chi-tiet/{id}',['as'=>'admin.detail.billimport', 'uses'=>'BillController@getDetailBillImport']);
+        Route::post("sua/{id}","BillImportController@postEditBillImport");
 
-        Route::get('chi-tiet/xoa/{id}','BillController@getDelDetailBillImport');
+        Route::get('xoa/{id}','BillImportController@getDelBillImport');
+
+        Route::get("chi-tiet/them/{id}",['as'=>'themchitietnhaphang','uses'=>'BillImportController@getAddDetailBillImport']);
+
+        Route::post("chi-tiet/them/{id}",['as'=>'themchitietnhaphang','uses'=>'BillImportController@postAddDetailBillImport']);
+
+        Route::get("chi-tiet/{id}",['as'=>'listchitietnhaphang','uses'=>'BillImportController@getListDetailBillImport']);
+
+        Route::get("chi-tiet/sua/{id}","BillImportController@getEditDetailBillImport");
+
+        Route::post("chi-tiet/sua/{id}","BillImportController@postEditDetailBillImport");
+
+        Route::get('chi-tiet/xoa/{id}',"BillImportController@getDelDetailBillImport");
     });
     /*trang đơn hàng*/
 
     Route::group(['prefix'=>'don-hang'],function (){
 
-        Route::get('danh-sach','BillController@getListBill');
+        Route::get("them",['as'=>'themdonhang','uses'=>'BillExportController@getAddBillExport']);
 
-        Route::get('xoa/{id}','BillController@getDelBill');
+        Route::post("them",['as'=>'themdonhang','uses'=>'BillExportController@postAddBillExport']);
 
-        Route::get('chi-tiet/{id}',['as'=>'admin.detail.bill', 'uses'=>'BillController@getDetailBill']);
+        Route::get('danh-sach','BillExportController@getListBillExport');
 
-        Route::get('chi-tiet/xoa/{id}','BillController@getDelDetailBill');
+        Route::get("sua/{id}","BillExportController@getEditBillExport");
+
+        Route::post("sua/{id}","BillExportController@postEditBillExport");
+
+        Route::get('xoa/{id}','BillExportController@getDelBillExport');
+
+        Route::get("chi-tiet/them/{id}",['as'=>'themchitietdonhang','uses'=>'BillExportController@getAddDetailBillExport']);
+
+        Route::post("chi-tiet/them/{id}",['as'=>'themchitietdonhang','uses'=>'BillExportController@postAddDetailBillExport']);
+
+        Route::get("chi-tiet/{id}",['as'=>'listchitietdonhang','uses'=>'BillExportController@getListDetailBillExport']);
+
+        Route::get("chi-tiet/sua/{id}","BillExportController@getEditDetailBillExport");
+
+        Route::post("chi-tiet/sua/{id}","BillExportController@postEditDetailBillExport");
+
+        Route::get('chi-tiet/xoa/{id}',"BillExportController@getDelDetailBillExport");
     });
     /*trang tài khoản*/
 

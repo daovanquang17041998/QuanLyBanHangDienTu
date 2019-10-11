@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Product
-                            <small>Add</small>
+                        <h1 class="page-header">Hóa Đơn Nhập
+                            <small>Thêm</small>
                         </h1>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -25,33 +25,33 @@
                             {{session('message')}}
                         </div>
                     @endif
-                    <a href="admin/san-pham/danh-sach" class="btn btn-default">Trở về</a>
+                    <a href="admin/nhap-hang/danh-sach" class="btn btn-default">Trở về</a>
                         <div class="form-group">
-                            <label>Tên sản phẩm</label>
-                            <input class="form-control" name="txtName" placeholder="Nhập tên đầy đủ" value="{{old('txtName')}}"/>
+                            <label>Nhân viên</label>
+                            <select class="form-control" name="selectUserId">
+                                @foreach($users as $user)
+                                    @if($user->level>=1)
+                                    <option value='{{$user->id}}'>  {{$user->fullname}} </option>
+                                    @endif
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
-                                <label>Danh mục</label>
-                                <select class="form-control" name="selectCategoryId">
-                                    @foreach($cates as $cate)
-                                        <option value='{{$cate->id}}'>{{$cate->name}}</option>
+                                <label>Nhà cung cấp</label>
+                                <select class="form-control" name="selectSuppplierId">
+                                    @foreach($suppliers as $supplier)
+                                        <option value='{{$supplier->id}}'>{{$supplier->name}}</option>
                                     @endforeach
                                 </select>
                         </div>
                         <div class="form-group">
-                            <label>Mô tả</label>
-                            <input class="form-control" name="txtDescription" placeholder="Nhập mô tả" value="{{old('txtDescription')}}"/>
+                            <label>Tổng tiền</label>
+                            <input class="form-control" name="txtTotalMoney" placeholder="Nhập tổng tiền" value="{{old('txtTotalMoney')}}"/>
                         </div>
-                            <div class="form-group">
-                                <label>Trạng thái</label>
-                                <label class="radio-inline">
-                                    <input name="rdoNew" value="1" checked="" type="radio">Mới
-                                </label>
-                                <label class="radio-inline">
-                                    <input name="rdoNew" value="0" type="radio">Cũ
-                                </label>
-                            </div>
-
+                        <div class="form-group">
+                            <label>Phương thức thanh toán</label>
+                            <input class="form-control" name="txtPayment" placeholder="Nhập phương thức thanh toán" value="{{old('txtPayment')}}"/>
+                        </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-default">Reset</button>
                         </div>

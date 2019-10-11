@@ -12,8 +12,8 @@ class DetailBillImport extends Model
     {
         return $this->belongsTo("App\BillImport","id_bill_import","id");
     }
-    public function bill_product()
+    public function detail_product()
     {
-        return $this->belongsTo("App\BillProduct","id_bill_product","id");
+        return $this->belongsTo("App\DetailProduct","id_detail_product","id");
     }
 }

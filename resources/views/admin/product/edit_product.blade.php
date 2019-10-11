@@ -40,22 +40,9 @@
                             <input class="form-control" name="txtName" placeholder="Nhập tên đầy đủ" value="{{$product->name}}"/>
                         </div>
                         <div class="form-group">
-                            <label>Hình đại diện</label>
-                            <input type="file" class="form-control" name="txtAvatar" placeholder="Nhập hình đại diện" value="{{$product->image}}"/>
-                        </div>
-
-                        <div class="form-group">
                             <label>Mô tả</label>
                             <input class="form-control" name="txtDescription" placeholder="Nhập mô tả" value="{{$product->description}}"/>
                         </div>
-                        <div class="form-group">
-                                <label>Đơn giá</label>
-                                <input class="form-control" name="txtUnitPrice" placeholder="Nhập đơn giá" value="{{$product->unit_price}}"/>
-                            </div>
-                            <div class="form-group">
-                                <label>Giá khuyến mãi</label>
-                                <input class="form-control" name="txtPromoPrice" placeholder="Nhập giá khuyến mãi" value="{{$product->promotion_price}}"/>
-                            </div>
                             <div class="form-group">
                                 <label>Trạng thái</label>
                                 <label class="radio-inline">

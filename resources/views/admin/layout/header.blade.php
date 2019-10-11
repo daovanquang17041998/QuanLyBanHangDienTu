@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ route('admin-index') }}>Quản lý cửa hàng điện thoại</a>
+                <a class="navbar-brand" href="{{ route('admin-index') }}">Quản lý cửa hàng điện thoại</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -81,7 +81,9 @@
                                 <li>
                                     <a href="admin/nhap-hang/danh-sach">Danh sách</a>
                                 </li>
-
+                                <li>
+                                    <a href="admin/nhap-hang/them">Thêm</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -91,7 +93,9 @@
                                 <li>
                                     <a href="admin/don-hang/danh-sach">Danh sách</a>
                                 </li>
-                                
+                                <li>
+                                    <a href="admin/don-hang/them">Thêm</a>
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

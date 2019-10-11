@@ -8,18 +8,19 @@
                             <small>Danh sách</small>
                         </h1>
                     </div>
-                    <!-- /.col-lg-12 -->
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
                                 <th>ID</th>
-                                <th>Họ tên khách hàng</th>
+                                <th>Khách hàng</th>
                                 <th>Email</th>
                                 <th>Ngày mua</th>
                                 <th>Phương thức thanh toán</th>
                                 <th>Tổng tiền</th>
+                                <th>Add</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,10 +45,11 @@
                                 </td>
                                 <td>{{$bill->payment}}</td>
                                 <td>
-                                   {{number_format($bill->total_price)}}
+                                   {{number_format($bill->totalmoney)}}
                                 </td>
-                               
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/don-hang/chi-tiet/them/{{$bill->id}}">Thêm</a></td>
                                 <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/don-hang/xoa/{{$bill->id}}" class='btn-del'> Xoá</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/don-hang/sua/{{$bill->id}}">Sửa</a></td>
                                 <td class="center"><i class="fa fa-search fa-fw"></i> <a href="admin/don-hang/chi-tiet/{{$bill->id}}">Chi Tiết</a></td>
                             </tr>
                           
@@ -55,8 +57,6 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
 @endsection

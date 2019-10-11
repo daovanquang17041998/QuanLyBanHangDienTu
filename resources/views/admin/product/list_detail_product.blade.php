@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Sản phẩm
+                        <h1 class="page-header">Chi tiết sản phẩm
                             <small>Danh sách</small>
                         </h1>
                     </div>
@@ -15,27 +15,27 @@
                             <tr align="center">
                                 <th>ID</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Chuyên mục</th>
-                                <th>Mô tả</th>
-                                <th>Status</th>
-                                <th>Add</th>
+                                <th>Image</th>
+                                <th>Unit price</th>
+                                <th>Promotion price</th>
+                                <th>Quanlity</th>
+                                <th>Description</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
-                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($products as $product)
+                        @foreach($product_items as $product)
                             <tr class="odd gradeX" align="center">
                                 <td>{{$product->id}}</td>
-                                <td>{{$product->name}}</td>
-                                <td>{{$product->category->name}}</td>
-                                <td>{{$product->description}}</td>
-                                <td>Active</td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/chi-tiet/them/{{$product->id}}">Thêm</a></td>
-                                <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="admin/san-pham/xoa/{{$product->id}})"  >Xóa</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/sua/{{$product->id}}">Sửa</a></td>
-                                <td class="center"><i class="fa fa-search fa-fw"></i> <a href="admin/san-pham/chi-tiet/{{$product->id}}">Chi Tiết</a></td>
+                                <td>{{$product->product->name}}</td>
+                                <td><img src="../public/uploads/product/{{$product->image}}" height="100" width="100"> </td>
+                                <td>{{$product->unit_price}}</td>
+                                <td>{{$product->promotion_price}}</td>
+                                <td>{{$product->quanlity}}</td>
+                                <td>Màu: {{$product->color->name}} Màn hình:  {{$product->screem->name}} Bộ nhớ:  {{$product->memory->name}}</td>
+                                <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="admin/san-pham/chi-tiet/xoa/{{$product->id}}))">Xóa</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/chi-tiet/sua/{{$product->id}}">Sửa</a></td>
                             </tr>
                             
                             @endforeach

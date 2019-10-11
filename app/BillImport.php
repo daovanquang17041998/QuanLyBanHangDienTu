@@ -15,4 +15,8 @@ class BillImport extends Model
     {
         return $this->belongsTo("App\User","id_user","id");
     }
+    public function supplier()
+    {
+        return $this->belongsTo("App\Supplier","id_supplier","id");
+    }
 }
