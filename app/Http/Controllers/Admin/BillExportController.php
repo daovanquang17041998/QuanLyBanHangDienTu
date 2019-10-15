@@ -70,9 +70,9 @@ class BillExportController extends Controller
 
     public function postAddDetailBillExport(Request $request,$id)
     {
-        $detail_export = DetailBillImport::find($id);
+        $detail_export = new DetailBillExport();
         $detail_export->id_detail_product = $request->selectDetailProductId;
-        $detail_export->id_bill_export = $request->selectBillExportId;
+        $detail_export->id_bill_export = $id;
         $detail_export->price = $request->txtPrice;
         $detail_export->quanlity = $request->txtQuanlity;
         $detail_export->save();

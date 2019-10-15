@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $table = "products";
 
-    public function detai_product()
+    public function detail_product()
     {
         return $this->hasMany('App\DetailProduct','id_product','id');
     }

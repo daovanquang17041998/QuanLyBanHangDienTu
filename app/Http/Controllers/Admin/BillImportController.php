@@ -70,9 +70,9 @@ class BillImportController extends Controller
 
     public function postAddDetailBillImport(Request $request,$id)
     {
-        $detail_import = DetailBillImport::find($id);
+        $detail_import = new DetailBillImport;
+        $detail_import->id_bill_import=$id;
         $detail_import->id_detail_product = $request->selectDetailProductId;
-        $detail_import->id_bill_import = $request->selectBillImportId;
         $detail_import->price = $request->txtPrice;
         $detail_import->quanlity = $request->txtQuanlity;
         $detail_import->save();
@@ -81,7 +81,7 @@ class BillImportController extends Controller
     }
     public function getListDetailBillImport($id)
     {
-        $detail_product_items = DetailBillImport::where('id_detail_product',$id)->get();
+        $detail_product_items = DetailBillImport::where('id_bill_import',$id)->get();
         $bill_import = BillImport::find($id);
         $user = User::find($bill_import->id_user);
         $supplier = Supplier::find($bill_import->id_supplier);

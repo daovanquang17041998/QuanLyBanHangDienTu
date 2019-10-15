@@ -165,9 +165,9 @@
                             </div>
                         </div>
                     </div>
-                </div> <!-- best sellers widget -->
+                </div>
             </div>
         </div>
-    </div> <!-- #content -->
-</div> <!-- .container -->
+    </div>
+</div>
 @endsection

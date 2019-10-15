@@ -86,7 +86,8 @@ class ProductController extends Controller
 
     public function postAddDetailProduct(Request $request,$id)
     {
-        $product = DetailProduct::find($id);
+        $product = new DetailProduct();
+        $product->id_product = $id;
         $product->id_color = $request->selectColorId;
         $product->id_memory = $request->selectMemoryId;
         $product->id_screem = $request->selectScreemId;

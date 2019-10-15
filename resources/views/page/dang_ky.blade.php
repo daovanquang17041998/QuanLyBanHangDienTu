@@ -94,6 +94,6 @@
                 <div class="col-sm-3"></div>
             </div>
         </form>
-    </div> <!-- #content -->
-</div> <!-- .container -->
+    </div>
+</div>
 @endsection

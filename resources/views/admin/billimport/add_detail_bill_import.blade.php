@@ -57,9 +57,6 @@
                     {{csrf_field()}}
                     <form>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
 @endsection
