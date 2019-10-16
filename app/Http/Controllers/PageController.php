@@ -11,6 +11,7 @@ use App\Product;
 use App\ProductType;
 use App\Slide;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 class PageController extends Controller
@@ -23,17 +24,21 @@ class PageController extends Controller
         return view('page.trangchu',compact('slide','new_product','sale_product'));
     }
     public function getLoaisanpham($type){
+
         $sp_theoloai = Product::where('id_category',$type)->get();
-        $sp_khac = Product::where('id_category','<>',$type)->paginate(3);
+        $chi_tiet = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
+            select('a.*','b.name')->where('c.id',$type)->paginate(3);
+        $sp_khac = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
+        select('a.*','b.name')->where('c.id','<>',$type)->paginate(6);
         $loai = Category::all();
         $loai_sp = Category::where('id',$type)->first();
-        return view('page.loaisanpham',compact('sp_theoloai','sp_khac','loai','loai_sp'));
+        return view('page.loaisanpham',compact('sp_theoloai','sp_khac','loai','loai_sp','chi_tiet'));
     }
-    public function getChitietsanpham(Request $request){
-        $detail_product        = DetailProduct::find($request->id);
-        $sanpham = Product::where('id',$request->id)->first();
-        $sanpham_tuongtu = Product::where('id_category',$sanpham->id_category)->paginate(6);
-        return view('page.chitietsanpham',compact('sanpham','detail_product','sanpham_tuongtu'));
+    public function getChitietsanpham(Request $request,$id){
+        $detail_product        = DetailProduct::where('id',$request->id)->first();
+        $sanpham_tuongtu = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
+        select('a.*','b.name')->where('c.id',$id)->paginate(6);
+        return view('page.chitietsanpham',compact('detail_product','sanpham_tuongtu'));
     }
     public function getLienhe(){
         return view('page.thongtinlienhe');

@@ -47,13 +47,13 @@
                                                 <a href=""><img src="uploads/product/{{$new->image}}" alt="" height="250px"></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title">{{$new->name}}</p>
+                                                <p class="single-item-title">{{$new->product->name}}</p>
                                                 <p class="single-item-price" style="font-size: 18px">
                                                     @if($new->promotion_price==0)
-                                                        <span class="flash-sale">{{number_format($new->unit_price)}} Đồng</span>
+                                                        <span class="flash-sale">{{number_format($new->unit_price)}}đ</span>
                                                     @else
-                                                        <span class="flash-del">{{number_format($new->unit_price)}} Đồng</span>
-                                                        <span class="flash-sale">{{number_format($new->promotion_price)}} Đồng</span>
+                                                        <span class="flash-del">{{number_format($new->unit_price)}}đ</span>
+                                                        <span class="flash-sale">{{number_format($new->promotion_price)}}đ</span>
                                                     @endif
                                                 </p>
                                             </div>
@@ -84,10 +84,10 @@
                                                 <a href=""><img src="uploads/product/{{$sale->image}}" alt="" height="250px"></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title">{{$sale->name}}</p>
+                                                <p class="single-item-title">{{$sale->product->name}}</p>
                                                 <p class="single-item-price" style="font-size: 18px">
-                                                    <span class="flash-del">{{number_format($sale->unit_price)}} Đồng</span>
-                                                    <span class="flash-sale">{{number_format($sale->promotion_price)}} Đồng</span>
+                                                    <span class="flash-del">{{number_format($sale->unit_price)}}đ</span>
+                                                    <span class="flash-sale">{{number_format($sale->promotion_price)}}đ</span>
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
