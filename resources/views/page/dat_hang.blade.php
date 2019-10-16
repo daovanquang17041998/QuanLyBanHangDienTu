@@ -110,10 +110,10 @@
                             </div>
 
                             <div class="text-center"><button  type="submit" class="beta-btn primary" href="#">Hãy Đặt hàng <i class="fa fa-chevron-right"></i></button></div>
-                        </div> <!-- .your-order -->
+                        </div>
                     </div>
                 </div>
             </form>
-        </div> <!-- #content -->
-    </div> <!-- .container -->
+        </div>
+    </div>
 @endsection
