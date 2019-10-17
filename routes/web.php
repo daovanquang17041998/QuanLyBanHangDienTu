@@ -28,9 +28,7 @@ Route::get('add-to-cart/{id}',['as'=>'themgiohang', 'uses'=>'CartController@getA
 
 Route::get('del-cart/{id}',['as'=>'xoagiohang', 'uses'=>'CartController@getDelItemCart']);
 
-Route::get('dat-hang',['as'=>'dathang', 'uses'=>'CartController@getCheckout']);
-
-Route::post('dat-hang',['as'=>'dathang', 'uses'=>'CartController@postCheckout']);
+Route::get('gio-hang',['as'=>'giohang', 'uses'=>'CartController@getListCart']);
 
 Route::get('/',['as'=>'trang-chu','uses'=>'PageController@getIndexPage']);
 
@@ -38,6 +36,12 @@ Route::get('danh-muc/{id}/{url}',['as'=>'chuyen-muc','uses'=>'PageController@get
 
 Route::get('san-pham/{id}/{url}',['as'=>'san-pham','uses'=>'PageController@getDetailProduct']);
 
+Route::group(['prefix'=>'user','middleware'=>'LoginUser'], function (){
+
+    Route::get('dat-hang',['as'=>'dathang', 'uses'=>'CartController@getCheckout']);
+
+    Route::post('dat-hang',['as'=>'dathang', 'uses'=>'CartController@postCheckout']);
+});
 Route::group(['prefix'=>'user','middleware'=>'userLogin'], function (){
 
     Route::get('profile',['as'=>'user.profile', 'uses'=>'PageController@getUserProfile']);

@@ -3,7 +3,7 @@
     <div class="inner-header">
         <div class="container">
             <div class="pull-left">
-                <h6 class="inner-title">Đặt hàng</h6>
+                <h6 class="inner-title">Đơn đặt hàng</h6>
             </div>
             <div class="pull-right">
                 <div class="beta-breadcrumb">
@@ -21,7 +21,7 @@
                 <input type="hidden" name="_tocken" value="{{csrf_token()}}">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h4>Đặt hàng</h4>
+                        <h4>Thông tin</h4>
                         <div class="space20">&nbsp;</div>
 
                         <div class="form-block">
@@ -48,7 +48,7 @@
 
                         <div class="form-block">
                             <label for="phone">Điện thoại*</label>
-                            <input type="text" id="phone" name="phone" required>
+                            <input type="text" id="phone" name="phone" value="{{get_data_user('web','phone')}}" required >
                         </div>
 
                         <div class="form-block">
@@ -63,9 +63,8 @@
                                 <div class="your-order-item">
                                      <div>
                                      @foreach($product_cart as $cart)
-
                                         <div class="media">
-                                            <img width="35%" src="uploads/product/{{$cart->attributes->image}}" alt="" class="pull-left">
+                                            <img height="150px" width="130px" src="uploads/product/{{$cart->attributes->image}}" alt="" class="pull-left">
                                             <div class="media-body">
                                                 <p class="font-large"></p>
                                                 <span class="color-gray your-order-info">Sản phẩm: {{$cart->name}}</span>
@@ -79,7 +78,7 @@
                                 </div>
                                 <div class="your-order-item">
                                     <div class="pull-left"><p class="your-order-f18">Tổng tiền: </p></div>
-                                    <div class="pull-right"><h5 class="color-black">{{number_format(\Cart::getSubTotal())}}</h5></div>
+                                    <div class="pull-right"><h5 class="color-black">{{number_format(\Cart::getSubTotal())}}<u>đ</u></h5></div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
