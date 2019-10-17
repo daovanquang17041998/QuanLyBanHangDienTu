@@ -24,13 +24,13 @@ Route::get('lien-he',['as'=>'thongtinlienhe', 'uses'=>'PageController@getLienhe'
 
 Route::get('gioi-thieu',['as'=>'gioithieu', 'uses'=>'PageController@getGioithieu']);
 
-Route::get('add-to-cart/{id}',['as'=>'themgiohang', 'uses'=>'PageController@getAddToCart']);
+Route::get('add-to-cart/{id}',['as'=>'themgiohang', 'uses'=>'CartController@getAddToCart']);
 
-Route::get('del-cart/{id}',['as'=>'xoagiohang', 'uses'=>'PageController@getDelItemCart']);
+Route::get('del-cart/{id}',['as'=>'xoagiohang', 'uses'=>'CartController@getDelItemCart']);
 
-Route::get('dat-hang',['as'=>'dathang', 'uses'=>'PageController@getCheckout']);
+Route::get('dat-hang',['as'=>'dathang', 'uses'=>'CartController@getCheckout']);
 
-Route::post('dat-hang',['as'=>'dathang', 'uses'=>'PageController@postCheckout']);
+Route::post('dat-hang',['as'=>'dathang', 'uses'=>'CartController@postCheckout']);
 
 Route::get('/',['as'=>'trang-chu','uses'=>'PageController@getIndexPage']);
 

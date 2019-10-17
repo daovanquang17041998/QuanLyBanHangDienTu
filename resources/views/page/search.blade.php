@@ -9,12 +9,12 @@
                         <div class="beta-products-list">
                             <h4>Tìm kiếm</h4>
                             <div class="beta-products-details">
-                                <p class="pull-left">Tìm thấy {{count($product)}} sản phẩm</p>
+                                <p class="pull-left">Tìm thấy {{count($detail_product)}} sản phẩm</p>
                                 <div class="clearfix"></div>
                             </div>
 
                             <div class="row">
-                                @foreach($product as $new)
+                                @foreach($detail_product as $new)
                                     <div class="col-sm-3">
                                         <div class="single-item">
                                             @if($new->promotion_price!=0)
@@ -27,10 +27,10 @@
                                                 <p class="single-item-title">{{$new->name}}</p>
                                                 <p class="single-item-price" style="font-size: 18px">
                                                     @if($new->promotion_price==0)
-                                                        <span class="flash-sale">{{number_format($new->unit_price)}} Đồng</span>
+                                                        <span class="flash-sale">{{number_format($new->unit_price)}}<u>đ</u></span>
                                                     @else
-                                                        <span class="flash-del">{{number_format($new->unit_price)}} Đồng</span>
-                                                        <span class="flash-sale">{{number_format($new->promotion_price)}} Đồng</span>
+                                                        <span class="flash-del">{{number_format($new->unit_price)}}<u>đ</u></span>
+                                                        <span class="flash-sale">{{number_format($new->promotion_price)}}<u>đ</u></span>
                                                     @endif
                                                 </p>
                                             </div>

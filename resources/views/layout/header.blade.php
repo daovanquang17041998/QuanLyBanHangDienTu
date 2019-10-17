@@ -35,6 +35,35 @@
                         <button class="fa fa-search" type="submit" id="searchsubmit"></button>
                     </form>
                 </div>
+                <div class="beta-comp">
+                        <div class="cart">
+                            <div class="beta-select"><i class="fa fa-shopping-cart"></i>Giỏ hàng ({{$product_cart->count()}})<i class="fa fa-chevron-down"></i></div>
+                            <div class="beta-dropdown cart-body">
+                                @foreach($product_cart as $cart)
+                                    <div class="cart-item">
+                                        <a class="cart-item-delete" href="{{url('del-cart',['id'=>$cart['id']])}}"><i class="fa fa-times"></i></a>
+                                        <div class="media">
+                                            <a class="pull-left" href="#"><img src="uploads/product/{{$cart->attributes->image}}" alt=""></a>
+                                            <div class="media-body">
+                                                <span class="cart-item-title">{{$cart->name}}</span>
+                                                <span class="cart-item-amount">Số lượng: {{number_format($cart->quantity)}}</span>
+                                                <span class="cart-item-amount">Giá: {{number_format($cart->price)}}<u>đ</u></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <div class="cart-caption">
+                                    <div class="cart-total text-right">Tổng tiền: {{number_format(\Cart::getSubTotal())}}<span class="cart-total-value"></span></div>
+                                    <div class="clearfix"></div>
+                                    <div class="center">
+                                        <div class="space10">&nbsp;</div>
+                                        <a href="{{route('dathang')}}" class="beta-btn primary text-center">Đặt hàng <i class="fa fa-chevron-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
             <div class="clearfix"></div>
         </div> <!-- .container -->
     </div> <!-- .header-body -->

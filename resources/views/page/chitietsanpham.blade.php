@@ -45,7 +45,7 @@
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="add-to-cart" href="{{route('themgiohang',$detail_product->id)}}"><i class="fa fa-shopping-cart"></i></a>
                             <div class="clearfix"></div>
                         </div>
                         <div class="space20">&nbsp;</div>
@@ -70,22 +70,22 @@
                         <div class="col-sm-4">
                             <div class="single-item">
                                 <div class="single-item-header">
-                                    <a href="{{route('trang-chu')}}"><img src="uploads/product/{{$sptt->image}}" alt="" height="250px"></a>
+                                    <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="uploads/product/{{$sptt->image}}" alt="" height="250px"></a>
                                 </div>
                                 <div class="single-item-body">
                                     <p class="single-item-title">{{$sptt->name}}</p>
                                     <p class="single-item-price" style="font-size: 18px">
                                         @if($sptt->promotion_price==0)
-                                            <span class="flash-sale">{{number_format($sptt->unit_price)}} Đồng</span>
+                                            <span class="flash-sale">{{number_format($sptt->unit_price)}}<u>đ</u></span>
                                         @else
-                                            <span class="flash-del">{{number_format($sptt->unit_price)}} Đồng</span>
-                                            <span class="flash-sale">{{number_format($sptt->promotion_price)}} Đồng</span>
+                                            <span class="flash-del">{{number_format($sptt->unit_price)}}<u>đ</u></span>
+                                            <span class="flash-sale">{{number_format($sptt->promotion_price)}}<u>đ</u></span>
                                         @endif
                                     </p>
                                 </div>
                                 <div class="single-item-caption">
-                                    <a class="add-to-cart pull-left" href="product.html"><i class="fa fa-shopping-cart"></i></a>
-                                    <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                    <a class="add-to-cart pull-left" href="{{route('themgiohang',$sptt->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                    <a class="beta-btn primary" href="{{route('chitietsanpham',$sptt->id)}}">Details <i class="fa fa-chevron-right"></i></a>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>

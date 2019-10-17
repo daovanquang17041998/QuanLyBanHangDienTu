@@ -44,7 +44,7 @@
                                                 <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                             @endif
                                             <div class="single-item-header">
-                                                <a href=""><img src="uploads/product/{{$new->image}}" alt="" height="250px"></a>
+                                                <a href="{{route('chitietsanpham',$new->id)}}"><img src="uploads/product/{{$new->image}}" alt="" height="250px"></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{{$new->product->name}}</p>
@@ -58,15 +58,15 @@
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
-                                                <a class="add-to-cart pull-left" href=""><i class="fa fa-shopping-cart"></i></a>
-                                                <a class="beta-btn primary" href="product.html">Chi tiết <i class="fa fa-chevron-right"></i></a>
+                                                <a class="add-to-cart pull-left" href="{{route('themgiohang',$new->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="beta-btn primary" href="{{route('chitietsanpham',$new->id)}}">Chi tiết <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>
                                     </div>
                                 @endforeach
                             </div>
-                        </div> <!-- .beta-products-list -->
+                        </div>
                         <div class="row">{{$new_product->links()}}</div>
                         <div class="space50">&nbsp</div>
 
@@ -80,8 +80,11 @@
                                 @foreach($sale_product as $sale)
                                     <div class="col-sm-3">
                                         <div class="single-item">
+                                            @if($sale->promotion_price!=0)
+                                                <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                                            @endif
                                             <div class="single-item-header">
-                                                <a href=""><img src="uploads/product/{{$sale->image}}" alt="" height="250px"></a>
+                                                <a href="{{route('chitietsanpham',$sale->id)}}"><img src="uploads/product/{{$sale->image}}" alt="" height="250px"></a>
                                             </div>
                                             <div class="single-item-body">
                                                 <p class="single-item-title">{{$sale->product->name}}</p>
@@ -91,8 +94,8 @@
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
-                                                <a class="add-to-cart pull-left" href="shopping_cart.html"><i class="fa fa-shopping-cart"></i></a>
-                                                <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                                <a class="add-to-cart pull-left" href="{{route('themgiohang',$sale->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="beta-btn primary" href="{{route('chitietsanpham',$sale->id)}}">Details <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>

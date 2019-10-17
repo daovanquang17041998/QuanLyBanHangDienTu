@@ -62,27 +62,24 @@
                             <div class="your-order-body">
                                 <div class="your-order-item">
                                      <div>
-                                     @if(Session::has('cart'))
                                      @foreach($product_cart as $cart)
-                                        <!--  one item	 -->
+
                                         <div class="media">
-                                            <img width="35%" src="source/image/product/{{$cart['item']['image']}}" alt="" class="pull-left">
+                                            <img width="35%" src="uploads/product/{{$cart->attributes->image}}" alt="" class="pull-left">
                                             <div class="media-body">
-                                                <p class="font-large">{{$cart['item']['name']}}</p>
-                                                <span class="color-gray your-order-info">Đơn giá: {{number_format($cart['price'])}} đồng</span>
-                                                <span class="color-gray your-order-info">Số lương: {{number_format($cart['qty'])}} </span>
+                                                <p class="font-large"></p>
+                                                <span class="color-gray your-order-info">Sản phẩm: {{$cart->name}}</span>
+                                                <span class="color-gray your-order-info">Đơn giá: {{number_format($cart->price)}}đ</span>
+                                                <span class="color-gray your-order-info">Số lương: {{number_format($cart->quantity)}} </span>
                                             </div>
                                         </div>
-                                        <!-- end one item -->
                                      @endforeach
-                                     @endif
                                      </div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="your-order-item">
                                     <div class="pull-left"><p class="your-order-f18">Tổng tiền: </p></div>
-                                    <div class="pull-right"><h5 class="color-black">@if(Session::has('
-                                    cart')){{number_format($totalPrice)}}@else 0 @endif đồng</h5></div>
+                                    <div class="pull-right"><h5 class="color-black">{{number_format(\Cart::getSubTotal())}}</h5></div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
@@ -102,13 +99,12 @@
                                         <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque" data-order_button_text="">
                                         <label for="payment_method_cheque">Chuyển khoản </label>
                                         <div class="payment_box payment_method_cheque" style="display: none;">
-                                            Vui lòng gửi séc của bạn đến Bánh Trọng Quang, Số 3, Huyện Sóc Sơn, Thành phố Hà Nội.
+                                            Vui lòng gửi séc của bạn đến Trọng Quang Mobie, Số 3, Huyện Sóc Sơn, Thành phố Hà Nội.
                                         </div>
                                     </li>
 
                                 </ul>
                             </div>
-
                             <div class="text-center"><button  type="submit" class="beta-btn primary" href="#">Hãy Đặt hàng <i class="fa fa-chevron-right"></i></button></div>
                         </div>
                     </div>

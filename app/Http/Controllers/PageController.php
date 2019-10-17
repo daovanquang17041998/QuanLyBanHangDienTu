@@ -34,10 +34,13 @@ class PageController extends Controller
         $loai_sp = Category::where('id',$type)->first();
         return view('page.loaisanpham',compact('sp_theoloai','sp_khac','loai','loai_sp','chi_tiet'));
     }
-    public function getChitietsanpham(Request $request,$id){
-        $detail_product        = DetailProduct::where('id',$request->id)->first();
+    public function getChitietsanpham(Request $request){
+        $detail_product   = DetailProduct::where('id',$request->id)->first();
+        $detail= DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
+        select('a.*','b.*','c.id as idcate','c.*')->where('a.id',$request->id)->first();
         $sanpham_tuongtu = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
-        select('a.*','b.name')->where('c.id',$id)->paginate(6);
+        select('a.*','b.name')->where('c.id',$detail->idcate)->paginate(6);
+
         return view('page.chitietsanpham',compact('detail_product','sanpham_tuongtu'));
     }
     public function getLienhe(){
@@ -45,59 +48,6 @@ class PageController extends Controller
     }
     public function getGioithieu(){
         return view('page.gioithieu');
-    }
-    public function getAddToCart(Request $request,$id){
-        $product = Product::find($id);
-        $oldCart = Session('cart')?Session::get('cart'):null;
-        $cart = new Cart($oldCart);
-        $cart ->add($product,$id);
-        $request->session()->put('cart',$cart);
-        return redirect()->back();
-    }
-    public function getDelItemCart($id){
-        $oldCart = Session::has('cart')?Session::get('cart'):null;
-        $cart = new Cart($oldCart);
-        $cart->removeItem($id);
-        if(count($cart->items)>0){
-            Session::put('cart',$cart);
-        }
-        else{
-            Session::forget('cart');
-        }
-        return redirect()->back();
-    }
-    public function getCheckout(){
-        return view('page.dat_hang');
-    }
-    public function postCheckout(Request $request){
-        $cart = Session::get('cart');
-        $customer = new Customer;
-        $customer->name = $request->name;
-        $customer->gender = $request->gender;
-        $customer->email = $request->email;
-        $customer->address = $request->address;
-        $customer->phone = $request->phone;
-        $customer->note = $request->note;
-        $customer->save();
-
-        $bill = new Bill;
-        $bill->id_customer = $customer->id;
-        $bill->date_orther = data(Y-m-d);
-        $bill->total = $cart->totalPrice;
-        $bill->payment_method = $request->payment_method;
-        $bill->note = $request->note;
-        $bill->save();
-
-        foreach ($cart->items as $key => $value){
-            $bill_detail = new BillDetail;
-            $bill_detail->id_bill = $bill->id;
-            $bill_detail->id_product = $key;
-            $bill_detail->quantity = $value['qty'];
-            $bill_detail->unit_price = $value['price']/$value['qty'];
-            $bill_detail->save();
-        }
-        session()->forget('cart');
-        return redirect()->back()->with('thông báo','đặt hàng thành công');
     }
     public function getLogin(){
         return view('page.dang_nhap');
@@ -151,7 +101,8 @@ class PageController extends Controller
         return redirect()->route('trang-chu');
     }
     public function getSearch(Request $request){
-        $product = Product::where('name','like','%'.$request->key.'%')->orwhere('unit_price',$request->key)->get();
-        return view('page.search',compact('product'));
+        $detail_product = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
+        select('a.*','b.name')->where('b.name','like','%'.$request->key.'%')->orwhere('a.unit_price',$request->key)->get();
+        return view('page.search',compact('detail_product'));
     }
 }
