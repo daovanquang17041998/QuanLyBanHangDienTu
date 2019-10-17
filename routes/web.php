@@ -41,6 +41,7 @@ Route::group(['prefix'=>'user','middleware'=>'LoginUser'], function (){
     Route::get('dat-hang',['as'=>'dathang', 'uses'=>'CartController@getCheckout']);
 
     Route::post('dat-hang',['as'=>'dathang', 'uses'=>'CartController@postCheckout']);
+
 });
 Route::group(['prefix'=>'user','middleware'=>'userLogin'], function (){
 

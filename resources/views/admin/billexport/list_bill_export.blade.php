@@ -14,6 +14,7 @@
                                 <th>ID</th>
                                 <th>Khách hàng</th>
                                 <th>Email</th>
+                                <th>Phone</th>
                                 <th>Ngày mua</th>
                                 <th>Phương thức thanh toán</th>
                                 <th>Tổng tiền</th>
@@ -31,6 +32,7 @@
                                 <?php $customer = App\User::find($bill->id_user);?>
                                 <td>{{$customer->fullname}} </td>
                                 <td>{{$customer->email}}</td>
+                                <td>{{$bill->phone}}</td>
                                 <td>
                                     <?php Carbon\Carbon::setLocale('vi') ; //dùng để đinh nghĩa time
                                     if(Carbon\Carbon::createFromTimestamp(strtotime($bill->created_at))->diffInHours() >= 24)
@@ -43,7 +45,13 @@
                                     ?>
                                     {{$date}}
                                 </td>
-                                <td>{{$bill->payment}}</td>
+                                <td><?php
+                                    if($bill->payment)
+                                    echo "Trực tiếp";
+                                        else{
+                                            echo "Chuyển khoản";
+                                        }
+                                    ?></td>
                                 <td>
                                    {{number_format($bill->totalmoney)}}
                                 </td>

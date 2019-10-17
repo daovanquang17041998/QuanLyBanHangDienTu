@@ -26,6 +26,8 @@ class BillExportController extends Controller
         $bill_export->payment = $request->txtPayment;
         $bill_export->status = $request->rdoNew;
         $bill_export->address = $request->txtAddress;
+        $bill_export->phone = $request->txtPhone;
+        $bill_export->note = $request->txtNote;
         $bill_export->save();
         return redirect("admin/don-hang/them")->with("message","Thêm hóa đơn bán thành công");
 
@@ -51,6 +53,8 @@ class BillExportController extends Controller
             $bill_export->payment         = $request->txtPayment;
             $bill_export->status = $request->rdoNew;
             $bill_export->address = $request->txtAddress;
+            $bill_export->phone = $request->txtPhone;
+            $bill_export->note = $request->txtNote;
             $bill_export->save();
             return redirect("admin/don-hang/sua/".$id)->with('message','Sửa thành công');
         }

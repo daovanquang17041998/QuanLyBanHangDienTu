@@ -16,9 +16,7 @@
 
     <div class="container">
         <div id="content">
-
-            <form action="{{route('dathang')}}" method="post" class="beta-form-checkout">
-                <input type="hidden" name="_tocken" value="{{csrf_token()}}">
+            <form action="" method="post" class="beta-form-checkout">
                 <div class="row">
                     <div class="col-sm-6">
                         <h4>Thông tin</h4>
@@ -26,7 +24,7 @@
 
                         <div class="form-block">
                             <label for="name">Họ tên*</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" value="{{get_data_user('web','fullname')}}" required>
                         </div>
                         <div class="form-block">
                             <label for="gender">Giới tính</label>
@@ -35,15 +33,9 @@
                             <input id="gender" type="radio" class="input" name="gender" value="nu
                              "  style="width: 10%"><span style="margin-right: 10%">Nữ</span>
                         </div>
-
                         <div class="form-block">
-                            <label for="email">Email*</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-block">
-                            <label for="adress">Địa chỉ*</label>
-                            <input type="text" id="adress" name="adress" value="Street Address" required>
+                            <label for="address">Địa chỉ*</label>
+                            <input type="text" id="address" name="address" value="{{get_data_user('web','address')}}" required>
                         </div>
 
                         <div class="form-block">
@@ -87,7 +79,7 @@
                             <div class="your-order-body">
                                 <ul class="payment_methods methods">
                                     <li class="payment_method_bacs">
-                                        <input id="payment_method_bacs" type="radio" class="input-radio" name="payment_method" value="bacs" checked="checked" data-order_button_text="">
+                                        <input id="payment_method_bacs" type="radio" class="input-radio" name="payment" value="1" checked="checked" data-order_button_text="">
                                         <label for="payment_method_bacs">Thanh toán khi nhận hàng </label>
                                         <div class="payment_box payment_method_bacs" style="display: block;">
                                            Cửa hàng sẽ gửi hàng đến địa chỉ của bạn. Bạn xem hàng rồi thanh toán cho nhân viên cửa hàng.
@@ -95,7 +87,7 @@
                                     </li>
 
                                     <li class="payment_method_cheque">
-                                        <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="cheque" data-order_button_text="">
+                                        <input id="payment_method_cheque" type="radio" class="input-radio" name="payment" value="0" data-order_button_text="">
                                         <label for="payment_method_cheque">Chuyển khoản </label>
                                         <div class="payment_box payment_method_cheque" style="display: none;">
                                             Vui lòng gửi séc của bạn đến Trọng Quang Mobie, Số 3, Huyện Sóc Sơn, Thành phố Hà Nội.
@@ -104,10 +96,11 @@
 
                                 </ul>
                             </div>
-                            <div class="text-center"><button  type="submit" class="beta-btn primary" href="#">Hãy Đặt hàng <i class="fa fa-chevron-right"></i></button></div>
+                            <div class="text-center"><button  type="submit" class="beta-btn primary" name="ok">Hãy Đặt hàng <i class="fa fa-chevron-right"></i></button></div>
                         </div>
                     </div>
                 </div>
+                {{csrf_field()}}
             </form>
         </div>
     </div>

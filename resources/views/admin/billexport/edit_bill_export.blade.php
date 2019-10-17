@@ -43,7 +43,12 @@
                     </div>
                     <div class="form-group">
                         <label>Phương thức thanh toán</label>
-                        <input class="form-control" name="txtPayment" placeholder="Nhập phương thức thanh toán" value="{{$bill_export->payment}}"/>
+                        <label class="radio-inline">
+                            <input name="txtPayment" value="{{$bill_export->payment}}" checked="" type="radio">Trực tiếp
+                        </label>
+                        <label class="radio-inline">
+                            <input name="txtPayment" value="{{$bill_export->payment}}" type="radio">Chuyển khoản
+                        </label>
                     </div>
                     <div class="form-group">
                         <label>Trạng thái</label>
@@ -57,6 +62,14 @@
                     <div class="form-group">
                         <label>Địa chỉ</label>
                         <input class="form-control" name="txtAddress" placeholder="Nhập địa chỉ" value="{{$bill_export->address}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Số điện thoại</label>
+                        <input class="form-control" name="txtPhone" placeholder="Nhập địa chỉ" value="{{$bill_export->phone}}"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Ghi chú</label>
+                        <textarea class="form-control" name="txtNote" placeholder="Nhập ghi chú">{{$bill_export->note}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>
                     <button type="reset" class="btn btn-default">Reset</button>

@@ -42,7 +42,12 @@
                         </div>
                         <div class="form-group">
                             <label>Phương thức thanh toán</label>
-                            <input class="form-control" name="txtPayment" placeholder="Nhập phương thức thanh toán" value="{{old('txtPayment')}}"/>
+                            <label class="radio-inline">
+                                <input name="txtPayment" value="1" checked="" type="radio">Trực tiếp
+                            </label>
+                            <label class="radio-inline">
+                                <input name="txtPayment" value="0" type="radio">Chuyển khoản
+                            </label>
                         </div>
                         <div class="form-group">
                             <label>Trạng thái</label>
@@ -56,6 +61,14 @@
                         <div class="form-group">
                             <label>Địa chỉ</label>
                             <input class="form-control" name="txtAddress" placeholder="Nhập địa chỉ" value="{{old('txtAddress')}}"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Số điện thoại</label>
+                            <input class="form-control" name="txtPhone" placeholder="Nhập số điện thoại" value="{{old('txtAddress')}}"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Ghi chú</label>
+                            <textarea class="form-control" name="txtNote" placeholder="Nhập ghi chú"></textarea>
                         </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-default">Reset</button>
