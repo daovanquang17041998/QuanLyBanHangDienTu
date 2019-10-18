@@ -44,7 +44,7 @@
                         <input class="form-control" name="txtQuanlity" placeholder="Nhập số lượng" value="{{$bill_detail->quanlity}}"/>
                     </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
+                    <a href="admin/don-hang/danh-sach" class="btn btn-default">Trở về</a>
                 </div>
                 <div class="col-lg-5" >
                  {{csrf_field()}}

@@ -71,7 +71,7 @@
                             <textarea class="form-control" name="txtNote" placeholder="Nhập ghi chú"></textarea>
                         </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
+                            <a href="admin/" class="btn btn-default">Hủy</a>
                         </div>
                     {{csrf_field()}}
                     <form>

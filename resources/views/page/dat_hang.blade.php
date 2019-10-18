@@ -21,7 +21,13 @@
                     <div class="col-sm-6">
                         <h4>Thông tin</h4>
                         <div class="space20">&nbsp;</div>
-
+                        <!-- In Thông báo -->
+                        @if(session('loi'))
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                {{session('loi')}}
+                            </div>
+                        @endif
                         <div class="form-block">
                             <label for="name">Họ tên*</label>
                             <input type="text" id="name" name="name" value="{{get_data_user('web','fullname')}}" required>

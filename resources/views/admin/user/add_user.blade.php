@@ -92,7 +92,7 @@
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <button type="reset" class="btn btn-default">Hủy</button>
+                            <a href="admin/" class="btn btn-default">Hủy</a>
                             {{csrf_field()}}
                         <form>
                     </div>

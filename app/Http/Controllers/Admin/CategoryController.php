@@ -47,7 +47,7 @@ class CategoryController extends Controller
         return view("admin.category.edit_cate",compact('cate','item'));
     }
 
-    public function postEditCate($id , Request $request)
+    public function postEditCate($id ,Request $request)
     {
         $request->validate([
             "txtCateName" => "required",
@@ -59,7 +59,7 @@ class CategoryController extends Controller
         $cate->name       = $request->txtCateName;
         $cate->updated_at = new DateTime;
         $cate->save();
-        return redirect(route('suadanhmuc').$id)->with("message","Sửa thành công");
+        return redirect('admin/danh-muc/sua/'.$id)->with("message","Sửa thành công");
     }
 
     public function getDelCate($id)

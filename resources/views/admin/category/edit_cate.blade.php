@@ -34,7 +34,7 @@
                                 <input class="form-control" name="txtCateName" placeholder="Nhập tên danh mục" value="{!! $item->name!!}"/>
                             </div>
                             <button type="submit" class="btn btn-default">Lưu</button>
-                            <button type="reset" class="btn btn-default">Hủy</button>
+                            <a href="admin/danh-muc/danh-sach" class="btn btn-default">Trở về</a>
                             {{csrf_field()}}
                         <form>
                     </div>

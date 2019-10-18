@@ -9,19 +9,25 @@
                 </button>
                 <a class="navbar-brand" href="{{ route('admin-index') }}">Quản lý cửa hàng điện thoại</a>
             </div>
-            <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
-                    <!-- /.dropdown-user -->
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="javascript:void(0)"><i class="fa fa-user fa-fw"></i>
+                        @if(Auth::guard()->check())
+                            {{Auth::guard()->user()->fullname}}
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="{{url('admin/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                        @endif
+                    </ul>
                 </li>
-                <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
-
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
@@ -34,7 +40,6 @@
                                     </button>
                                 </span>
                             </div>
-                            <!-- /input-group -->
                         </li>
                         <li>
                             <a href="{{ route('admin-index') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
@@ -49,7 +54,6 @@
                                     <a href="{{ route('themdanhmuc') }}">Thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="javascript:void(0)"><i class="fa fa-cube fa-fw"></i> Sản phẩm<span class="fa arrow"></span></a>
@@ -61,7 +65,6 @@
                                     <a href="admin/san-pham/them">Thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="javascript:void(0)"><i class="fa fa-cube fa-fw"></i> Nhà Cung Cấp<span class="fa arrow"></span></a>
@@ -73,7 +76,6 @@
                                     <a href="admin/nha-cung-cap/them">Thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="javascript:void(0)"><i class="fa fa-bar-chart-o fa-fw"></i> Nhập hàng<span class="fa arrow"></span></a>
@@ -85,7 +87,6 @@
                                     <a href="admin/nhap-hang/them">Thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="javascript:void(0)"><i class="fa fa-bar-chart-o fa-fw"></i> Đơn hàng<span class="fa arrow"></span></a>
@@ -97,7 +98,6 @@
                                     <a href="admin/don-hang/them">Thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="javascript:void(0)"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
@@ -109,11 +109,8 @@
                                     <a href="admin/user/them">Thêm</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>

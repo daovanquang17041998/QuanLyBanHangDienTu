@@ -72,7 +72,7 @@
                         <textarea class="form-control" name="txtNote" placeholder="Nhập ghi chú">{{$bill_export->note}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
+                    <a href="admin/don-hang/danh-sach" class="btn btn-default">Trở về</a>
                 </div>
                  {{csrf_field()}}
                 <form>

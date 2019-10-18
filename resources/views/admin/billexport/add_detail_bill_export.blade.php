@@ -52,7 +52,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <button type="reset" class="btn btn-default">Reset</button>
+                        <a href="admin/don-hang/danh-sach" class="btn btn-default">Hủy</a>
                         </div>
                     {{csrf_field()}}
                     <form>

@@ -59,7 +59,7 @@
                         </label>
                     </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
+                    <a href="admin/nhap-hang/danh-sach" class="btn btn-default">Trở về</a>
                 </div>
                  {{csrf_field()}}
                 <form>
