@@ -35,6 +35,7 @@
                         <button class="fa fa-search" type="submit" id="searchsubmit"></button>
                     </form>
                 </div>
+                @if($product_cart->count())
                 <div class="beta-comp">
                         <div class="cart">
                             <div class="beta-select"><i class="fa fa-shopping-cart"></i>Giỏ hàng ({{$product_cart->count()}})<i class="fa fa-chevron-down"></i></div>
@@ -63,6 +64,7 @@
                             </div>
                         </div>
                 </div>
+                @endif
             </div>
             <div class="clearfix"></div>
         </div> <!-- .container -->
