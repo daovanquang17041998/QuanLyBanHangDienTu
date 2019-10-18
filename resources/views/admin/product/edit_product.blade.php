@@ -53,18 +53,10 @@
                                 </label>
                             </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>
-                    <button type="reset" class="btn btn-default">Reset</button>
+                    <a href="admin/san-pham/danh-sach" class="btn btn-default">Trở về</a>
                 </div>
-                <div class="col-lg-5" >
-
-                    <div class="row" style="margin: 20px 0px; padding-top: 10px; border-top: 1px solid #ccc;">
-                        <button type="button" class="btn btn-primary" id="btn-add-file">Thêm hình</button>
-                        <button type="button" class="btn btn-warning" id="reset-image" >Hủy</button>
-                        <button type="button" class="btn btn-danger" id="del-input" name='del'>xóa</button>
-                    </div>
                  {{csrf_field()}}
                 <form>
-            </div>
         </div>
     </div>
 @endsection

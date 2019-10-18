@@ -16,9 +16,13 @@ class SupplierController extends Controller
     {
     	$this->validate($request,[
     		"txtSupplierName" => "required|unique:Supplier,name",
+            "txtSupplierAddress" => "required",
+            "txtSupplierPhone" => "required",
     	],[
     		"txtSupplierName.required" => "Bạn chưa nhập tên nhà cung cấp",
     		"txtSupplierName.unique" => "Nhà Cung cấp đã tồn tại",
+            "txtSupplierAddress.required" => "Bạn chưa nhập địa chỉ",
+            "txtSupplierPhone.required" => "Bạn chưa nhập số điện thoại",
     	]);
 
     	$supplier = new Supplier();
@@ -42,6 +46,15 @@ class SupplierController extends Controller
     }
     public function postEditSupplier($id, Request $request)
     {
+        $this->validate($request,[
+            "txtSupplierName" => "required",
+            "txtSupplierAddress" => "required",
+            "txtSupplierPhone" => "required",
+        ],[
+            "txtSupplierName.required" => "Bạn chưa nhập tên nhà cung cấp",
+            "txtSupplierAddress.required" => "Bạn chưa nhập địa chỉ",
+            "txtSupplierPhone.required" => "Bạn chưa nhập số điện thoại",
+        ]);
     	$this->validate($request,[
     		"txtSupplierName" => "required|unique:supplier,name,".$id,
     	],[

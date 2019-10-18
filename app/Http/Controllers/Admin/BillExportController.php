@@ -20,6 +20,18 @@ class BillExportController extends Controller
 
     public function postAddBillExport(Request $request)
     {
+        $this->validate($request,[
+            "txtTotalMoney" => "required",
+            "txtAddress" => "required",
+            "txtPhone" => "required",
+            "txtNote" => "required",
+        ], [
+            "txtTotalMoney.required" => "Bạn phải nhập tổng tiền",
+            "txtAddress.required" => "Bạn phải nhập địa chỉ",
+            "txtPhone.required" => "Bạn phải nhập số điện thoại",
+            "txtNote.required" => "Bạn phải nhập ghi chú",
+        ]);
+
         $bill_export= new BillExport();
         $bill_export->id_user = $request->selectUserId;
         $bill_export->totalmoney = $request->txtTotalMoney;
@@ -45,6 +57,18 @@ class BillExportController extends Controller
     }
 
     public function postEditBillExport(Request $request, $id){
+        $this->validate($request,[
+            "txtTotalMoney" => "required",
+            "txtAddress" => "required",
+            "txtPhone" => "required",
+            "txtNote" => "required",
+        ], [
+            "txtTotalMoney.required" => "Bạn phải nhập tổng tiền",
+            "txtAddress.required" => "Bạn phải nhập địa chỉ",
+            "txtPhone.required" => "Bạn phải nhập số điện thoại",
+            "txtNote.required" => "Bạn phải nhập ghi chú",
+        ]);
+
         if(isset($_POST['ok']))
         {
             $bill_export = BillExport::find($id);
@@ -74,6 +98,14 @@ class BillExportController extends Controller
 
     public function postAddDetailBillExport(Request $request,$id)
     {
+        $this->validate($request,[
+            "txtPrice" => "required",
+            "txtQuanlity" => "required",
+        ], [
+            "txtPrice.required" => "Bạn phải nhập giá",
+            "txtQuanlity.required" => "Bạn phải nhập số lượng",
+        ]);
+
         $detail_export = new DetailBillExport();
         $detail_export->id_detail_product = $request->selectDetailProductId;
         $detail_export->id_bill_export = $id;
@@ -100,6 +132,13 @@ class BillExportController extends Controller
     }
 
     public function postEditDetailBillExport(Request $request, $id){
+        $this->validate($request,[
+            "txtPrice" => "required",
+            "txtQuanlity" => "required",
+        ], [
+            "txtPrice.required" => "Bạn phải nhập giá",
+            "txtQuanlity.required" => "Bạn phải nhập số lượng",
+        ]);
 
         $detail_export = DetailBillExport::find($id);
         $detail_export->id_detail_product = $request->selectDetailBillExportId;

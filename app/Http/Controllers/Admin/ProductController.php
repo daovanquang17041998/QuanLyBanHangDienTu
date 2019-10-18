@@ -24,9 +24,12 @@ class ProductController extends Controller
     public function postAddProduct(Request $request)
     {
         $this->validate($request, [
-            "txtName" => "unique:products,name",
+            "txtName" => "required|unique:products,name",
+            "txtDescription" => "required",
         ], [
             "txtName.unique" => "Tên sản phẩm bị trùng",
+            "txtName.required" => "Bạn phải nhập tên sản phẩm",
+            "txtDescription.required" => "Bạn phải nhập mô tả",
         ]);
         $product = new Product;
         $product->id_category = $request->selectCategoryId;
@@ -52,6 +55,13 @@ class ProductController extends Controller
     }
 
     public function postEditProduct(Request $request, $id){
+        $this->validate($request, [
+            "txtName" => "required",
+            "txtDescription" => "required",
+        ], [
+            "txtName.required" => "Bạn phải nhập tên sản phẩm",
+            "txtDescription.required" => "Bạn phải nhập mô tả",
+        ]);
         if(isset($_POST['ok']))
         {
             $this->validate($request,[
@@ -86,6 +96,16 @@ class ProductController extends Controller
 
     public function postAddDetailProduct(Request $request,$id)
     {
+        $this->validate($request,[
+            "txtUnitprice" => "required",
+            "txtPromotionprice" => "required",
+            "txtQuanlity" => "required",
+        ], [
+            "txtUnitprice.required" => "Bạn phải nhập đơn giá",
+            "txtPromotionprice.required" => "Bạn phải nhập giá khuyến mãi",
+            "txtQuanlity.required" => "Bạn phải nhập số lượng",
+        ]);
+
         $product = new DetailProduct();
         $product->id_product = $id;
         $product->id_color = $request->selectColorId;
@@ -126,7 +146,15 @@ class ProductController extends Controller
     }
 
     public function postEditDetailProduct(Request $request, $id){
-
+        $this->validate($request,[
+            "txtUnitprice" => "required",
+            "txtPromotionprice" => "required",
+            "txtQuanlity" => "required",
+        ], [
+            "txtUnitprice.required" => "Bạn phải nhập đơn giá",
+            "txtPromotionprice.required" => "Bạn phải nhập giá khuyến mãi",
+            "txtQuanlity.required" => "Bạn phải nhập số lượng",
+        ]);
         $product = DetailProduct::find($id);
         $product->id_color = $request->selectColorId;
         $product->id_memory = $request->selectMemoryId;

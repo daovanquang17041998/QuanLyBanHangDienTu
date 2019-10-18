@@ -21,7 +21,7 @@ class CategoryController extends Controller
     	$request->validate([
     		"txtCateName" => "required",
     	],[
-    		"txtCateName.required" => "Bạn chưa nhập cate name",
+    		"txtCateName.required" => "Bạn chưa nhập category name",
     	]);
         $cate             = new Category;
         $cate->name       = $request->txtCateName;
@@ -52,7 +52,7 @@ class CategoryController extends Controller
         $request->validate([
             "txtCateName" => "required",
         ],[
-            "txtCateName.required" => "Bạn chưa nhập cate name",
+            "txtCateName.required" => "Bạn chưa nhập category name",
         ]);
 
         $cate             = Category::find($id);

@@ -39,7 +39,8 @@ class CartController extends Controller
         return view('page.dat_hang',compact('product_cart'));
     }
     public function postCheckout(Request $request){
-        if(isset($_POST['ok'])){
+        $product_cart =   \Cart::getContent();
+
         $total =  \Cart::getSubTotal();
         $customer = new BillExport();
         $customer->id_user = get_data_user('web');
@@ -63,5 +64,4 @@ class CartController extends Controller
         \Cart::clear();
         return redirect()->route('trang-chu');
     }
-        }
 }

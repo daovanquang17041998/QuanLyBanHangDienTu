@@ -16,9 +16,20 @@ class UserController extends Controller
     public function postAddUser(Request $request)
     {
     	$this->validate($request,[
-    		'txtEmail' => 'unique:users,email'
+    		'txtEmail' => 'required|unique:users,email',
+            'txtFullName' => 'required',
+            'txtAddress' => 'required',
+            'txtPass' => 'required',
+            'txtPhoneNumber' => 'required',
+            'txtBirthday' => 'required',
     	],[
     		"txtEmail.unique"    => "Email đã tồn tại",
+            "txtEmail.required"    => "Bạn phải nhập email",
+            "txtFullName.required"    => "Bạn phải nhập tên",
+            "txtPass.required"    => "Bạn phải nhập mật khẩu",
+            "txtPhoneNumber.required"    => "Bạn phải nhập số điện thoại",
+            "txtBirthday.required"    => "Bạn phải nhập ngày sinh",
+            "txtAddress.required"    => "Bạn phải nhập địa chỉ",
     	]);
 
 		$user           = new User;
@@ -76,6 +87,12 @@ class UserController extends Controller
         $user->save();
 
         return redirect('admin/user/sua/'.$id)->with('message','Sửa thành công');
+    }
+    public function getDelUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('admin/user/danh-sach')->with('message','xóa thành công');
     }
     public function getAdminLogin()
     {

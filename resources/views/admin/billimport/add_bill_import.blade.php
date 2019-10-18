@@ -50,7 +50,12 @@
                         </div>
                         <div class="form-group">
                             <label>Phương thức thanh toán</label>
-                            <input class="form-control" name="txtPayment" placeholder="Nhập phương thức thanh toán" value="{{old('txtPayment')}}"/>
+                            <label class="radio-inline">
+                                <input name="txtPayment" value="1" checked="" type="radio">Trực tiếp
+                            </label>
+                            <label class="radio-inline">
+                                <input name="txtPayment" value="0" type="radio">Chuyển khoản
+                            </label>
                         </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
                             <button type="reset" class="btn btn-default">Reset</button>

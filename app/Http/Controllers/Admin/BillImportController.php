@@ -21,6 +21,13 @@ class BillImportController extends Controller
 
     public function postAddBillImport(Request $request)
     {
+        $this->validate($request,[
+            "txtTotalMoney" => "required",
+
+        ], [
+            "txtTotalMoney.required" => "Bạn phải nhập tổng tiền",
+        ]);
+
         $bill_import= new BillImport();
         $bill_import->id_user = $request->selectUserId;
         $bill_import->id_supplier = $request->selectSuppplierId;
@@ -44,6 +51,13 @@ class BillImportController extends Controller
     }
 
     public function postEditBillImport(Request $request, $id){
+        $this->validate($request,[
+            "txtTotalMoney" => "required",
+
+        ], [
+            "txtTotalMoney.required" => "Bạn phải nhập tổng tiền",
+        ]);
+
         if(isset($_POST['ok']))
         {
             $bill_import = BillImport::find($id);
@@ -70,6 +84,14 @@ class BillImportController extends Controller
 
     public function postAddDetailBillImport(Request $request,$id)
     {
+        $this->validate($request,[
+            "txtPrice" => "required",
+            "txtQuanlity" => "required",
+        ], [
+            "txtPrice.required" => "Bạn phải nhập đơn giá",
+            "txtQuanlity.required" => "Bạn phải nhập số lượng",
+        ]);
+
         $detail_import = new DetailBillImport;
         $detail_import->id_bill_import=$id;
         $detail_import->id_detail_product = $request->selectDetailProductId;
@@ -96,6 +118,13 @@ class BillImportController extends Controller
     }
 
     public function postEditDetailBillImport(Request $request, $id){
+        $this->validate($request,[
+            "txtPrice" => "required",
+            "txtQuanlity" => "required",
+        ], [
+            "txtPrice.required" => "Bạn phải nhập đơn giá",
+            "txtQuanlity.required" => "Bạn phải nhập số lượng",
+        ]);
 
         $detail_import = DetailBillImport::find($id);
         $detail_import->id_detail_product = $request->selectDetailBillImportId;

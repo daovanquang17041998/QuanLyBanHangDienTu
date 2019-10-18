@@ -43,7 +43,7 @@
                                     ?>
                                     {{$date}}
                                 </td>
-                                <td>{{$bill->payment}}</td>
+                                <td> @if($bill->payment) Trực tiếp @else Chuyển khoản @endif  </td>
                                 <td>
                                    {{number_format($bill->totalmoney)}}
                                 </td>

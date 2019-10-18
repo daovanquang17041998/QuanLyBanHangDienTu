@@ -32,21 +32,21 @@
                     </tr>
                     </thead>
                     <tbody>
-
+                    <?php $i =1?>
                     @foreach($product_cart as $cart)
                     <tr>
-                        {{$i=1}}
-                        <td>{{$i+=1}}</td>
+                        <td>#{{$i}}</td>
                         <td>{{$cart->name}}</td>
-                        <td> <img height="120px" width="80px" src="uploads/product/{{$cart->attributes->image}}" alt="" class="pull-left"></td>
+                        <td> <img height="100px" width="90px" src="uploads/product/{{$cart->attributes->image}}" alt="" class="pull-left"></td>
                         <td>{{number_format($cart->price)}}đ</td>
                         <td> {{number_format($cart->quantity)}}</td>
-                        <td>{{number_format($cart->price * $cart->quantity)}}</td>
+                        <td>{{number_format($cart->price * $cart->quantity)}}<u>đ</u> </td>
                         <td>
                             <a href=""><i class="fa fa-pencil"></i>Sửa</a>
                             <a href="{{url('del-cart',['id'=>$cart['id']])}}"><i class="fa fa-trash-o"></i>Xóa</a>
                         </td>
                     </tr>
+                    <?php $i++?>
                     @endforeach
                     </tbody>
                 </table>

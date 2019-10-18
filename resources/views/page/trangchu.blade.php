@@ -44,6 +44,9 @@
                                                 <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                             @endif
                                             <div class="single-item-header">
+                                                @if(!$new->quanlity)
+                                                    <span style="position: absolute; background-color: red;color: white;">Tạm hết hàng</span>
+                                                @endif
                                                 <a href="{{route('chitietsanpham',$new->id)}}"><img src="uploads/product/{{$new->image}}" alt="" height="250px"></a>
                                             </div>
                                             <div class="single-item-body">
@@ -84,6 +87,9 @@
                                                 <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
                                             @endif
                                             <div class="single-item-header">
+                                                @if(!$sale->quanlity)
+                                                    <span style="position: absolute; background-color: red;color: white;">Tạm hết hàng</span>
+                                                @endif
                                                 <a href="{{route('chitietsanpham',$sale->id)}}"><img src="uploads/product/{{$sale->image}}" alt="" height="250px"></a>
                                             </div>
                                             <div class="single-item-body">

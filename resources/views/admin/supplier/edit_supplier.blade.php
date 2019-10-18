@@ -42,7 +42,7 @@
                                 <input class="form-control" name="txtSupplierPhone" placeholder="Nhập tên danh mục" value="{!! $item->phone!!}"/>
                             </div>
                             <button type="submit" class="btn btn-default">Lưu</button>
-                            <button type="reset" class="btn btn-default">Hủy</button>
+                            <a href="admin/nha-cung-cap/danh-sach" class="btn btn-default">Trở về</a>
                             {{csrf_field()}}
                         <form>
                     </div>

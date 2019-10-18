@@ -117,7 +117,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
     /*trang nhà cung cấp*/
 
     Route::group(['prefix'=>'nha-cung-cap'],function (){
-        Route::get('danh-sach','SupplierController@getListSupplier');
+        Route::get('danh-sach','SupplierController@getListSupplier')->name('listnhacungcap');
 
         Route::get('them','SupplierController@getAddSupplier');
 
