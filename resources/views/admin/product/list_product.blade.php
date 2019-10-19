@@ -17,11 +17,11 @@
                                 <th>Tên sản phẩm</th>
                                 <th>Chuyên mục</th>
                                 <th>Mô tả</th>
-                                <th>Status</th>
-                                <th>Add</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
-                                <th>Detail</th>
+                                <th>Trạng thái</th>
+                                <th>Thêm</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
+                                <th>Chi tiết</th>
                             </tr>
                         </thead>
                         <tbody>

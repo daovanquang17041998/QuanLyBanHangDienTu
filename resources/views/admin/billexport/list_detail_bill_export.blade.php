@@ -28,7 +28,7 @@
                             </tr>
                             <tr>
                                 <td>Tổng tiền</td>
-                                <td>{{number_format($bill->totalmoney)}} vnđ</td>
+                                <td>{{number_format($bill->totalmoney)}}<u>đ</u></td>
                             </tr>
                         </table>
                     </div>
@@ -42,8 +42,8 @@
                                 <th>Mô tả</th>
                                 <th>Đơn giá</th>
                                 <th>Số lượng</th>
-                                <th>Edit</th>
-                                <th>Delete</th>
+                                <th>Sửa</th>
+                                <th>Xóa</th>
                               
                             </tr>
                         </thead>
@@ -58,15 +58,13 @@
                                     @if($item->price != null) {{number_format($item->price)}} vnđ @else Không xác định @endif
                                 </td>
                                 <td>{{$item->quanlity}}</td>
-                                <td class="center"><i class="fa fa-pencil fa-fw "></i><a href="admin/don-hang/chi-tiet/sua/{{$item->id}}"> Edit </a></td>
-                                <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/don-hang/chi-tiet/xoa/{{$item->id}}" class='btn-del'> Delete</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw "></i><a href="admin/don-hang/chi-tiet/sua/{{$item->id}}">Sửa</a></td>
+                                <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/don-hang/chi-tiet/xoa/{{$item->id}}" class='btn-del'>Xóa</a></td>
                             </tr>
                             @endforeach
                     </tbody>
                 </table>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </div>
 @endsection

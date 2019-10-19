@@ -20,7 +20,13 @@
                         </tr>
                         <tr>
                             <td>Phương thức thanh toán:</td>
-                            <td>{{$bill_import->payment}}</td>
+                            <td>
+                                @if($bill_import->payment)
+                                    Trực tiếp
+                                    @else
+                                    Chuyển khoản
+                                    @endif
+                                </td>
                         </tr>
                         <tr>
                             <td>Tổng tiền</td>
@@ -37,8 +43,8 @@
                         <th>Mô tả</th>
                         <th>Đơn giá</th>
                         <th>Số lượng</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                     </thead>
                     <tbody class="table__list_item">
@@ -49,11 +55,11 @@
                             <td><img src="../public/uploads/product/{{$item->detail_product->image}}" height="100" width="100">
                             <td>Màu: {{$item->detail_product->color->name}} Màn hình: {{$item->detail_product->screem->name}} Bộ nhớ: {{$item->detail_product->memory->name}}</td>
                             <td>
-                                @if($item->price != null) {{number_format($item->price)}} vnđ @else Không xác định @endif
+                                @if($item->price != null) {{number_format($item->price)}}<u>đ</u> @else Không xác định @endif
                             </td>
                             <td>{{$item->quanlity}}</td>
-                            <td class="center"><i class="fa fa-pencil fa-fw "></i><a href="admin/nhap-hang/chi-tiet/sua/{{$item->id}}"> Edit </a></td>
-                            <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/nhap-hang/chi-tiet/xoa/{{$item->id}}" class='btn-del'> Delete</a></td>
+                            <td class="center"><i class="fa fa-pencil fa-fw "></i><a href="admin/nhap-hang/chi-tiet/sua/{{$item->id}}">Sửa</a></td>
+                            <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/nhap-hang/chi-tiet/xoa/{{$item->id}}" class='btn-del'>Xóa</a></td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -15,13 +15,13 @@
                             <tr align="center">
                                 <th>ID</th>
                                 <th>Tên sản phẩm</th>
-                                <th>Image</th>
-                                <th>Unit price</th>
-                                <th>Promotion price</th>
-                                <th>Quanlity</th>
-                                <th>Description</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>Ảnh</th>
+                                <th>Đơn giá</th>
+                                <th>Giá khuyến mãi</th>
+                                <th>Số lượng</th>
+                                <th>Mô tả</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,27 +42,8 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                  <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Bảng size</h4>
-                      </div>
-                      <div class="modal-body">
-                        
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
             </div>
-            <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
 @endsection
 @section('script')
     <script type="text/javascript">

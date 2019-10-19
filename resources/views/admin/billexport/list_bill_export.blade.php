@@ -18,10 +18,10 @@
                                 <th>Ngày mua</th>
                                 <th>Phương thức thanh toán</th>
                                 <th>Tổng tiền</th>
-                                <th>Add</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
-                                <th>Detail</th>
+                                <th>Thêm</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
+                                <th>Chi tiết</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -53,7 +53,7 @@
                                         }
                                     ?></td>
                                 <td>
-                                   {{number_format($bill->totalmoney)}}
+                                   {{number_format($bill->totalmoney)}}<u>đ</u>
                                 </td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/don-hang/chi-tiet/them/{{$bill->id}}">Thêm</a></td>
                                 <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/don-hang/xoa/{{$bill->id}}" class='btn-del'> Xoá</a></td>

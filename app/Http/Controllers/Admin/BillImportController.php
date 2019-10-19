@@ -100,7 +100,7 @@ class BillImportController extends Controller
         $detail_import->save();
         $price = BillImport::find($id);
         $sl = DetailProduct::find($request->selectDetailProductId);
-        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice]);
+        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice * $request->txtQuanlity]);
         $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
         return redirect("admin/nhap-hang/danh-sach")->with("message","Thêm chi tiết hóa đơn nhập thành công");
 
@@ -137,15 +137,14 @@ class BillImportController extends Controller
         $detail_import->save();
         return redirect("admin/nhap-hang/danh-sach")->with("message","Sửa chi tiết nhập hàng thành công");
     }
-    public function getDelDetailBillImport(Request $request,$id)
+        public function getDelDetailBillImport($id)
     {
         $product = DetailBillImport::find($id);
-        dd($request->id_bill_import);
-        $chi_tiet = DB::table('detail_bill_import as a')->join('bill_import as b','b.id_bill_import','=', $request->id)->get();
-        dd($chi_tiet);
+        $pro = $product->detail_product->id;
+        $bill = $product->bill_import->id;
+        $quan= DB::table('detail_product')->where('id',$pro)->update(['quanlity'=> $product->detail_product->quanlity - $product->quanlity]);
+        $total = DB::table('bill_import')->where('id',$bill)->update(['totalmoney'=> $product->bill_import->totalmoney - $product->price]);
         $product->delete();
-        $dl = BillImport::find($id);
-        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $dl->totalmoney - $request->txtPrice]);
         return redirect('admin/nhap-hang/danh-sach')->with('message','xóa thành công');
     }
 }

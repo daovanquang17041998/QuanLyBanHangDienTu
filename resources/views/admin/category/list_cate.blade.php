@@ -14,8 +14,8 @@
                             <tr align="center">
                                 <th>ID</th>
                                 <th>Tên danh mục</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -24,8 +24,8 @@
                             <tr class="odd gradeX" align="center">
                                 <td>{{$cate->id}}</td>
                                 <td>{{$cate->name}}</td>
-                                <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/danh-muc/xoa/{{$cate->id}}" class='btn-del'> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/danh-muc/sua/{{$cate->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/danh-muc/xoa/{{$cate->id}}" class='btn-del'>Xóa</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/danh-muc/sua/{{$cate->id}}">Sửa</a></td>
                             </tr>
                             <?php $stt++;?>
                             @endforeach

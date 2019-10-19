@@ -16,8 +16,8 @@
                                 <th>Tên nhà cung cấp</th>
                                 <th>Địa chỉ</th>
                                 <th>Số điện thoại</th>
-                                <th>Delete</th>
-                                <th>Edit</th>
+                                <th>Xóa</th>
+                                <th>Sửa</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -28,8 +28,8 @@
                                 <td>{{$supplier->name}}</td>
                                 <td>{{$supplier->address}}</td>
                                 <td>{{$supplier->phone}}</td>
-                                <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/nha-cung-cap/xoa/{{$supplier->id}}" class='btn-del'> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/nha-cung-cap/sua/{{$supplier->id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/nha-cung-cap/xoa/{{$supplier->id}}" class='btn-del'>Xóa</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/nha-cung-cap/sua/{{$supplier->id}}">Sửa</a></td>
                             </tr>
                             <?php $stt++;?>
                             @endforeach
