@@ -22,17 +22,10 @@ class BillImportController extends Controller
 
     public function postAddBillImport(Request $request)
     {
-        $this->validate($request,[
-            "txtTotalMoney" => "required",
-
-        ], [
-            "txtTotalMoney.required" => "Bạn phải nhập tổng tiền",
-        ]);
-
         $bill_import= new BillImport();
         $bill_import->id_user = $request->selectUserId;
         $bill_import->id_supplier = $request->selectSuppplierId;
-        $bill_import->totalmoney = $request->txtTotalMoney;
+        $bill_import->totalmoney = 0;
         $bill_import->payment = $request->txtPayment;
         $bill_import->save();
         return redirect("admin/nhap-hang/them")->with("message","Thêm hóa đơn nhập thành công");
@@ -143,7 +136,7 @@ class BillImportController extends Controller
         $pro = $product->detail_product->id;
         $bill = $product->bill_import->id;
         $quan= DB::table('detail_product')->where('id',$pro)->update(['quanlity'=> $product->detail_product->quanlity - $product->quanlity]);
-        $total = DB::table('bill_import')->where('id',$bill)->update(['totalmoney'=> $product->bill_import->totalmoney - $product->price]);
+        $total = DB::table('bill_import')->where('id',$bill)->update(['totalmoney'=> $product->bill_import->totalmoney - $product->price*$product->quanlity]);
         $product->delete();
         return redirect('admin/nhap-hang/danh-sach')->with('message','xóa thành công');
     }

@@ -37,10 +37,6 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Tổng tiền</label>
-                            <input class="form-control" name="txtTotalMoney" placeholder="Nhập tổng tiền" value="{{old('txtTotalMoney')}}"/>
-                        </div>
-                        <div class="form-group">
                             <label>Phương thức thanh toán</label>
                             <label class="radio-inline">
                                 <input name="txtPayment" value="1" checked="" type="radio">Trực tiếp

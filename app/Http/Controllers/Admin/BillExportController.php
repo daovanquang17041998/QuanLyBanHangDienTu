@@ -10,6 +10,8 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DetailBill;
+use Illuminate\Support\Facades\DB;
+
 class BillExportController extends Controller
 {
     public function getAddBillExport()
@@ -21,12 +23,10 @@ class BillExportController extends Controller
     public function postAddBillExport(Request $request)
     {
         $this->validate($request,[
-            "txtTotalMoney" => "required",
             "txtAddress" => "required",
             "txtPhone" => "required",
             "txtNote" => "required",
         ], [
-            "txtTotalMoney.required" => "Bạn phải nhập tổng tiền",
             "txtAddress.required" => "Bạn phải nhập địa chỉ",
             "txtPhone.required" => "Bạn phải nhập số điện thoại",
             "txtNote.required" => "Bạn phải nhập ghi chú",
@@ -34,7 +34,7 @@ class BillExportController extends Controller
 
         $bill_export= new BillExport();
         $bill_export->id_user = $request->selectUserId;
-        $bill_export->totalmoney = $request->txtTotalMoney;
+        $bill_export->totalmoney = 0;
         $bill_export->payment = $request->txtPayment;
         $bill_export->status = $request->rdoNew;
         $bill_export->address = $request->txtAddress;
@@ -112,6 +112,10 @@ class BillExportController extends Controller
         $detail_export->price = $request->txtPrice;
         $detail_export->quanlity = $request->txtQuanlity;
         $detail_export->save();
+        $price = BillExport::find($id);
+        $sl = DetailProduct::find($request->selectDetailProductId);
+        $quantity = DB::table('bill_export')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice * $request->txtQuanlity]);
+        $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
         return redirect("admin/don-hang/danh-sach")->with("message","Thêm chi tiết hóa đơn bán thành công");
 
     }
@@ -150,6 +154,10 @@ class BillExportController extends Controller
       public function getDelDetailBillExport($id)
       {
          $bill_export = DetailBillExport::find($id);
+          $pro = $bill_export->detail_product->id;
+          $bill = $bill_export->bill_export->id;
+          $quan= DB::table('detail_product')->where('id',$pro)->update(['quanlity'=> $bill_export->detail_product->quanlity - $bill_export->quanlity]);
+          $total = DB::table('bill_export')->where('id',$bill)->update(['totalmoney'=> $bill_export->bill_export->totalmoney - $bill_export->price*$bill_export->quanlity]);
          $bill_export->delete();
          return redirect('admin/don-hang/danh-sach');
       }
