@@ -28,6 +28,12 @@
                                 {{session('loi')}}
                             </div>
                         @endif
+                        @if(session('thanhcong'))
+                            <div class="alert alert-success">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                {{session('thanhcong')}}
+                            </div>
+                        @endif
                         <div class="form-block">
                             <label for="name">Họ tên*</label>
                             <input type="text" id="name" name="name" value="{{get_data_user('web','fullname')}}" required>
@@ -102,7 +108,9 @@
 
                                 </ul>
                             </div>
+                            @if(\Cart::getSubTotal())
                             <div class="text-center"><button  type="submit" class="beta-btn primary" name="ok">Hãy Đặt hàng <i class="fa fa-chevron-right"></i></button></div>
+                            @endif
                         </div>
                     </div>
                 </div>

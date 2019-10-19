@@ -9,6 +9,7 @@ use App\Supplier;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class BillImportController extends Controller
 {
@@ -91,13 +92,16 @@ class BillImportController extends Controller
             "txtPrice.required" => "Bạn phải nhập đơn giá",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
         ]);
-
         $detail_import = new DetailBillImport;
         $detail_import->id_bill_import=$id;
         $detail_import->id_detail_product = $request->selectDetailProductId;
         $detail_import->price = $request->txtPrice;
         $detail_import->quanlity = $request->txtQuanlity;
         $detail_import->save();
+        $price = BillImport::find($id);
+        $sl = DetailProduct::find($request->selectDetailProductId);
+        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice]);
+        $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
         return redirect("admin/nhap-hang/danh-sach")->with("message","Thêm chi tiết hóa đơn nhập thành công");
 
     }
@@ -133,10 +137,15 @@ class BillImportController extends Controller
         $detail_import->save();
         return redirect("admin/nhap-hang/danh-sach")->with("message","Sửa chi tiết nhập hàng thành công");
     }
-    public function getDelDetailBillImport($id)
+    public function getDelDetailBillImport(Request $request,$id)
     {
         $product = DetailBillImport::find($id);
+        dd($request->id_bill_import);
+        $chi_tiet = DB::table('detail_bill_import as a')->join('bill_import as b','b.id_bill_import','=', $request->id)->get();
+        dd($chi_tiet);
         $product->delete();
+        $dl = BillImport::find($id);
+        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $dl->totalmoney - $request->txtPrice]);
         return redirect('admin/nhap-hang/danh-sach')->with('message','xóa thành công');
     }
 }

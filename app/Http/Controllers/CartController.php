@@ -94,7 +94,7 @@ class CartController extends Controller
                 $quantity = DB::table('detail_product')->where('id',$product->id)->update(['quanlity'=>$quantity_remain]);
             }
             \Cart::clear();
-            return redirect()->route('trang-chu');
+            return redirect('user/dat-hang')->with('thanhcong',"Bạn đã đặt hàng thành công. Quay lại trang chủ để xem những sảm phẩm khác nhé!");
             }
     }
 }
