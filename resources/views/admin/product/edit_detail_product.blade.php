@@ -69,6 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label>Hình đại diện</label>
+                        <img src="../public/uploads/product/{{$product_detail->image}}" height="100" width="100">
                         <input type="file" class="form-control" name="txtAvatar" placeholder="Nhập hình đại diện" value="{{$product_detail->image}}"/>
                     </div>
                     <div class="form-group">

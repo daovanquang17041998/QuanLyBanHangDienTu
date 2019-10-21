@@ -45,15 +45,7 @@ class BillImportController extends Controller
     }
 
     public function postEditBillImport(Request $request, $id){
-        $this->validate($request,[
-            "txtTotalMoney" => "required",
 
-        ], [
-            "txtTotalMoney.required" => "Bạn phải nhập tổng tiền",
-        ]);
-
-        if(isset($_POST['ok']))
-        {
             $bill_import = BillImport::find($id);
             $bill_import->id_user     = $request->selectUserId;
             $bill_import->id_supplier            = $request->selectSupplierId;
@@ -61,7 +53,6 @@ class BillImportController extends Controller
             $bill_import->payment         = $request->txtPayment;
             $bill_import->save();
             return redirect("admin/nhap-hang/sua/".$id)->with('message','Sửa thành công');
-        }
     }
     public function getDelBillImport($id)
     {
@@ -124,9 +115,15 @@ class BillImportController extends Controller
         ]);
 
         $detail_import = DetailBillImport::find($id);
+        $cu =  $detail_import->quanlity;
+        $gia_cu = $detail_import->price;
         $detail_import->id_detail_product = $request->selectDetailBillImportId;
         $detail_import->price = $request->txtPrice;
         $detail_import->quanlity = $request->txtQuanlity;
+        $pro = $detail_import->detail_product->id;
+        $bill = $detail_import->bill_import->id;
+        $quan= DB::table('detail_product')->where('id',$pro)->update(['quanlity'=> $detail_import->detail_product->quanlity + $detail_import->quanlity - $cu]);
+        $total = DB::table('bill_import')->where('id',$bill)->update(['totalmoney'=> $detail_import->bill_import->totalmoney - $gia_cu*$cu + $detail_import->price*$detail_import->quanlity]);
         $detail_import->save();
         return redirect("admin/nhap-hang/danh-sach")->with("message","Sửa chi tiết nhập hàng thành công");
     }

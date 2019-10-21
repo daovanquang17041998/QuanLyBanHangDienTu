@@ -162,7 +162,6 @@ class ProductController extends Controller
         $product->unit_price = $request->txtUnitprice;
         $product->promotion_price = $request->txtPromotionprice;
         $product->quanlity = $request->txtQuanlity;
-        $product->image = $request->file('txtAvatar');
         $get_image = $request->file('txtAvatar');
         if($get_image){
             $get_name_image = $get_image->getClientOriginalName();
@@ -172,7 +171,7 @@ class ProductController extends Controller
             return redirect("admin/san-pham/danh-sach")->with("message","Sửa chi tiết sản phẩm thành công");
         }
         else
-            $product->image ="";
+        $product->image = "".$product->image;
         $product->save();
         return redirect("admin/san-pham/danh-sach")->with("message","Sửa chi tiết sản phẩm thành công");
     }

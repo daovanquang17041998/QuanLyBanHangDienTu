@@ -42,7 +42,6 @@
                         <td> {{number_format($cart->quantity)}}</td>
                         <td>{{number_format($cart->price * $cart->quantity)}}<u>đ</u> </td>
                         <td>
-                            <a href=""><i class="fa fa-pencil"></i>Sửa</a>
                             <a href="{{url('del-cart',['id'=>$cart['id']])}}"><i class="fa fa-trash-o"></i>Xóa</a>
                         </td>
                     </tr>

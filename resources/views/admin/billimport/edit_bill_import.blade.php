@@ -46,10 +46,6 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Tổng tiền</label>
-                        <input class="form-control" name="txtTotalMoney" placeholder="Nhập tổng tiền" value="{{$bill_import->totalmoney}}"/>
-                    </div>
-                    <div class="form-group">
                         <label>Phương thức thanh toán</label>
                         <label class="radio-inline">
                             <input name="txtPayment" value="{{$bill_import->payment}}" checked="" type="radio">Trực tiếp

@@ -67,6 +67,17 @@ class CartController extends Controller
             return redirect('user/dat-hang')->with('loi',"Bạn vui lòng kiểm tra lại giỏ hàng: ".$list_soil_out);
         }
         else{
+            $this->validate($request,[
+                "note" => "required",
+                "phone" => "required",
+                "address" => "required",
+                "name" => "required",
+            ], [
+                "note.required" => "Bạn phải nhập ghi chú",
+                "phone.required" => "Bạn phải nhập số điện thoại",
+                "address.required" => "Bạn phải nhập địa chỉ",
+                "name.required" => "Bạn phải nhập họ tên",
+            ]);
             //thêm thông tin người dùng vào hóa đơn và chi tiết hóa đơn
             $total =  \Cart::getSubTotal();
             $customer = new BillExport();

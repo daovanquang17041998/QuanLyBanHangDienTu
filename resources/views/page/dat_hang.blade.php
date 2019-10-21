@@ -21,7 +21,15 @@
                     <div class="col-sm-6">
                         <h4>Thông tin</h4>
                         <div class="space20">&nbsp;</div>
-                        <!-- In Thông báo -->
+                        @if(count($errors)>0)
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                <strong>Warning!!</strong>
+                                @foreach($errors->all() as $err)
+                                    {{$err}}<br>
+                                @endforeach
+                            </div>
+                        @endif
                         @if(session('loi'))
                             <div class="alert alert-danger">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
