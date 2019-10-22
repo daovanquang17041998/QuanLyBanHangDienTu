@@ -81,6 +81,11 @@ class ProductController extends Controller
     }
     public function getDelProduct($id)
     {
+        $check = DetailProduct::where('id_product',$id)->get();
+        dd($check->array[1]);
+        if($check){
+            return redirect()->route('listsanpham')->with('loi',"Bạn vui lòng kiểm tra lại giỏ hàng: ");
+        }
         $product = Product::find($id);
         $product->delete();
         return redirect(route('listsanpham'))->with('message','xóa thành công');

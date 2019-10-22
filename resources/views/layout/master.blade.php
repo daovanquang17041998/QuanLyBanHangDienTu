@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laravel </title>
+    <title>WEB BÁN ĐIỆN THOẠI</title>
     <base href="{{asset('')}}">
     <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
@@ -23,11 +23,10 @@
 
 @yield('content')
 
-</div>  <!-- .container -->
+</div>
 
 @include('layout/footer')
 
-<!-- include js files -->
 <script src="source/assets/dest/js/jquery.js"></script>
 <script src="source/assets/dest/vendors/jqueryui/jquery-ui-1.10.4.custom.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
@@ -40,7 +39,6 @@
 <script src="source/assets/dest/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
 <script src="source/assets/dest/js/waypoints.min.js"></script>
 <script src="source/assets/dest/js/wow.min.js"></script>
-<!--customjs-->
 <script src="source/assets/dest/js/custom2.js"></script>
 <script>
     $(document).ready(function($) {

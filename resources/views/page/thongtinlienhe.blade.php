@@ -71,6 +71,6 @@
                 </p>
             </div>
         </div>
-    </div> <!-- #content -->
-</div> <!-- .container -->
+    </div>
+</div>
 @endsection

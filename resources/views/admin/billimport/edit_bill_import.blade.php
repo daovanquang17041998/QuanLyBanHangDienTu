@@ -9,8 +9,6 @@
                         <small>Sửa</small>
                     </h1>
                 </div>
-                <a href="admin/nhap-hang/danh-sach" class="btn btn-default">Trở về</a>
-                <!-- /.col-lg-12 -->
                 <form action="" method="POST" enctype="multipart/form-data">
                 <div class="col-lg-7" style="padding-bottom:100px">
                 @if(count($errors)>0)
@@ -60,9 +58,6 @@
                  {{csrf_field()}}
                 <form>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </div>
-        <!-- /#page-wrapper -->
 @endsection

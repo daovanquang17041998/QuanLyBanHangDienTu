@@ -1,6 +1,5 @@
 @extends('admin.layout.master')
 @section('content')
-    <!-- Page Content -->
     <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -9,7 +8,6 @@
                             <small>Thêm</small>
                         </h1>
                     </div>
-                    <!-- /.col-lg-12 -->
                     <div class="col-lg-7" style="padding-bottom:120px">
                         @if(count($errors)>0)
                             <div class="alert alert-danger">
@@ -92,14 +90,11 @@
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/" class="btn btn-default">Hủy</a>
+                            <a href="admin/" class="btn btn-default">Trở về</a>
                             {{csrf_field()}}
                         <form>
                     </div>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
     </div>
-    <!-- /#page-wrapper -->
 @endsection

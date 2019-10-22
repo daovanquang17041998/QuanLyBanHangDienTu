@@ -45,6 +45,6 @@
                     </form>
                 </div>
             </div>
-        </div> <!-- .row -->
-    </div> <!-- .container -->
-</div> <!-- #footer -->
+        </div>
+    </div>
+</div>

@@ -43,13 +43,11 @@
                                     </div>
                                 @endforeach
                             </div>
-                        </div> <!-- .beta-products-list -->
+                        </div>
                         <div class="space50">&nbsp</div>
                     </div>
-                </div> <!-- end section with sidebar and main content -->
-
-
-            </div> <!-- .main-content -->
-        </div> <!-- #content -->
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

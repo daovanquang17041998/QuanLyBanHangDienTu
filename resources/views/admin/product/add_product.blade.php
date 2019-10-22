@@ -53,7 +53,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/" class="btn btn-default">Hủy</a>
+                            <a href="admin/" class="btn btn-default">Trở về</a>
                         </div>
                     {{csrf_field()}}
                     <form>

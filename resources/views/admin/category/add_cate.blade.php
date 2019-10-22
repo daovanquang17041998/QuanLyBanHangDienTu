@@ -34,15 +34,12 @@
                                 <input class="form-control" name="txtCateName" placeholder="Nhập tên danh mục" value="{!! old('txtCateName')!!}"/>
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/" class="btn btn-default">Hủy</a>
+                            <a href="admin/" class="btn btn-default">Trở về</a>
                             {{csrf_field()}}
                             <form>
                     </div>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
     </div>
-    <!-- /#page-wrapper -->
 @endsection

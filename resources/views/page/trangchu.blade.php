@@ -11,7 +11,6 @@
                                     <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat" data-lazydone="undefined" src="uploads/slide/{{$sl->image}}" data-src="uploads/slide/{{$sl->image}}" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url('uploads/slide/{{$sl->image}}'); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit;">
                                     </div>
                                 </div>
-
                             </li>
                         @endforeach
                     </ul>
@@ -21,7 +20,6 @@
             <div class="tp-bannertimer"></div>
         </div>
     </div>
-    <!--slider-->
     </div>
     <div class="container">
         <div id="content" class="space-top-none">
@@ -30,7 +28,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="beta-products-list">
-                            <h4>Sản phẩm mới</h4>
+                            <h4>Sản phẩm nổi bật</h4>
                             <div class="beta-products-details">
                                 <p class="pull-left">Tìm thấy {{count($new_product)}} sản phẩm</p>
                                 <div class="clearfix"></div>
@@ -50,7 +48,7 @@
                                                 <a href="{{route('chitietsanpham',$new->id)}}"><img src="uploads/product/{{$new->image}}" alt="" height="250px"></a>
                                             </div>
                                             <div class="single-item-body">
-                                                <p class="single-item-title">{{$new->product->name}}</p>
+                                                <p class="single-item-title">{{$new->name}}</p>
                                                 <p class="single-item-price" style="font-size: 18px">
                                                     @if($new->promotion_price==0)
                                                         <span class="flash-sale">{{number_format($new->unit_price)}}đ</span>
@@ -67,6 +65,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="space10">&nbsp;</div>
                                 @endforeach
                             </div>
                         </div>
@@ -106,6 +105,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="space10">&nbsp;</div>
                                 @endforeach
                             </div>
                             <div class="row">{{$sale_product->links()}}</div>

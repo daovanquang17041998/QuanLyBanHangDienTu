@@ -1,6 +1,5 @@
 @extends('admin.layout.master')
 @section('content')
-    <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -9,7 +8,6 @@
                         <small>Sửa</small>
                     </h1>
                 </div>
-                <!-- /.col-lg-12 -->
                 <div class="col-lg-7" style="padding-bottom:120px">
                     <div class="col-lg-12" style="padding-bottom:120px">
                         @if(count($errors)>0)
@@ -41,14 +39,11 @@
                                     <input class="form-control" name="txtSupplierPhone" placeholder="Nhập số điện thoại nhà cung cấp" value="{!! old('txtSupplierPhone')!!}"/>
                                 </div>
                                 <button type="submit" class="btn btn-default">Thêm</button>
-                                <a href="admin/" class="btn btn-default">Hủy</a>
+                                <a href="admin/" class="btn btn-default">Trở về</a>
                                 {{csrf_field()}}
                                 <form>
                     </div>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
 @endsection
