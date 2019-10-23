@@ -17,6 +17,7 @@ class ProductController extends Controller
 {
     public function getAddProduct()
     {
+        //lấy ra tất các loại sản phẩm
     	$cates = Category::all();
     	return view('admin.product.add_product',compact('cates'));
     }

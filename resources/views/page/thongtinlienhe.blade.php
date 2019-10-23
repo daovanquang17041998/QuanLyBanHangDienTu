@@ -3,11 +3,11 @@
 <div class="inner-header">
     <div class="container">
         <div class="pull-left">
-            <h6 class="inner-title">Contacts</h6>
+            <h6 class="inner-title">Liên hệ</h6>
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb font-large">
-                <a href="index.html">Home</a> / <span>Contacts</span>
+                <a href="{{'#'}}">Trang chủ</a> / <span>Liên hệ</span>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -15,7 +15,7 @@
 </div>
 <div class="beta-map">
 
-    <div class="abs-fullwidth beta-map wow flipInX"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3678.0141923553406!2d89.551518!3d22.801938!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ff8ff8ef7ea2b7%3A0x1f1e9fc1cf4bd626!2sPranon+Pvt.+Limited!5e0!3m2!1sen!2s!4v1407828576904" ></iframe></div>
+    <div class="abs-fullwidth beta-map wow flipInX"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1133656789016!2d105.80130561424535!3d21.028149493176652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab424a50fff9%3A0xbe3a7f3670c0a45f!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBHaWFvIHRow7RuZyBW4bqtbiB04bqjaSAoVVRDKQ!5e0!3m2!1svi!2s!4v1571818484704!5m2!1svi!2s" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe></div>
 </div>
 <div class="container">
     <div id="content" class="space-top-none">
@@ -23,51 +23,47 @@
         <div class="space50">&nbsp;</div>
         <div class="row">
             <div class="col-sm-8">
-                <h2>Contact Form</h2>
+                <h2>Gửi biểu mẫu</h2>
                 <div class="space20">&nbsp;</div>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit ani m id est laborum.</p>
+                <p>Cửa hàng điện thoại di động số 1 Việt Nam. Chúng tôi luôn quan tâm và giúp đỡ mọi khách hàng. Hãy liên hệ với chúng tôi! </p>
                 <div class="space20">&nbsp;</div>
                 <form action="#" method="post" class="contact-form">
                     <div class="form-block">
-                        <input name="your-name" type="text" placeholder="Your Name (required)">
+                        <input name="your-name" type="text" placeholder="Tên của bạn(bắt buộc)">
                     </div>
                     <div class="form-block">
-                        <input name="your-email" type="email" placeholder="Your Email (required)">
+                        <input name="your-email" type="email" placeholder="Địa chỉ mail(bắt buộc)">
                     </div>
                     <div class="form-block">
-                        <input name="your-subject" type="text" placeholder="Subject">
+                        <input name="your-subject" type="text" placeholder="Chủ đề">
                     </div>
                     <div class="form-block">
-                        <textarea name="your-message" placeholder="Your Message"></textarea>
+                        <textarea name="your-message" placeholder="Nội dung"></textarea>
                     </div>
                     <div class="form-block">
-                        <button type="submit" class="beta-btn primary">Send Message <i class="fa fa-chevron-right"></i></button>
+                        <button type="submit" class="beta-btn primary">Gửi tin nhắn<i class="fa fa-chevron-right"></i></button>
                     </div>
                 </form>
             </div>
             <div class="col-sm-4">
-                <h2>Contact Information</h2>
+                <h2>Thông tin liên lạc</h2>
                 <div class="space20">&nbsp;</div>
 
-                <h6 class="contact-title">Address</h6>
+                <h6 class="contact-title">Địa chỉ</h6>
                 <p>
-                    Suite 127 / 267 – 277 Brussel St,<br>
-                    62 Croydon, NYC <br>
-                    Newyork
+                  Số 6, Đức Hòa, Sóc Sơn, Hà Nội.
                 </p>
                 <div class="space20">&nbsp;</div>
-                <h6 class="contact-title">Business Enquiries</h6>
+                <h6 class="contact-title">Liên hệ</h6>
                 <p>
-                    Doloremque laudantium, totam rem aperiam, <br>
-                    inventore veritatio beatae. <br>
-                    <a href="mailto:biz@betadesign.com">biz@betadesign.com</a>
+                    Chúng tôi luôn giải đáp những thắc mắc của bạn! <br>
+                    <a href="aovanquang@gmail.com">aovanquang@gmail.com</a>
                 </p>
                 <div class="space20">&nbsp;</div>
-                <h6 class="contact-title">Employment</h6>
+                <h6 class="contact-title">Khẩu hiệu</h6>
                 <p>
-                    We’re always looking for talented persons to <br>
-                    join our team. <br>
-                    <a href="hr@betadesign.com">hr@betadesign.com</a>
+                   Chúng tôi luôn nhìn vào sự hài lòng của khách hàng để hoàn thiện hơn.<br>
+                    <a href="aovanquang@gmail.com">aovanquang@gmail.com</a>
                 </p>
             </div>
         </div>
