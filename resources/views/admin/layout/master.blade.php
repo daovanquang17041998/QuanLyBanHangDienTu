@@ -27,6 +27,14 @@
     <link rel="stylesheet" type="text/css" href="css/adminstyle.css">
 
     <link rel="stylesheet" type="text/css" href="admin_asset/css/mycss.css">
+    <!-- trang tổng quan -->
+    <link href="source/assets/dest/css/bootstrap.min.css" rel="stylesheet">
+    <link href="source/assets/dest/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="source/assets/dest/css/dashboard.css" rel="stylesheet">
+    <script src="source/assets/dest/js/ie8-responsive-file-warning.js"></script>
+    <script src="source/assets/dest/js/ie-emulation-modes-warning.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 </head>
 
 <body>
@@ -64,13 +72,10 @@
         });
     </script>
     @yield('script')
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable();
     });
-    
     </script>
 </body>
-
 </html>

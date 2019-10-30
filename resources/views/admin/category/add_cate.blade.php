@@ -1,6 +1,5 @@
 @extends('admin.layout.master')
 @section('content')
-    <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
@@ -9,7 +8,6 @@
                         <small>Thêm</small>
                     </h1>
                 </div>
-                <!-- /.col-lg-12 -->
                 <div class="col-lg-7" style="padding-bottom:120px">
                     <div class="col-lg-7" style="padding-bottom:120px">
                         @if(count($errors)>0)

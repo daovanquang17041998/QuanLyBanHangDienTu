@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 use App\Category;
 use DateTime;
 class CategoryController extends Controller
 {
     public function getIndexAdmin(){
-        return view('admin.index');
+        $user = User::all();
+        $product = Product::all();
+        return view('admin.index',compact('user','product'));
     }
 
     public function getAddCate()

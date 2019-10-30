@@ -56,7 +56,7 @@
                                     </p>
                                 </div>
                             </div>
-                <div class="space50">&nbsp;</div>
+                <div class="space40">&nbsp;</div>
                 <div class="beta-products-list">
                     <h4>Sản phẩm tương tự</h4>
                     <div class="row">
@@ -84,7 +84,6 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="space10">&nbsp;</div>
                         @endforeach
                     </div>
                     <div class="row">{{$sanpham_tuongtu->links()}}</div>
@@ -97,10 +96,10 @@
                                 <div class="beta-sales beta-lists">
                                     @foreach( $sanpham_banchay as $sptt)
                                     <div class="media beta-sales-item">
-                                        <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="uploads/product/{{$sptt->image}}" alt="" height="230px" width="180px"></a>
+                                        <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="uploads/product/{{$sptt->image}}" alt=""></a>
                                         <div class="media-body">
-                                            <p class="single-item-title" style="font-size: 14px">{{$sptt->name}}</p>
-                                            <p class="single-item-price" style="font-size: 14px">
+                                            <p class="single-item-title" style="font-size: 18px">{{$sptt->name}}</p>
+                                            <p class="single-item-price" style="font-size: 18px">
                                                 @if($sptt->promotion_price==0)
                                                     <span class="flash-sale">{{number_format($sptt->unit_price)}}<u>đ</u></span>
                                                 @else
@@ -114,29 +113,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="widget">
-                            <h3 class="widget-title">Sản phẩm mới</h3>
-                            <div class="widget-body">
-                                <div class="beta-sales beta-lists">
-                                    @foreach($sanpham_banchay as $sptt)
-                                    <div class="media beta-sales-item">
-                                        <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="uploads/product/{{$sptt->image}}" alt="" height="230px" width="180px"></a>                                        <div class="media-body">
-                                        <div class="media-body">
-                                          <p class="single-item-title" style="font-size: 14px">{{$sptt->name}}</p>
-                                            <p class="single-item-price" style="font-size: 14px">
-                                                @if($sptt->promotion_price==0)
-                                                    <span class="flash-sale">{{number_format($sptt->unit_price)}}<u>đ</u></span>
-                                                @else
-                                                    <span class="flash-del">{{number_format($sptt->unit_price)}}<u>đ</u></span>
-                                                    <span class="flash-sale">{{number_format($sptt->promotion_price)}}<u>đ</u></span>
-                                                @endif
-                                            </p>
-                                        </div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
+
                          </div>
                  </div>
         </div>

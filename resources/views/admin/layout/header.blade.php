@@ -1,4 +1,3 @@
-
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,7 +41,7 @@
                             </div>
                         </li>
                         <li>
-                            <a href="{{ route('admin-index') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="{{ route('admin-index') }}"><i class="fa fa-dashboard fa-fw"></i> Trang tổng quan</a>
                         </li>
                         <li>
                             <a href="javascript:void(0)"><i class="fa fa-bar-chart-o fa-fw"></i> Danh mục<span class="fa arrow"></span></a>
@@ -108,6 +107,15 @@
                                 <li>
                                     <a href="admin/user/them">Thêm</a>
                                 </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)"><i class="fa fa-bar-chart-o fa-fw"></i> Thống kê <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="admin/thong-ke/doanh-thu">Doanh thu</a>
+                                </li>
+
                             </ul>
                         </li>
                     </ul>

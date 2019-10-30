@@ -25,16 +25,6 @@ class PageController extends Controller
         return view('page.trangchu',compact('slide','new_product','sale_product'));
     }
     public function getLoaisanpham($type){
-        $gia1 = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->
-        select('a.*','b.name')->where('a.promotion_price','<',1000000)->paginate(3);
-        $gia2 = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->
-        select('a.*','b.name')->where('a.promotion_price','<',3000000)->paginate(3);
-        $gia3 = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->
-        select('a.*','b.name')->where('a.promotion_price','<',6000000)->paginate(3);
-        $gia4 = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->
-        select('a.*','b.name')->where('a.promotion_price','<',9000000)->paginate(3);
-        $gia5 = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->
-        select('a.*','b.name')->where('a.promotion_price','>',9000000)->paginate(3);
         $sp_theoloai = Product::where('id_category',$type)->get();
         $chi_tiet = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
             select('a.*','b.name')->where('c.id',$type)->paginate(3);
@@ -42,26 +32,26 @@ class PageController extends Controller
         select('a.*','b.name')->where('c.id','<>',$type)->paginate(6);
         $loai = Category::all();
         $loai_sp = Category::where('id',$type)->first();
-        return view('page.loaisanpham',compact('sp_theoloai','sp_khac','loai','loai_sp','chi_tiet',
-            'gia1','gia2','gia3','gia4','gia5'));
+        return view('page.loaisanpham',compact('sp_theoloai','sp_khac','loai','loai_sp','chi_tiet'));
     }
     public function getChitietsanpham(Request $request){
         $data['sell'] = DB::table('detail_bill_export as a')
             ->leftjoin('detail_product as b','a.id_detail_product','=','b.id')
-            ->leftjoin('products as c','b.id_product','=','c.id')
-            ->select(DB::raw('SUM(a.quanlity) as SL'))
-            ->groupBy('c.id')
-            ->orderBy('SL','desc')
-            ->get();
+//            ->leftjoin('products as c','b.id_product','=','c.id')
+//            ->select('b.id',DB::raw('SUM(a.quanlity) as SL'))
+            ->select('b.*')
+            ->groupBy('b.id')
+//            ->orderBy('SL','desc')
+            ->paginate(6);
+        dd($data);
         $detail_product   = DetailProduct::where('id',$request->id)->first();
         $detail= DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
         select('a.*','b.*','c.id as idcate','c.*')->where('a.id',$request->id)->first();
         $sanpham_tuongtu = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
         select('a.*','b.name')->where('c.id',$detail->idcate)->paginate(6);
         $sanpham_banchay = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
-        select('a.*','b.name')->where('c.id',$detail->idcate)->orderBy($data,'desc')->paginate(4);
-        $sanpham_noibat = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->where('b.status','=',1)->paginate(4);
-        return view('page.chitietsanpham',compact('detail_product','sanpham_tuongtu','sanpham_banchay','sanpham_noibat','data'));
+        select('a.*','b.name')->where('c.id',$detail->idcate)->paginate(6);
+        return view('page.chitietsanpham',compact('detail_product','sanpham_tuongtu','sanpham_banchay'));
     }
     public function getLienhe(){
         return view('page.thongtinlienhe');

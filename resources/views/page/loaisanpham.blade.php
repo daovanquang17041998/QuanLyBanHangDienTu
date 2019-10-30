@@ -25,15 +25,6 @@
                             <li><a href="{{route('loaisanpham',$l->id)}}">{{$l->name}}</a></li>
                         @endforeach
                     </ul>
-                    <br>
-                    <ul class="aside-menu">
-                        <h3>Giá</h3>
-                        <li><a href="{{route('loaisanpham',$l->id)}}"><1.000.000đ</a></li>
-                        <li><a href="{{route('loaisanpham',$l->id)}}">1.000.000đ - 3.000.000đ</a></li>
-                        <li><a href="{{route('loaisanpham',$l->id)}}">3.000.000đ - 6.000.000đ</a></li>
-                        <li><a href="{{route('loaisanpham',$l->id)}}">6.000.000đ - 9.000.000đ</a></li>
-                        <li><a href="{{route('loaisanpham',$l->id)}}">>9.000.000đ</a></li>
-                    </ul>
                 </div>
                 <div class="col-sm-9">
                     <div class="beta-products-list">
