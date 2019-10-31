@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\BillExport;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\Supplier;
 use App\User;
 use Illuminate\Http\Request;
 use App\Category;
@@ -12,7 +14,9 @@ class CategoryController extends Controller
     public function getIndexAdmin(){
         $user = User::all();
         $product = Product::all();
-        return view('admin.index',compact('user','product'));
+        $supplier = Supplier::all();
+        $billexport = BillExport::all();
+        return view('admin.index',compact('user','product','supplier','billexport'));
     }
 
     public function getAddCate()

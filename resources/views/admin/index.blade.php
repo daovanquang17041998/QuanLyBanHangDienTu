@@ -18,39 +18,32 @@
               </div>
               <div class="col-xs-6 col-sm-3 placeholder" style="position: relative" >
                   <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4 style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%); color: white;">5 lượt đánh giá</h4>
+                  <h4 style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%); color: white;">{{$supplier->count()}} nhà cung cấp</h4>
               </div>
               <div class="col-xs-6 col-sm-3 placeholder" style="position: relative" >
                   <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-                  <h4 style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%); color: white;">4 bài viết</h4>
+                  <h4 style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%); color: white;">{{$billexport->count()}} hóa đơn bán</h4>
               </div>
           </div>
-          <h2 class="sub-header">Thống kê</h2>
+          <h2 class="sub-header" style="font-size: 36px">Danh sách thành viên mới</h2>
           <div class="table-responsive">
               <table class="table table-striped">
                   <thead>
                   <tr>
-                      <th>#</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                      <th>Header</th>
-                      <th>Header</th>
+                      <th>STT</th>
+                      <th>Họ tên</th>
+                      <th>Địa chỉ</th>
+                      <th>Email</th>
+                      <th>Số điện thoại</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                      <td>1,001</td>
-                      <td>Lorem</td>
-                      <td>ipsum</td>
-                      <td>dolor</td>
-                      <td>sit</td>
-                  </tr>
-                  <tr>
-                      <td>1,015</td>
-                      <td>sodales</td>
-                      <td>ligula</td>
-                      <td>in</td>
-                      <td>libero</td>
+                      <td>1</td>
+                      <td>Chiến</td>
+                      <td>Hà Nội</td>
+                      <td>chien@gmail.com</td>
+                      <td>09657443</td>
                   </tr>
                   </tbody>
               </table>
