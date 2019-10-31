@@ -13,10 +13,10 @@
                     <h4 class="widget-title">Theo dõi</h4>
                     <div>
                         <ul>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Web Design</a></li>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Web development</a></li>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Marketing</a></li>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i> Tips</a></li>
+                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Thiết kế</a></li>
+                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Thương hiệu</a></li>
+                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Tiếp thị</a></li>
+                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Lời khuyên</a></li>
                         </ul>
                     </div>
                 </div>

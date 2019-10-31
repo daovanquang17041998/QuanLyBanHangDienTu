@@ -109,15 +109,6 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="javascript:void(0)"><i class="fa fa-bar-chart-o fa-fw"></i> Thống kê <span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="admin/thong-ke/doanh-thu">Doanh thu</a>
-                                </li>
-
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </div>

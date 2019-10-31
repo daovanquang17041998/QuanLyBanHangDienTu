@@ -91,10 +91,10 @@
               </div>
                 <div class="col-sm-3 aside">
                         <div class="widget">
-                            <h3 class="widget-title">Sản phẩm bán chạy</h3>
+                            <h3 class="widget-title">Sản phẩm nổi bật</h3>
                             <div class="widget-body">
                                 <div class="beta-sales beta-lists">
-                                    @foreach( $sanpham_banchay as $sptt)
+                                    @foreach( $sanpham_noibat as $sptt)
                                     <div class="media beta-sales-item">
                                         <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="uploads/product/{{$sptt->image}}" alt=""></a>
                                         <div class="media-body">

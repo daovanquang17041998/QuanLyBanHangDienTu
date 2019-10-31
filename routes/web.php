@@ -203,12 +203,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
 
 
     });
-    /*trang thống kê*/
-    Route::group(['prefix'=>'thong-ke'], function (){
-
-        Route::get('doanh-thu','StatisticsController@getRevenue');
-
-    });
 });
 
 

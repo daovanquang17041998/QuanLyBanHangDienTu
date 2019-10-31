@@ -29,22 +29,24 @@
           <div class="table-responsive">
               <table class="table table-striped">
                   <thead>
-                  <tr>
-                      <th>STT</th>
-                      <th>Họ tên</th>
-                      <th>Địa chỉ</th>
+                  <tr align="center">
+                      <th>ID</th>
+                      <th>Họ Tên</th>
                       <th>Email</th>
                       <th>Số điện thoại</th>
+                      <th>Địa chỉ</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>Chiến</td>
-                      <td>Hà Nội</td>
-                      <td>chien@gmail.com</td>
-                      <td>09657443</td>
-                  </tr>
+                  @foreach($user_new as $user)
+                      <tr class="odd gradeX" align="center">
+                          <td>{{$user->id}}</td>
+                          <td>{{$user->fullname}}</td>
+                          <td>{{$user->email}}</td>
+                          <td>{{$user->phone}}</td>
+                          <td>{{$user->address}}</td>
+                      </tr>
+                  @endforeach
                   </tbody>
               </table>
           </div>

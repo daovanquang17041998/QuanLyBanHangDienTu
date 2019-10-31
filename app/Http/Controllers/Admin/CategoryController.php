@@ -9,14 +9,17 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Category;
 use DateTime;
+use Illuminate\Support\Facades\DB;
+
 class CategoryController extends Controller
 {
     public function getIndexAdmin(){
-        $user = User::all();
+        $user_new = DB::table('users')->orderBy('updated_at','desc')->limit(5)->get();
         $product = Product::all();
         $supplier = Supplier::all();
         $billexport = BillExport::all();
-        return view('admin.index',compact('user','product','supplier','billexport'));
+        $user= User::all();
+        return view('admin.index',compact('user','product','supplier','billexport','user_new'));
     }
 
     public function getAddCate()
@@ -42,16 +45,13 @@ class CategoryController extends Controller
     public function getListCate()
     {
         $cates = Category::all();
-        
         return view("admin.category.list_cate",compact('cates'));
     }
 
     public function getEditCate($id)
     {
         $cate = Category::all()->toArray();
-        
         $item = Category::find($id);
-   
         return view("admin.category.edit_cate",compact('cate','item'));
     }
 
