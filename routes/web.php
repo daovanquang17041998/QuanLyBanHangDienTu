@@ -67,7 +67,6 @@ Route::post('admin/dang-nhap','Admin\UserController@postAdminLogin');
 Route::get('admin/logout','Admin\UserController@getAdminLogout');
 
 /*admin*/
-
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin'],function(){
     /*trang chủ*/
     Route::get('/',['as'=>'admin-index','uses'=>'CategoryController@getIndexAdmin']);

@@ -29,10 +29,13 @@ class CategoryController extends Controller
 
     public function postAddCate(Request $request)
     {
+        $id = DB::table('categories_product')->select('id');
     	$request->validate([
-    		"txtCateName" => "required",
+            'txtCateName' => 'required|max:15|unique:categories_product,name',
     	],[
     		"txtCateName.required" => "Bạn chưa nhập category name",
+            "txtCateName.unique" => "Tên loại đã tồn tại",
+            "txtCateName.max" => "Tên loại không quá 15 kí tự",
     	]);
         $cate             = new Category;
         $cate->name       = $request->txtCateName;
@@ -58,9 +61,11 @@ class CategoryController extends Controller
     public function postEditCate($id ,Request $request)
     {
         $request->validate([
-            "txtCateName" => "required",
+            "txtCateName" => "required|max:15|unique:categories_product,name",
         ],[
             "txtCateName.required" => "Bạn chưa nhập category name",
+            "txtCateName.unique" => "Tên loại đã tồn tại",
+            "txtCateName.max" => "Tên loại không quá 15 kí tự",
         ]);
 
         $cate             = Category::find($id);
