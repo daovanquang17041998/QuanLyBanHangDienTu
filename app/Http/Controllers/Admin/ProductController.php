@@ -25,12 +25,14 @@ class ProductController extends Controller
     public function postAddProduct(Request $request)
     {
         $this->validate($request, [
-            "txtName" => "required|unique:products,name",
-            "txtDescription" => "required",
+            "txtName" => "required|max:15|unique:products,name",
+            "txtDescription" => "required|max:250",
         ], [
             "txtName.unique" => "Tên sản phẩm bị trùng",
+            "txtName.max" => "Tên có độ dài không quá 15 kí tự",
             "txtName.required" => "Bạn phải nhập tên sản phẩm",
             "txtDescription.required" => "Bạn phải nhập mô tả",
+            "txtDescription.max" => "Mô tả có độ dài không quá 250 kí tự",
         ]);
         $product = new Product;
         $product->id_category = $request->selectCategoryId;
@@ -57,20 +59,17 @@ class ProductController extends Controller
 
     public function postEditProduct(Request $request, $id){
         $this->validate($request, [
-            "txtName" => "required",
-            "txtDescription" => "required",
+            "txtName" => "required|max:15|unique:products,name",
+            "txtDescription" => "required|max:250",
         ], [
+            "txtName.unique" => "Tên sản phẩm bị trùng",
+            "txtName.max" => "Tên có độ dài không quá 15 kí tự",
             "txtName.required" => "Bạn phải nhập tên sản phẩm",
             "txtDescription.required" => "Bạn phải nhập mô tả",
+            "txtDescription.max" => "Mô tả có độ dài không quá 250 kí tự",
         ]);
         if(isset($_POST['ok']))
         {
-            $this->validate($request,[
-            "txtName" => "unique:products,name,".$id,
-        ],[
-            "txtName.unique" => "Tên sản phẩm bị trùng",
-        ]);
-
         $product = Product::find($id);
         $product->id_category     = $request->selectCategoryId;
         $product->name            = $request->txtName;
@@ -103,13 +102,19 @@ class ProductController extends Controller
     public function postAddDetailProduct(Request $request,$id)
     {
         $this->validate($request,[
-            "txtUnitprice" => "required",
-            "txtPromotionprice" => "required",
-            "txtQuanlity" => "required",
+            "txtUnitprice" => "required|numeric|max:11",
+            "txtPromotionprice" => "required|numeric|max:11",
+            "txtQuanlity" => "required|numeric|max:11",
         ], [
             "txtUnitprice.required" => "Bạn phải nhập đơn giá",
+            "txtUnitprice.numeric" => "Đơn giá phải là số",
+            "txtUnitprice.max" => "Đơn giá không quá 11 kí tự",
             "txtPromotionprice.required" => "Bạn phải nhập giá khuyến mãi",
+            "txtPromotionprice.numeric" => "Giá khuyến mãi phải là số",
+            "txtPromotionprice.max" => "Giá khuyến mãi không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
+            "txtQuanlity.numeric" => "Số lượng phải là số",
+            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
 
         $product = new DetailProduct();
@@ -153,13 +158,19 @@ class ProductController extends Controller
 
     public function postEditDetailProduct(Request $request, $id){
         $this->validate($request,[
-            "txtUnitprice" => "required",
-            "txtPromotionprice" => "required",
-            "txtQuanlity" => "required",
+            "txtUnitprice" => "required|numeric|max:11",
+            "txtPromotionprice" => "required|numeric|max:11",
+            "txtQuanlity" => "required|numeric|max:11",
         ], [
             "txtUnitprice.required" => "Bạn phải nhập đơn giá",
+            "txtUnitprice.numeric" => "Đơn giá phải là số",
+            "txtUnitprice.max" => "Đơn giá không quá 11 kí tự",
             "txtPromotionprice.required" => "Bạn phải nhập giá khuyến mãi",
+            "txtPromotionprice.numeric" => "Giá khuyến mãi phải là số",
+            "txtPromotionprice.max" => "Giá khuyến mãi không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
+            "txtQuanlity.numeric" => "Số lượng phải là số",
+            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
         $product = DetailProduct::find($id);
         $product->id_color = $request->selectColorId;

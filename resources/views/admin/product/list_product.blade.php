@@ -1,6 +1,5 @@
 @extends('admin.layout.master')
 @section('content')
-<!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -9,7 +8,6 @@
                             <small>Danh sách</small>
                         </h1>
                     </div>
-                    <!-- /.col-lg-12 -->
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -37,48 +35,10 @@
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/sua/{{$product->id}}">Sửa</a></td>
                                 <td class="center"><i class="fa fa-search fa-fw"></i> <a href="admin/san-pham/chi-tiet/{{$product->id}}">Chi Tiết</a></td>
                             </tr>
-                            
                             @endforeach
                         </tbody>
                     </table>
                 </div>
-                <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                  <div class="modal-dialog modal-sm" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Bảng size</h4>
-                      </div>
-                      <div class="modal-body">
-                        
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
             </div>
         </div>
-@endsection
-@section('script')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.view-size').click(function (){
-                var id = $(this).attr('data-viewid');
-
-                $.ajax({
-                    url: "admin/ajax/view-size",
-                    type: "post",
-                    data: "product_id="+id,
-                    async: true,
-                    success:function(data)
-                    {  
-                        $(".modal-body").html(data);
-                    }
-                 });
-             });
-        });
-        
-    </script>
 @endsection

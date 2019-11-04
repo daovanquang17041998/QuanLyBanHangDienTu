@@ -23,13 +23,17 @@ class BillExportController extends Controller
     public function postAddBillExport(Request $request)
     {
         $this->validate($request,[
-            "txtAddress" => "required",
-            "txtPhone" => "required",
-            "txtNote" => "required",
+            "txtAddress" => "required|max:250",
+            "txtPhone" => "required|max:250|numeric",
+            "txtNote" => "required|max:250",
         ], [
             "txtAddress.required" => "Bạn phải nhập địa chỉ",
+            "txtAddress.max" => "Địa chỉ không quá 250 kí tự",
             "txtPhone.required" => "Bạn phải nhập số điện thoại",
+            "txtPhone.max" => "Số điện thoại không quá 11 kí tự",
+            "txtPhone.numeric" => "Số điện thoại phải là số",
             "txtNote.required" => "Bạn phải nhập ghi chú",
+            "txtNote.max" => "Ghi chú không quá 250 kí tự",
         ]);
 
         $bill_export= new BillExport();
@@ -58,13 +62,17 @@ class BillExportController extends Controller
 
     public function postEditBillExport(Request $request, $id){
         $this->validate($request,[
-            "txtAddress" => "required",
-            "txtPhone" => "required",
-            "txtNote" => "required",
+            "txtAddress" => "required|max:250",
+            "txtPhone" => "required|max:250|numeric",
+            "txtNote" => "required|max:250",
         ], [
             "txtAddress.required" => "Bạn phải nhập địa chỉ",
+            "txtAddress.max" => "Địa chỉ không quá 250 kí tự",
             "txtPhone.required" => "Bạn phải nhập số điện thoại",
+            "txtPhone.max" => "Số điện thoại không quá 11 kí tự",
+            "txtPhone.numeric" => "Số điện thoại phải là số",
             "txtNote.required" => "Bạn phải nhập ghi chú",
+            "txtNote.max" => "Ghi chú không quá 250 kí tự",
         ]);
 
         if(isset($_POST['ok']))
@@ -96,11 +104,15 @@ class BillExportController extends Controller
     public function postAddDetailBillExport(Request $request,$id)
     {
         $this->validate($request,[
-            "txtPrice" => "required",
-            "txtQuanlity" => "required",
+            "txtPrice" => "required|numeric|max:11",
+            "txtQuanlity" => "required|numeric|max:11",
         ], [
             "txtPrice.required" => "Bạn phải nhập giá",
+            "txtPrice.numeric" => "Giá phải là số",
+            "txtPrice.max" => "Giá không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
+            "txtQuanlity.numeric" => "Số lượng phải là số",
+            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
 
         $detail_export = new DetailBillExport();
@@ -134,11 +146,15 @@ class BillExportController extends Controller
 
     public function postEditDetailBillExport(Request $request, $id){
         $this->validate($request,[
-            "txtPrice" => "required",
-            "txtQuanlity" => "required",
+            "txtPrice" => "required|numeric|max:11",
+            "txtQuanlity" => "required|numeric|max:11",
         ], [
             "txtPrice.required" => "Bạn phải nhập giá",
+            "txtPrice.numeric" => "Giá phải là số",
+            "txtPrice.max" => "Giá không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
+            "txtQuanlity.numeric" => "Số lượng phải là số",
+            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
         $detail_export = DetailBillExport::find($id);
         $cu =  $detail_export->quanlity;

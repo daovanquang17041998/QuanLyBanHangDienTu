@@ -39,7 +39,7 @@
                                     <input class="form-control" name="txtSupplierPhone" placeholder="Nhập số điện thoại nhà cung cấp" value="{!! old('txtSupplierPhone')!!}"/>
                                 </div>
                                 <button type="submit" class="btn btn-default">Thêm</button>
-                                <a href="admin/" class="btn btn-default">Trở về</a>
+                                <a href="{{route('listnhacungcap')}}" class="btn btn-default">Trở về</a>
                                 {{csrf_field()}}
                                 <form>
                     </div>

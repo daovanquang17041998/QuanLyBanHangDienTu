@@ -25,7 +25,6 @@
                             {{session('message')}}
                         </div>
                     @endif
-                    <a href="admin/don-hang/danh-sach" class="btn btn-default">Trở về</a>
                         <div class="form-group">
                             <label>Khách hàng</label>
                             <select class="form-control" name="selectUserId">
@@ -67,7 +66,7 @@
                             <textarea class="form-control" name="txtNote" placeholder="Nhập ghi chú"></textarea>
                         </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/" class="btn btn-default">Trở về</a>
+                            <a href="admin/don-hang/danh-sach" class="btn btn-default">Trở về</a>
                         </div>
                     {{csrf_field()}}
                     <form>

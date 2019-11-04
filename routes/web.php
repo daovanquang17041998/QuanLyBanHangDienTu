@@ -3,7 +3,7 @@
 Route::get('/welcome', function () {
     return view('welcome');
 });
-/* user */
+
 Route::get('dang-nhap',['as'=>'dangnhap', 'uses'=>'PageController@getLogin']);
 
 Route::post('dang-nhap',['as'=>'dangnhap', 'uses'=>'PageController@postLogin']);
@@ -57,21 +57,19 @@ Route::group(['prefix'=>'user','middleware'=>'userLogin'], function (){
 
     Route::post('danh-sach-hoa-don','AjaxController@postAjaxShowBills');
 });
-/* admin */
 
-/*login*/
 Route::get('admin/dang-nhap','Admin\UserController@getAdminLogin');
 
 Route::post('admin/dang-nhap','Admin\UserController@postAdminLogin');
 
 Route::get('admin/logout','Admin\UserController@getAdminLogout');
 
-/*admin*/
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin'],function(){
-    /*trang chủ*/
+
     Route::get('/',['as'=>'admin-index','uses'=>'CategoryController@getIndexAdmin']);
-    /*trang danh mục*/
+
     Route::group(['prefix'=>'danh-muc'],function(){
+
         Route::get("them",['as'=>'themdanhmuc','uses'=>'CategoryController@getAddCate']);
 
         Route::post("them",['as'=>'themdanhmuc','uses'=>'CategoryController@postAddCate']);
@@ -83,9 +81,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
         Route::get("danh-sach",['as'=>'listdanhmuc','uses'=>'CategoryController@getListCate']);
 
         Route::get('xoa/{id}',"CategoryController@getDelCate");
-
     });
-    /*trang sản phẩm*/
+
     Route::group(['prefix'=>'san-pham'],function () {
 
         Route::get("them",['as'=>'themsanpham','uses'=>'ProductController@getAddProduct']);
@@ -111,11 +108,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
         Route::post("chi-tiet/sua/{id}","ProductController@postEditDetailProduct");
 
         Route::get('chi-tiet/xoa/{id}',"ProductController@getDelDetailProduct");
-
     });
-    /*trang nhà cung cấp*/
 
     Route::group(['prefix'=>'nha-cung-cap'],function (){
+
         Route::get('danh-sach','SupplierController@getListSupplier')->name('listnhacungcap');
 
         Route::get('them','SupplierController@getAddSupplier');
@@ -127,9 +123,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
         Route::post('sua/{id}','SupplierController@postEditSupplier');
 
         Route::get('xoa/{id}','SupplierController@getDelSupplier');
-
     });
-    /*trang nhập hàng*/
 
     Route::group(['prefix'=>'nhap-hang'],function (){
 
@@ -157,7 +151,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
 
         Route::get('chi-tiet/xoa/{id}',"BillImportController@getDelDetailBillImport");
     });
-    /*trang đơn hàng*/
 
     Route::group(['prefix'=>'don-hang'],function (){
 
@@ -185,9 +178,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
 
         Route::get('chi-tiet/xoa/{id}',"BillExportController@getDelDetailBillExport");
     });
-    /*trang tài khoản*/
 
     Route::group(['prefix'=>'user'],function (){
+
         Route::get('them','UserController@getAddUser');
 
         Route::post('them','UserController@postAddUser');
@@ -199,8 +192,15 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
         Route::post('sua/{id}','UserController@postEditUser');
 
         Route::get('xoa/{id}','UserController@getDelUser');
+    });
 
+    Route::group(['prefix'=>'profile'],function (){
 
+        Route::get('thongtin','UserController@getInfoUser');
+
+        Route::get('sua/{id}','UserController@getEditUser');
+
+        Route::post('sua/{id}','UserController@postEditUser');
     });
 });
 

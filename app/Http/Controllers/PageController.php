@@ -35,15 +35,6 @@ class PageController extends Controller
         return view('page.loaisanpham',compact('sp_theoloai','sp_khac','loai','loai_sp','chi_tiet'));
     }
     public function getChitietsanpham(Request $request){
-//        $data['sell'] = DB::table('detail_bill_export as a')
-//            ->leftjoin('detail_product as b','a.id_detail_product','=','b.id')
-////            ->leftjoin('products as c','b.id_product','=','c.id')
-////            ->select('b.id',DB::raw('SUM(a.quanlity) as SL'))
-//            ->select('b.*')
-//            ->groupBy('b.id')
-////            ->orderBy('SL','desc')
-//            ->paginate(6);
-//        dd($data);
         $detail_product   = DetailProduct::where('id',$request->id)->first();
         $detail= DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
         select('a.*','b.*','c.id as idcate','c.*')->where('a.id',$request->id)->first();

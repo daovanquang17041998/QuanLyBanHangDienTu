@@ -25,7 +25,6 @@
                             {{session('message')}}
                         </div>
                     @endif
-                    <a href="admin/don-hang/chi-tiet/{$id}" class="btn btn-default">Trở về</a>
                         <div class="form-group">
                             <label>Tên sản phẩm</label><br>
                             <select class="form-control" name="selectDetailProductId">

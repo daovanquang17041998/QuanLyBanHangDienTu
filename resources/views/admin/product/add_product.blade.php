@@ -5,8 +5,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Product
-                            <small>Add</small>
+                        <h1 class="page-header">Sản phẩm
+                            <small>Thêm</small>
                         </h1>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -25,7 +25,6 @@
                             {{session('message')}}
                         </div>
                     @endif
-                    <a href="admin/san-pham/danh-sach" class="btn btn-default">Trở về</a>
                         <div class="form-group">
                             <label>Tên sản phẩm</label>
                             <input class="form-control" name="txtName" placeholder="Nhập tên đầy đủ" value="{{old('txtName')}}"/>
@@ -53,7 +52,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/" class="btn btn-default">Trở về</a>
+                            <a href="admin/san-pham/danh-sach" class="btn btn-default">Trở về</a>
                         </div>
                     {{csrf_field()}}
                     <form>

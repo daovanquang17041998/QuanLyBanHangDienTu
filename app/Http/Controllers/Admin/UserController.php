@@ -16,20 +16,26 @@ class UserController extends Controller
     public function postAddUser(Request $request)
     {
     	$this->validate($request,[
-    		'txtEmail' => 'required|unique:users,email',
-            'txtFullName' => 'required',
-            'txtAddress' => 'required',
-            'txtPass' => 'required',
-            'txtPhoneNumber' => 'required',
+    		'txtEmail' => 'required|email|unique:users,email',
+            'txtFullName' => 'required|max:250',
+            'txtAddress' => 'required|max:250',
+            'txtPass' => 'required|max:12|min:6',
+            'txtPhoneNumber' => 'required|numeric',
             'txtBirthday' => 'required',
     	],[
     		"txtEmail.unique"    => "Email đã tồn tại",
+            "txtEmail.email"    => "Chưa đúng định dạng email",
             "txtEmail.required"    => "Bạn phải nhập email",
             "txtFullName.required"    => "Bạn phải nhập tên",
+            "txtFullName.max"    => "Tên không quá 250 kí tự",
             "txtPass.required"    => "Bạn phải nhập mật khẩu",
+            "txtPass.min"    => "Mật khẩu ít nhất 6 kí tự",
+            "txtPass.max"    => "Mật khẩu không quá 12 kí tự",
             "txtPhoneNumber.required"    => "Bạn phải nhập số điện thoại",
+            "txtPhoneNumber.numeric"    => "Số điện thoại phải là số",
             "txtBirthday.required"    => "Bạn phải nhập ngày sinh",
             "txtAddress.required"    => "Bạn phải nhập địa chỉ",
+            "txtAddress.max"    => "Địa chỉ không quá 250 kí tự",
     	]);
 
 		$user           = new User;
@@ -70,11 +76,11 @@ class UserController extends Controller
     public function postEditUser(Request $request, $id)
     {
         $this->validate($request,[
-            'txtFullName' => "required|min:2",
+            'txtFullName' => 'required|max:250',
             'txtEmail'     => "required|email|unique:users,email,".$id,
         ],[
-            'txtFullName.required' => "Bạn chưa nhập họ",
-            'txtFullName.min'      => "Họ phải có ít nhất 2 kí tự",
+            'txtFullName.required' => "Bạn chưa nhập tên",
+            'txtFullName.max'      => "Tên không quas 250 kí tự",
             'txtEmail.required'     => "Bạn chưa nhập Email",
             'txtEmail.email'        => "Bạn chưa nhập đúng định dạng Email",
             "txtEmail.unique"       => "Email đã tồn tại",
@@ -122,5 +128,8 @@ class UserController extends Controller
             Auth::guard()->logout();
             return redirect('admin/dang-nhap');
         }
+    }
+    public function getInfoUser(){
+
     }
 }

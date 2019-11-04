@@ -15,14 +15,18 @@ class SupplierController extends Controller
     public function postAddSupplier(Request $request)
     {
     	$this->validate($request,[
-    		"txtSupplierName" => "required|unique:Supplier,name",
-            "txtSupplierAddress" => "required",
-            "txtSupplierPhone" => "required",
+    		"txtSupplierName" => "required|max:250|unique:Supplier,name",
+            "txtSupplierAddress" => "required|max:250",
+            "txtSupplierPhone" => "required|max:11|numeric",
     	],[
     		"txtSupplierName.required" => "Bạn chưa nhập tên nhà cung cấp",
-    		"txtSupplierName.unique" => "Nhà Cung cấp đã tồn tại",
+    		"txtSupplierName.unique" => "Tên nhà Cung cấp đã tồn tại",
+            "txtSupplierName.max" => "Tên nhà cung cấp không quá 250 kí tự",
             "txtSupplierAddress.required" => "Bạn chưa nhập địa chỉ",
+            "txtSupplierAddress.max" => "Địa chỉ nhà cung cấp không quá 250 kí tự",
             "txtSupplierPhone.required" => "Bạn chưa nhập số điện thoại",
+            "txtSupplierPhone.numeric" => "Số điện thoại phải là số",
+            "txtSupplierPhone.max" => "Số điện thoại nhà cung cấp không quá 11 kí tự",
     	]);
 
     	$supplier = new Supplier();
@@ -47,20 +51,19 @@ class SupplierController extends Controller
     public function postEditSupplier($id, Request $request)
     {
         $this->validate($request,[
-            "txtSupplierName" => "required",
-            "txtSupplierAddress" => "required",
-            "txtSupplierPhone" => "required",
+            "txtSupplierName" => "required|max:250|unique:Supplier,name",
+            "txtSupplierAddress" => "required|max:250",
+            "txtSupplierPhone" => "required|max:11|numeric",
         ],[
             "txtSupplierName.required" => "Bạn chưa nhập tên nhà cung cấp",
+            "txtSupplierName.unique" => "Tên nhà Cung cấp đã tồn tại",
+            "txtSupplierName.max" => "Tên nhà cung cấp không quá 250 kí tự",
             "txtSupplierAddress.required" => "Bạn chưa nhập địa chỉ",
+            "txtSupplierAddress.max" => "Địa chỉ nhà cung cấp không quá 250 kí tự",
             "txtSupplierPhone.required" => "Bạn chưa nhập số điện thoại",
+            "txtSupplierPhone.numeric" => "Số điện thoại phải là số",
+            "txtSupplierPhone.max" => "Số điện thoại nhà cung cấp không quá 11 kí tự",
         ]);
-    	$this->validate($request,[
-    		"txtSupplierName" => "required|unique:supplier,name,".$id,
-    	],[
-    		"txtSupplierName.required" => "Bạn chưa nhập tên nhà cung cấp",
-    		"txtSupplierName.unique" => "Nhà cung cấp đã tồn tại",
-    	]);
 
     	$supplier = Supplier::find($id);
         $supplier->name = $request->txtSupplierName;

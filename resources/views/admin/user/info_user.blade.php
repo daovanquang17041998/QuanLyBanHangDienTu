@@ -4,8 +4,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Tài khoản
-                            <small>Thêm</small>
+                        <h1 class="page-header">User
+                            <small>Thông tin</small>
                         </h1>
                     </div>
                     <div class="col-lg-7" style="padding-bottom:120px">

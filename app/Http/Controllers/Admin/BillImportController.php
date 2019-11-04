@@ -70,11 +70,15 @@ class BillImportController extends Controller
     public function postAddDetailBillImport(Request $request,$id)
     {
         $this->validate($request,[
-            "txtPrice" => "required",
-            "txtQuanlity" => "required",
+            "txtPrice" => "required|numeric|max:11",
+            "txtQuanlity" => "required|numeric|max:11",
         ], [
             "txtPrice.required" => "Bạn phải nhập đơn giá",
+            "txtPrice.numeric" => "Đơn giá phải là số",
+            "txtPrice.max" => "Đơn giá không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
+            "txtQuanlity.numeric" => "Số lượng phải là số",
+            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
         $detail_import = new DetailBillImport;
         $detail_import->id_bill_import=$id;
@@ -107,11 +111,15 @@ class BillImportController extends Controller
 
     public function postEditDetailBillImport(Request $request, $id){
         $this->validate($request,[
-            "txtPrice" => "required",
-            "txtQuanlity" => "required",
+            "txtPrice" => "required|numeric|max:11",
+            "txtQuanlity" => "required|numeric|max:11",
         ], [
             "txtPrice.required" => "Bạn phải nhập đơn giá",
+            "txtPrice.numeric" => "Đơn giá phải là số",
+            "txtPrice.max" => "Đơn giá không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
+            "txtQuanlity.numeric" => "Số lượng phải là số",
+            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
 
         $detail_import = DetailBillImport::find($id);

@@ -32,7 +32,7 @@
                                 <input class="form-control" name="txtCateName" placeholder="Nhập tên danh mục" value="{!! old('txtCateName')!!}"/>
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/" class="btn btn-default">Trở về</a>
+                            <a href="admin/danh-muc/danh-sach" class="btn btn-default">Trở về</a>
                             {{csrf_field()}}
                             <form>
                     </div>

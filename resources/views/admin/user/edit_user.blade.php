@@ -4,7 +4,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">User
+                        <h1 class="page-header">Tài khoản
                             <small>Sửa</small>
                         </h1>
                     </div>
@@ -52,8 +52,8 @@
                                     <input name="rdoQuyen" value="2"  type="radio"  @if($user->level==1) checked @endif >Admin
                                 </label>
                             </div>
-                            <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/user/danh-sach" class="btn btn-default">Hủy</a>
+                            <button type="submit" class="btn btn-default">Lưu lại</button>
+                            <a href="admin/user/danh-sach" class="btn btn-default">Trở về</a>
                             {{csrf_field()}}
                         <form>
                     </div>

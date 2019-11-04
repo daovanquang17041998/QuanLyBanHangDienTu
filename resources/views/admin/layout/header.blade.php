@@ -15,7 +15,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="javascript:void(0)"><i class="fa fa-user fa-fw"></i>
+                            <a href="{{url('admin/logout')}}"><i class="fa fa-user fa-fw"></i>
                         @if(Auth::guard()->check())
                             {{Auth::guard()->user()->fullname}}
                             </a>
@@ -44,7 +44,7 @@
                             <a href="{{ route('admin-index') }}"><i class="fa fa-dashboard fa-fw"></i> Trang tổng quan</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"><i class="fa fa-bar-chart-o fa-fw"></i> Danh mục<span class="fa arrow"></span></a>
+                            <a href="javascript:void(0)"><i class="fa fa-cube fa-fw"></i> Danh mục<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{{ route('listdanhmuc') }}">Danh sách</a>
@@ -99,7 +99,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
+                            <a href="javascript:void(0)"><i class="fa fa-users fa-fw"></i> Tài khoản<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="admin/user/danh-sach">Danh sách</a>
