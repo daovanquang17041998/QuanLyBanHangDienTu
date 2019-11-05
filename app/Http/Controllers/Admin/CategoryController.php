@@ -77,6 +77,12 @@ class CategoryController extends Controller
 
     public function getDelCate($id)
     {
+             $product = Product::all();
+             foreach ($product as $products):
+                 if($products->id_category==$id){
+                     return redirect(route('listdanhmuc'))->with('error','Không xóa được danh mục này');
+                 }
+             endforeach;
             $cate = Category::find($id);
             $cate->delete();
             return redirect(route('listdanhmuc'))->with('message','xóa thành công');

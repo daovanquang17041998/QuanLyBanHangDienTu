@@ -74,11 +74,12 @@ class SupplierController extends Controller
     public function getDelSupplier($id)
    {
         $bill_import = BillImport::all();
-        foreach ($bill_import as $bill)
+        foreach ($bill_import as $bill):
         if($bill->id_supplier==$id)
         {
             return redirect('admin/nha-cung-cap/danh-sach')->with('error', 'Không thể xóa nhà cung cấp này');
         }
+        endforeach;
             $supplier = Supplier::find($id);
             $supplier->delete();
             return redirect('admin/nha-cung-cap/danh-sach')->with('message', 'Xóa thành công');
