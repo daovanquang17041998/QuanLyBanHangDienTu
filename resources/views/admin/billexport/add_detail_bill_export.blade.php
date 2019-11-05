@@ -1,6 +1,5 @@
 @extends("admin.layout.master")
 @section("content")
-<!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -56,9 +55,6 @@
                     {{csrf_field()}}
                     <form>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
 @endsection

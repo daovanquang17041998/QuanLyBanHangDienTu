@@ -68,9 +68,10 @@ class PageController extends Controller
     }
     public function postSignup(Request $request){
         $this->validate($request,[
-            'txtEmail' => 'unique:users,email'
+            'txtEmail' => 'email|unique:users,email'
         ],[
             "txtEmail.unique"    => "Email đã tồn tại",
+            "txtEmail.email"    => "Chưa đúng định dạng email",
         ]);
         $user = new User();
         $user->fullname = $request->fullname;
@@ -109,4 +110,5 @@ class PageController extends Controller
             ->orwhere('a.unit_price',$request->key)->get();
         return view('page.search',compact('detail_product'));
     }
+
 }

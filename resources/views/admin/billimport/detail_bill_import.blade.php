@@ -59,8 +59,6 @@
                     </tbody>
                 </table>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
     </div>
 @endsection

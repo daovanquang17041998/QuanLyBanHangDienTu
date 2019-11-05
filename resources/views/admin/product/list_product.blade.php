@@ -31,7 +31,7 @@
                                 <td>{{$product->description}}</td>
                                 <td> @if($product->status==1) Nổi bật @else Bình thường @endif</td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/chi-tiet/them/{{$product->id}}">Thêm</a></td>
-                                <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="admin/san-pham/xoa/{{$product->id}})"  >Xóa</a></td>
+                                <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="admin/san-pham/xoa/{{$product->id}})"  class='btn-del' >Xóa</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/sua/{{$product->id}}">Sửa</a></td>
                                 <td class="center"><i class="fa fa-search fa-fw"></i> <a href="admin/san-pham/chi-tiet/{{$product->id}}">Chi Tiết</a></td>
                             </tr>

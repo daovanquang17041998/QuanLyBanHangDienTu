@@ -1,6 +1,5 @@
 @extends("admin.layout.master")
 @section("content")
-<!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -63,10 +62,13 @@
                         </div>
                         <div class="form-group">
                             <label>Ghi chú</label>
-                            <textarea class="form-control" name="txtNote" placeholder="Nhập ghi chú"></textarea>
+                            <textarea id="note" class="form-control" name="txtNote" placeholder="Nhập ghi chú"></textarea>
+                            <script type="text/javascript" language="javascript">
+                                CKEDITOR.replace('note');
+                            </script>
                         </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/don-hang/danh-sach" class="btn btn-default">Trở về</a>
+                            <a href="admin/don-hang/them" class="btn btn-default">Trở về</a>
                         </div>
                     {{csrf_field()}}
                     <form>

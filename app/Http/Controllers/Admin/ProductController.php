@@ -81,11 +81,6 @@ class ProductController extends Controller
     }
     public function getDelProduct($id)
     {
-        $check = DetailProduct::where('id_product',$id)->get();
-        dd($check->array[1]);
-        if($check){
-            return redirect()->route('listsanpham')->with('loi',"Bạn vui lòng kiểm tra lại giỏ hàng: ");
-        }
         $product = Product::find($id);
         $product->delete();
         return redirect(route('listsanpham'))->with('message','xóa thành công');
@@ -102,19 +97,16 @@ class ProductController extends Controller
     public function postAddDetailProduct(Request $request,$id)
     {
         $this->validate($request,[
-            "txtUnitprice" => "required|numeric|max:11",
-            "txtPromotionprice" => "required|numeric|max:11",
-            "txtQuanlity" => "required|numeric|max:11",
+            "txtUnitprice" => "required|numeric",
+            "txtPromotionprice" => "required|numeric",
+            "txtQuanlity" => "required|numeric",
         ], [
             "txtUnitprice.required" => "Bạn phải nhập đơn giá",
             "txtUnitprice.numeric" => "Đơn giá phải là số",
-            "txtUnitprice.max" => "Đơn giá không quá 11 kí tự",
             "txtPromotionprice.required" => "Bạn phải nhập giá khuyến mãi",
             "txtPromotionprice.numeric" => "Giá khuyến mãi phải là số",
-            "txtPromotionprice.max" => "Giá khuyến mãi không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
             "txtQuanlity.numeric" => "Số lượng phải là số",
-            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
 
         $product = new DetailProduct();
@@ -132,12 +124,12 @@ class ProductController extends Controller
             $get_image->move('uploads/product',$get_name_image);
             $product->image = $get_name_image;
             $product->save();
-            return redirect("admin/san-pham/danh-sach")->with("message","Thêm chi tiết sản phẩm thành công");
+            return redirect("admin/san-pham/chi-tiet/them/".$id)->with("message","Thêm chi tiết sản phẩm thành công");
         }
         else
             $product->image ="";
         $product->save();
-        return redirect("admin/san-pham/chi-tiet")->with("message","Thêm chi tiết sản phẩm thành công");
+        return redirect("admin/san-pham/chi-tiet/".$id)->with("message","Thêm chi tiết sản phẩm thành công");
 
     }
     public function getListDetailProduct($id)
@@ -158,19 +150,16 @@ class ProductController extends Controller
 
     public function postEditDetailProduct(Request $request, $id){
         $this->validate($request,[
-            "txtUnitprice" => "required|numeric|max:11",
-            "txtPromotionprice" => "required|numeric|max:11",
-            "txtQuanlity" => "required|numeric|max:11",
+            "txtUnitprice" => "required|numeric",
+            "txtPromotionprice" => "required|numeric",
+            "txtQuanlity" => "required|numeric",
         ], [
             "txtUnitprice.required" => "Bạn phải nhập đơn giá",
             "txtUnitprice.numeric" => "Đơn giá phải là số",
-            "txtUnitprice.max" => "Đơn giá không quá 11 kí tự",
             "txtPromotionprice.required" => "Bạn phải nhập giá khuyến mãi",
             "txtPromotionprice.numeric" => "Giá khuyến mãi phải là số",
-            "txtPromotionprice.max" => "Giá khuyến mãi không quá 11 kí tự",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
             "txtQuanlity.numeric" => "Số lượng phải là số",
-            "txtQuanlity.max" => "Số lượng không quá 11 kí tự",
         ]);
         $product = DetailProduct::find($id);
         $product->id_color = $request->selectColorId;
@@ -185,17 +174,17 @@ class ProductController extends Controller
             $get_image->move('uploads/product',$get_name_image);
             $product->image = $get_name_image;
             $product->save();
-            return redirect("admin/san-pham/danh-sach")->with("message","Sửa chi tiết sản phẩm thành công");
+            return redirect("admin/san-pham/chi-tiet/sua/".$id)->with("message","Sửa chi tiết sản phẩm thành công");
         }
         else
         $product->image = "".$product->image;
         $product->save();
-        return redirect("admin/san-pham/danh-sach")->with("message","Sửa chi tiết sản phẩm thành công");
+        return redirect("admin/san-pham/chi-tiet/sua/".$id)->with("message","Sửa chi tiết sản phẩm thành công");
     }
     public function getDelDetailProduct($id)
     {
         $product = DetailProduct::find($id);
         $product->delete();
-        return redirect(route('listsanpham'))->with('message','xóa thành công');
+        return redirect("admin/san-pham/danh-sach")->with('message','xóa thành công');
     }
 }

@@ -1,6 +1,6 @@
 @extends("admin.layout.master")
 @section("content")
-<!-- Page Content -->
+
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -39,7 +39,10 @@
                         </div>
                         <div class="form-group">
                             <label>Mô tả</label>
-                            <input class="form-control" name="txtDescription" placeholder="Nhập mô tả" value="{{old('txtDescription')}}"/>
+                            <textarea id="description" class="form-control" name="txtDescription" placeholder="Nhập mô tả" value="{{old('txtDescription')}}"></textarea>
+                            <script type="text/javascript" language="javascript">
+                                CKEDITOR.replace('description');
+                            </script>
                         </div>
                             <div class="form-group">
                                 <label>Trạng thái</label>
@@ -57,9 +60,6 @@
                     {{csrf_field()}}
                     <form>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
-        <!-- /#page-wrapper -->
 @endsection

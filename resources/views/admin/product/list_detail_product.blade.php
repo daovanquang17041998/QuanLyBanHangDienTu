@@ -1,6 +1,5 @@
 @extends('admin.layout.master')
 @section('content')
-<!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
                 <div class="row">
@@ -9,7 +8,6 @@
                             <small>Danh sách</small>
                         </h1>
                     </div>
-                    <!-- /.col-lg-12 -->
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -34,7 +32,7 @@
                                 <td>{{number_format($product->promotion_price)}}</td>
                                 <td>{{$product->quanlity}}</td>
                                 <td>Màu: {{$product->color->name}} Màn hình:  {{$product->screem->name}} Bộ nhớ:  {{$product->memory->name}}</td>
-                                <td class="center"  ><i class="fa fa-trash-o fa-fw"></i> <a href="admin/san-pham/chi-tiet/xoa/{{$product->id}}))">Xóa</a></td>
+                                <td class="center"><i class="fa fa-trash-o fa-fw" ></i><a href="admin/san-pham/chi-tiet/xoa/{{$product->id}}))" class='btn-del'>Xóa</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/san-pham/chi-tiet/sua/{{$product->id}}">Sửa</a></td>
                             </tr>
                             

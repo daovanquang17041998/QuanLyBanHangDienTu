@@ -8,7 +8,6 @@
                             <small>Danh sách</small>
                         </h1>
                     </div>
-                    <!-- /.col-lg-12 -->
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">
@@ -32,8 +31,6 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
         </div>
 @endsection

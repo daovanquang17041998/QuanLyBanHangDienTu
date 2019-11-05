@@ -15,7 +15,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="{{url('admin/logout')}}"><i class="fa fa-user fa-fw"></i>
+                            <a href="{{url('admin/')}}"><i class="fa fa-user fa-fw"></i>
                         @if(Auth::guard()->check())
                             {{Auth::guard()->user()->fullname}}
                             </a>

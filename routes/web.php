@@ -14,6 +14,15 @@ Route::get('dang-ky',['as'=>'dangky', 'uses'=>'PageController@getSignup']);
 
 Route::post('dang-ky',['as'=>'dangky', 'uses'=>'PageController@postSignup']);
 
+Route::group(['prefix'=>'profile'],function (){
+
+    Route::get('thongtin','PageController@getInfoUser');
+
+    Route::get('sua/{id}','PageController@getEditUser');
+
+    Route::post('sua/{id}','PageController@postEditUser');
+});
+
 Route::get('tim-kiem',['as'=>'search', 'uses'=>'PageController@getSearch']);
 
 Route::get('loai-san-pham/{type}',['as'=>'loaisanpham','uses'=>'PageController@getLoaisanpham']);
@@ -192,15 +201,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'loginAdmin']
         Route::post('sua/{id}','UserController@postEditUser');
 
         Route::get('xoa/{id}','UserController@getDelUser');
-    });
-
-    Route::group(['prefix'=>'profile'],function (){
-
-        Route::get('thongtin','UserController@getInfoUser');
-
-        Route::get('sua/{id}','UserController@getEditUser');
-
-        Route::post('sua/{id}','UserController@postEditUser');
     });
 });
 

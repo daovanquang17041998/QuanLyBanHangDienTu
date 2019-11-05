@@ -35,7 +35,7 @@
                     <h4>Đăng kí</h4>
                     <div class="space20">&nbsp;</div>
                     <div class="form-block">
-                        <label for="email">Email address*</label>
+                        <label for="email">Địa chỉ email*</label>
                         <input type="email" name="email" id="email" required>
                     </div>
 
@@ -68,7 +68,7 @@
                         <input type='date' class="form-control" name="birthday" placeholder="Nhập vào ngày sinh" />
                     </div>
                     <div class="form-group">
-                        <label>Avatar</label>
+                        <label>Ảnh đại diện</label>
                         <input type='file' class="form-control" name="avatar" placeholder="Nhập vào ảnh đại diện" />
                     </div>
                     <div class="form-group">
@@ -88,7 +88,7 @@
                         <input type="password" id="phone" name="password" required>
                     </div>
                     <div class="form-block">
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
                     </div>
                 </div>
                 <div class="col-sm-3"></div>
