@@ -58,10 +58,9 @@ class ProductController extends Controller
 
     public function postEditProduct(Request $request, $id){
         $this->validate($request, [
-            "txtName" => "required|max:15|unique:products,name",
+            "txtName" => "required|max:15",
             "txtDescription" => "required|max:250",
         ], [
-            "txtName.unique" => "Tên sản phẩm bị trùng",
             "txtName.max" => "Tên có độ dài không quá 15 kí tự",
             "txtName.required" => "Bạn phải nhập tên sản phẩm",
             "txtDescription.required" => "Bạn phải nhập mô tả",
