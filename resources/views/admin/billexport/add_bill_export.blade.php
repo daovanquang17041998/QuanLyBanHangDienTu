@@ -68,7 +68,7 @@
                             </script>
                         </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/don-hang/them" class="btn btn-default">Trở về</a>
+                            <a href="admin/don-hang/danh-sach" class="btn btn-default">Trở về</a>
                         </div>
                     {{csrf_field()}}
                     <form>

@@ -4,8 +4,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Detail Product
-                            <small>Add</small>
+                        <h1 class="page-header">Chi tiết sản phẩm
+                            <small>Thêm</small>
                         </h1>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data">

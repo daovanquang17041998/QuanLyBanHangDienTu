@@ -25,13 +25,12 @@ class BillExportController extends Controller
         $this->validate($request,[
             "txtAddress" => "required|max:250",
             "txtPhone" => "required|numeric",
-            "txtNote" => "required|max:250",
+            "txtNote" => "max:250",
         ], [
             "txtAddress.required" => "Bạn phải nhập địa chỉ",
             "txtAddress.max" => "Địa chỉ không quá 250 kí tự",
             "txtPhone.required" => "Bạn phải nhập số điện thoại",
             "txtPhone.numeric" => "Số điện thoại phải là số",
-            "txtNote.required" => "Bạn phải nhập ghi chú",
             "txtNote.max" => "Ghi chú không quá 250 kí tự",
         ]);
 
