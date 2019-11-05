@@ -67,11 +67,28 @@ class PageController extends Controller
         return view('page.dang_ky');
     }
     public function postSignup(Request $request){
+
         $this->validate($request,[
-            'txtEmail' => 'email|unique:users,email'
+            'email' => 'required|email|unique:users,email',
+            'fullname' => 'required|max:250',
+            'address' => 'required|max:250',
+            'password' => 'required|max:12|min:6',
+            'phone' => 'required|numeric',
+            'birthday' => 'required',
         ],[
-            "txtEmail.unique"    => "Email đã tồn tại",
-            "txtEmail.email"    => "Chưa đúng định dạng email",
+            "email.unique"    => "Email đã tồn tại",
+            "email.email"    => "Chưa đúng định dạng email",
+            "email.required"    => "Bạn phải nhập email",
+            "fullname.required"    => "Bạn phải nhập tên",
+            "fullname.max"    => "Tên không quá 250 kí tự",
+            "password.required"    => "Bạn phải nhập mật khẩu",
+            "password.min"    => "Mật khẩu ít nhất 6 kí tự",
+            "password.max"    => "Mật khẩu không quá 12 kí tự",
+            "phone.required"    => "Bạn phải nhập số điện thoại",
+            "phone.numeric"    => "Số điện thoại phải là số",
+            "birthday.required"    => "Bạn phải nhập ngày sinh",
+            "address.required"    => "Bạn phải nhập địa chỉ",
+            "address.max"    => "Địa chỉ không quá 250 kí tự",
         ]);
         $user = new User();
         $user->fullname = $request->fullname;

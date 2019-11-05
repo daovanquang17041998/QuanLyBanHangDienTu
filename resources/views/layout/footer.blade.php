@@ -13,10 +13,10 @@
                     <h4 class="widget-title">Theo dõi</h4>
                     <div>
                         <ul>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Thiết kế</a></li>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Thương hiệu</a></li>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Tiếp thị</a></li>
-                            <li><a href="blog_fullwidth_2col.html"><i class="fa fa-chevron-right"></i>Lời khuyên</a></li>
+                            <li><a href="#"><i class="fa fa-chevron-right"></i>Thiết kế</a></li>
+                            <li><a href="#"><i class="fa fa-chevron-right"></i>Thương hiệu</a></li>
+                            <li><a href="#"><i class="fa fa-chevron-right"></i>Tiếp thị</a></li>
+                            <li><a href="#"><i class="fa fa-chevron-right"></i>Lời khuyên</a></li>
                         </ul>
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                     <h4 class="widget-title">Đăng ký bản tin</h4>
                     <form action="#" method="post">
                         <input type="email" name="your_email" placeholder="Địa chỉ email">
-                        <button class="pull-right" type="submit">Đăng ký<i class="fa fa-chevron-right"></i></button>
+                        <a href="#" class="beta-btn primary" style="background-color: #0d6aad; color: white">Đăng ký<i class="fa fa-chevron-right"></i></a>
                     </form>
                 </div>
             </div>

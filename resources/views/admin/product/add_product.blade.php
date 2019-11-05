@@ -47,10 +47,10 @@
                             <div class="form-group">
                                 <label>Trạng thái</label>
                                 <label class="radio-inline">
-                                    <input name="rdoNew" value="1" checked="" type="radio">Mới
+                                    <input name="rdoNew" value="1" checked="" type="radio">Nổi bật
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoNew" value="0" type="radio">Cũ
+                                    <input name="rdoNew" value="0" type="radio">Bình thường
                                 </label>
                             </div>
 

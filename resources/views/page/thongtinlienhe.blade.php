@@ -41,7 +41,7 @@
                         <textarea name="your-message" placeholder="Nội dung"></textarea>
                     </div>
                     <div class="form-block">
-                        <button type="submit" class="beta-btn primary">Gửi tin nhắn<i class="fa fa-chevron-right"></i></button>
+                        <a href="#" class="beta-btn primary">Gửi tin nhắn<i class="fa fa-chevron-right"></i></a>
                     </div>
                 </form>
             </div>

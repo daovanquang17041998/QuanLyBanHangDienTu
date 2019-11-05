@@ -30,7 +30,7 @@
                         <h5>Cơ sở Hà Nội</h5>
                         <p class="font-large">Người quản lý</p>
                         <p>Nguyễn Duy Toản</p>
-                        <a href="single_type_gallery.html">Xem chi tiết<i class="fa fa-chevron-right"></i></a>
+                        <a href="#">Xem chi tiết<i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                         <h5>Cơ sở Hồ Chí Minh</h5>
                         <p class="font-large">Người quản lý</p>
                         <p>Hà Văn Nam</p>
-                        <a href="single_type_gallery.html">Xem chi tiết<i class="fa fa-chevron-right"></i></a>
+                        <a href="#">Xem chi tiết<i class="fa fa-chevron-right"></i></a>
                     </div>
                 </div>
             </div>

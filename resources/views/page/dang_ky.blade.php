@@ -3,11 +3,11 @@
 <div class="inner-header">
     <div class="container">
         <div class="pull-left">
-            <h6 class="inner-title">Đăng kí</h6>
+            <h6 class="inner-title">Đăng ký</h6>
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb">
-                <a href="{{route('trang-chu')}}">Trang chủ</a> / <span>Đăng kí</span>
+                <a href="{{route('trang-chu')}}">Trang chủ</a> / <span>Đăng ký</span>
             </div>
         </div>
         <div class="clearfix"></div>
@@ -16,43 +16,37 @@
 
 <div class="container">
     <div id="content">
-
         <form action="{{route('dangky')}}" method="post" class="beta-form-checkout">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="row">
-                <div class="col-sm-3"></div>
                 @if(count($errors)>0)
                         <div class="alert alert-danger">
                             @foreach($errors ->all() as $err)
-                                {{$err}}
+                                {{$err}}<br>
                             @endforeach
                         </div>
                 @endif
-                @if(Session::has('thanhcong'))
-                    <div class="alert alert-success">{{Session::get('thanhcong')}}</div>
+                @if(Session::has('message'))
+                    <div class="alert alert-success">{{Session::get('message')}}</div>
                 @endif
                 <div class="col-sm-6">
-                    <h4>Đăng kí</h4>
+                    <h4>Thông tin</h4>
                     <div class="space20">&nbsp;</div>
                     <div class="form-block">
-                        <label for="email">Địa chỉ email*</label>
-                        <input type="email" name="email" id="email" required>
-                    </div>
-
-                    <div class="form-block">
                         <label for="your_last_name">Họ tên*</label>
-                        <input type="text" name="fullname" id="your_last_name" required>
+                        <input type="text" name="fullname" id="your_last_name">
                     </div>
-
+                    <div class="form-block">
+                        <label for="email">Địa chỉ email*</label>
+                        <input type="email" name="email" id="email">
+                    </div>
                     <div class="form-block">
                         <label for="adress">Địa chỉ*</label>
-                        <input type="text" name="address" id="adress" value="Street Address" required>
+                        <input type="text" name="address" id="adress" value="Hà nội">
                     </div>
-
-
                     <div class="form-block">
                         <label for="phone">Số điện thoại*</label>
-                        <input type="text" id="phone" name="phone" required>
+                        <input type="text" id="phone" name="phone">
                     </div>
                     <div class="form-group">
                         <label style="margin-right: 20px">Giới tính</label>
@@ -91,7 +85,7 @@
                         <button type="submit" class="btn btn-primary">Đăng ký</button>
                     </div>
                 </div>
-                <div class="col-sm-3"></div>
+                <div class="col-sm-6"></div>
             </div>
         </form>
     </div>
