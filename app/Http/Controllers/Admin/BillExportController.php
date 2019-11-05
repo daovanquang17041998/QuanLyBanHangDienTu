@@ -87,6 +87,12 @@ class BillExportController extends Controller
     }
     public function getDelBillExport($id)
     {
+        $detail_bill_export = DetailBillExport::all();
+        foreach ($detail_bill_export as $detail_bill_exports):
+            if($detail_bill_exports->id_bill_export==$id){
+                return redirect('admin/don-hang/danh-sach')->with('error','Bạn phải xóa chi tiết đơn hàng trước khi xóa đơn hàng này');
+            }
+        endforeach;
         $bill_export = BillExport::find($id);
         $bill_export->delete();
         return redirect('admin/don-hang/danh-sach')->with('message','xóa đơn hàng thành công');

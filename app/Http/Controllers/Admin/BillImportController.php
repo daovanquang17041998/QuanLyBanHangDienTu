@@ -56,6 +56,12 @@ class BillImportController extends Controller
     }
     public function getDelBillImport($id)
     {
+        $detail_bill_import = DetailBillImport::all();
+        foreach ($detail_bill_import as $detail_bill_imports):
+            if($detail_bill_imports->id_bill_import==$id){
+                return redirect('admin/nhap-hang/danh-sach')->with('error','Bạn phải xóa chi tiết hóa đơn nhập trước khi xóa hóa đơn nhập này');
+            }
+        endforeach;
         $bill_import = BillImport::find($id);
         $bill_import->delete();
         return redirect('admin/nhap-hang/danh-sach')->with('message','xóa thành công');
