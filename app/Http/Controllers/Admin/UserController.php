@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\BillExport;
+use App\BillImport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -96,9 +98,21 @@ class UserController extends Controller
     }
     public function getDelUser($id)
     {
+        $bill_import = BillImport::all();
+        foreach ($bill_import as $bill_imports):
+            if($bill_imports->id_user==$id){
+                return redirect('admin/user/danh-sach')->with('error','Không thể xóa tài khoản này');
+            }
+        endforeach;
+        $bill_export = BillExport::all();
+        foreach ($bill_export as $bill_exports):
+            if($bill_exports->id_user==$id){
+                return redirect('admin/user/danh-sach')->with('error','Không thể xóa tài khoản này');
+            }
+        endforeach;
         $user = User::find($id);
         $user->delete();
-        return redirect('admin/user/danh-sach')->with('message','xóa thành công');
+        return redirect('admin/user/danh-sach')->with('message','Xóa thành công');
     }
     public function getAdminLogin()
     {

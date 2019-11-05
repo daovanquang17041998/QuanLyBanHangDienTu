@@ -46,7 +46,7 @@
                                     <input name="rdoNew" value="1" @if($product->status == 1) checked @endif type="radio">Còn hàng
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoNew" value="0" type="radio" @if($product->status == 0) checked="" @endif>Hết hàng
+                                    <input name="rdoNew" value="0" type="radio" @if($product->status == 0) checked @endif>Hết hàng
                                 </label>
                             </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>

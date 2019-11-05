@@ -67,7 +67,7 @@
                                 <input type='text' class="form-control" name="txtAddress" placeholder="Nhập vào địa chỉ" />
                             </div>
                             <div class="form-group">
-                                <label>Avatar</label>
+                                <label>Ảnh đại diện</label>
                                 <input type='file' class="form-control" name="txtAvatar" placeholder="Nhập vào ảnh đại diện" />
                             </div>
                             <div class="form-group">
