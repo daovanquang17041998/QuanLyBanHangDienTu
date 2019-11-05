@@ -46,10 +46,10 @@
                     <div class="form-group">
                         <label>Trạng thái</label>
                         <label class="radio-inline">
-                            <input name="rdoNew" value="{{$bill_export->status}}" checked="" type="radio">Thanh toán
+                            <input name="rdoNew" value="1" {{$bill_export->status == 1 ? 'checked': ''}} type="radio">Thanh toán
                         </label>
                         <label class="radio-inline">
-                            <input name="rdoNew" value="{{$bill_export->status}}" type="radio">Chưa thanh toán
+                            <input name="rdoNew" value="0" {{$bill_export->status == 0 ? 'checked': ''}}type="radio">Chưa thanh toán
                         </label>
                     </div>
                     <div class="form-group">

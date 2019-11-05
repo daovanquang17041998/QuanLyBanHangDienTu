@@ -45,10 +45,10 @@
                              <div class="form-group">
                                 <label style="margin-right: 20px">Quyền hạn</label>
                                 <label class="radio-inline">
-                                    <input name="rdoQuyen" value="0" type="radio" @if($user->level==0) checked @endif>Người dùng
+                                    <input name="rdoQuyen" value="0" type="radio" {{$user->level==0 ? 'checked': ''}}>Người dùng
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="rdoQuyen" value="2"  type="radio"  @if($user->level==1) checked @endif >Admin
+                                    <input name="rdoQuyen" value="1"  type="radio" {{$user->level==1 ? 'checked': ''}}>Admin
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">Lưu lại</button>

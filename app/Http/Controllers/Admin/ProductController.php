@@ -26,12 +26,11 @@ class ProductController extends Controller
     {
         $this->validate($request, [
             "txtName" => "required|max:15|unique:products,name",
-            "txtDescription" => "required|max:250",
+            "txtDescription" => "max:250",
         ], [
             "txtName.unique" => "Tên sản phẩm bị trùng",
             "txtName.max" => "Tên có độ dài không quá 15 kí tự",
             "txtName.required" => "Bạn phải nhập tên sản phẩm",
-            "txtDescription.required" => "Bạn phải nhập mô tả",
             "txtDescription.max" => "Mô tả có độ dài không quá 250 kí tự",
         ]);
         $product = new Product;
@@ -81,6 +80,12 @@ class ProductController extends Controller
     }
     public function getDelProduct($id)
     {
+        $detail_product = DetailProduct::all();
+        foreach ($detail_product as $detail_products):
+            if ($detail_products->id_product==$id){
+                return redirect(route('listsanpham'))->with('error','Không xóa được sản phẩm này');
+            }
+        endforeach;
         $product = Product::find($id);
         $product->delete();
         return redirect(route('listsanpham'))->with('message','xóa thành công');

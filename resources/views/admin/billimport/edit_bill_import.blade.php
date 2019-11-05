@@ -45,10 +45,10 @@
                     <div class="form-group">
                         <label>Phương thức thanh toán</label>
                         <label class="radio-inline">
-                            <input name="txtPayment" value="1" checked="" type="radio">Trực tiếp
+                            <input name="txtPayment" value="1" {{$bill_export->payment == 1 ? 'checked': ''}} type="radio">Trực tiếp
                         </label>
                         <label class="radio-inline">
-                            <input name="txtPayment" value="0" type="radio">Chuyển khoản
+                            <input name="txtPayment" value="0" {{$bill_export->payment == 0 ? 'checked': ''}}type="radio">Chuyển khoản
                         </label>
                     </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>
