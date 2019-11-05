@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\BillExport;
+use App\BillImport;
 use App\Supplier;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -71,8 +73,15 @@ class SupplierController extends Controller
     }
     public function getDelSupplier($id)
    {
-        $supplier = Supplier::find($id);
-        $supplier->delete();
-        return redirect('admin/nha-cung-cap/danh-sach')->with('message','Xóa thành công');
+        $bill_import = BillImport::all();
+        foreach ($bill_import as $bill)
+        if($bill->id_supplier==$id)
+        {
+            return redirect('admin/nha-cung-cap/danh-sach')->with('error', 'Không thể xóa nhà cung cấp này');
+        }
+            $supplier = Supplier::find($id);
+            $supplier->delete();
+            return redirect('admin/nha-cung-cap/danh-sach')->with('message', 'Xóa thành công');
+
    }
 }
