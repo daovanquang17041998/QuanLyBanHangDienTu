@@ -62,9 +62,10 @@ class BillImportController extends Controller
     }
     public function getAddDetailBillImport($id)
     {
+        $id_detail_product = DetailProduct::find($id);
         $detail_product = DetailProduct::all();
         $bill_import =  BillImport::all();
-        return view('admin.billimport.add_detail_bill_import',compact('detail_product','bill_import'));
+        return view('admin.billimport.add_detail_bill_import',compact('detail_product','bill_import','id_detail_product'));
     }
 
     public function postAddDetailBillImport(Request $request,$id)
@@ -88,7 +89,7 @@ class BillImportController extends Controller
         $sl = DetailProduct::find($request->selectDetailProductId);
         $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice * $request->txtQuanlity]);
         $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
-        return redirect("admin/nhap-hang/danh-sach")->with("message","Thêm chi tiết hóa đơn nhập thành công");
+        return redirect("admin/nhap-hang/chi-tiet/them/".$id)->with("message","Thêm chi tiết hóa đơn nhập thành công");
 
     }
     public function getListDetailBillImport($id)
@@ -129,7 +130,7 @@ class BillImportController extends Controller
         $quan= DB::table('detail_product')->where('id',$pro)->update(['quanlity'=> $detail_import->detail_product->quanlity + $detail_import->quanlity - $cu]);
         $total = DB::table('bill_import')->where('id',$bill)->update(['totalmoney'=> $detail_import->bill_import->totalmoney - $gia_cu*$cu + $detail_import->price*$detail_import->quanlity]);
         $detail_import->save();
-        return redirect("admin/nhap-hang/danh-sach")->with("message","Sửa chi tiết nhập hàng thành công");
+        return redirect("admin/nhap-hang/chi-tiet/sua/".$id)->with("message","Sửa chi tiết nhập hàng thành công");
     }
         public function getDelDetailBillImport($id)
     {

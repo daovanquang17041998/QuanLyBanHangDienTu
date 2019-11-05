@@ -94,9 +94,10 @@ class BillExportController extends Controller
     }
     public function getAddDetailBillExport($id)
     {
+        $id_detail_export = BillExport::find($id);
         $detail_product = DetailProduct::all();
         $bill_export =  BillExport::all();
-        return view('admin.billexport.add_detail_bill_export',compact('detail_product','bill_export'));
+        return view('admin.billexport.add_detail_bill_export',compact('detail_product','bill_export','id_detail_export'));
     }
 
     public function postAddDetailBillExport(Request $request,$id)
@@ -121,7 +122,7 @@ class BillExportController extends Controller
         $sl = DetailProduct::find($request->selectDetailProductId);
         $quantity = DB::table('bill_export')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice * $request->txtQuanlity]);
         $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
-        return redirect("admin/don-hang/danh-sach")->with("message","Thêm chi tiết hóa đơn bán thành công");
+        return redirect("admin/don-hang/chi-tiet/them/".$id)->with("message","Thêm chi tiết hóa đơn bán thành công");
 
     }
    	public function getListDetailBillExport($id)

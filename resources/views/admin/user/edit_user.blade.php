@@ -18,12 +18,11 @@
                                 @endforeach
                             </div>
                         @endif
-                        <!-- In Thông báo -->
-                        @if(session('thongbao'))
+                        @if(session('message'))
                             <div class="alert alert-success">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <strong>Success</strong>
-                                {{session('thongbao')}}
+                                {{session('message')}}
                             </div>
                         @endif
                         @if(session('error'))

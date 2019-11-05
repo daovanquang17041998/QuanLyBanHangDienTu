@@ -35,9 +35,7 @@
                         <div class="form-group">
                             <label>Số hóa đơn bán</label>
                             <select class="form-control" name="selectBillExportId">
-                                @foreach($bill_export as $bill_exports)
-                                    <option value='{{$bill_exports->id}}'>{{$bill_exports->id}}</option>
-                                @endforeach
+                                    <option value='{{$id_detail_export->id}}'>{{$id_detail_export->id}}</option>
                             </select>
                         </div>
                         <div class="form-group">

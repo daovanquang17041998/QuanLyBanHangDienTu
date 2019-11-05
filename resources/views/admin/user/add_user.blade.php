@@ -18,12 +18,11 @@
                                 @endforeach
                             </div>
                         @endif
-                        <!-- In Thông báo -->
-                        @if(session('thongbao'))
+                        @if(session('message'))
                             <div class="alert alert-success">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <strong>Success</strong>
-                                {{session('thongbao')}}
+                                {{session('message')}}
                             </div>
                         @endif
                         @if(session('error'))
@@ -90,7 +89,7 @@
                                 </label>
                             </div>
                             <button type="submit" class="btn btn-default">Thêm</button>
-                            <a href="admin/" class="btn btn-default">Trở về</a>
+                            <a href="admin/user/danh-sach" class="btn btn-default">Trở về</a>
                             {{csrf_field()}}
                         <form>
                     </div>

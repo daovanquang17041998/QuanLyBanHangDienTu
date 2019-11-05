@@ -35,9 +35,7 @@
                         <div class="form-group">
                             <label>Số hóa đơn nhập</label>
                             <select class="form-control" name="selectBillImportId">
-                                @foreach($bill_import as $bill_imports)
-                                    <option value='{{$bill_imports->id}}'>{{$bill_imports->id}}</option>
-                                @endforeach
+                                    <option value='{{$id_detail_product->id}}'>{{$id_detail_product->id}}</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -50,7 +48,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-default">Thêm</button>
-                        <a href="admin/nhap-hang/chi-tiet/{$id}" class="btn btn-default">Trở về</a>
+                        <a href="admin/nhap-hang/chi-tiet/{{$id_detail_product->id}}" class="btn btn-default">Trở về</a>
                         </div>
                     {{csrf_field()}}
                     <form>
