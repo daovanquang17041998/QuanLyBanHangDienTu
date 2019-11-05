@@ -26,7 +26,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <strong>Warning!!</strong>
                                 @foreach($errors->all() as $err)
-                                    {{$err}}<br>
+                                    <br>{{$err}}
                                 @endforeach
                             </div>
                         @endif
@@ -44,7 +44,7 @@
                         @endif
                         <div class="form-block">
                             <label for="name">Họ tên*</label>
-                            <input type="text" id="name" name="name" value="{{get_data_user('web','fullname')}}" required>
+                            <input type="text" id="name" name="name" value="{{get_data_user('web','fullname')}}">
                         </div>
                         <div class="form-block">
                             <label for="gender">Giới tính</label>
@@ -55,12 +55,12 @@
                         </div>
                         <div class="form-block">
                             <label for="address">Địa chỉ*</label>
-                            <input type="text" id="address" name="address" value="{{get_data_user('web','address')}}" required>
+                            <input type="text" id="address" name="address" value="{{get_data_user('web','address')}}">
                         </div>
 
                         <div class="form-block">
                             <label for="phone">Điện thoại*</label>
-                            <input type="text" id="phone" name="phone" value="{{get_data_user('web','phone')}}" required >
+                            <input type="text" id="phone" name="phone" value="{{get_data_user('web','phone')}}">
                         </div>
 
                         <div class="form-block">

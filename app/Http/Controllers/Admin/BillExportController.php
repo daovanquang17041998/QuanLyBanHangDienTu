@@ -62,13 +62,12 @@ class BillExportController extends Controller
         $this->validate($request,[
             "txtAddress" => "required|max:250",
             "txtPhone" => "required|numeric",
-            "txtNote" => "required|max:250",
+            "txtNote" => "max:250",
         ], [
             "txtAddress.required" => "Bạn phải nhập địa chỉ",
             "txtAddress.max" => "Địa chỉ không quá 250 kí tự",
             "txtPhone.required" => "Bạn phải nhập số điện thoại",
             "txtPhone.numeric" => "Số điện thoại phải là số",
-            "txtNote.required" => "Bạn phải nhập ghi chú",
             "txtNote.max" => "Ghi chú không quá 250 kí tự",
         ]);
 
@@ -108,11 +107,8 @@ class BillExportController extends Controller
     public function postAddDetailBillExport(Request $request,$id)
     {
         $this->validate($request,[
-            "txtPrice" => "required|numeric",
             "txtQuanlity" => "required|numeric",
         ], [
-            "txtPrice.required" => "Bạn phải nhập giá",
-            "txtPrice.numeric" => "Giá phải là số",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
             "txtQuanlity.numeric" => "Số lượng phải là số",
         ]);
@@ -120,12 +116,13 @@ class BillExportController extends Controller
         $detail_export = new DetailBillExport();
         $detail_export->id_detail_product = $request->selectDetailProductId;
         $detail_export->id_bill_export = $id;
-        $detail_export->price = $request->txtPrice;
+        $id_detail_product = DetailProduct::find( $request->selectDetailProductId);
+        $detail_export->price = $id_detail_product->promotion_price;
         $detail_export->quanlity = $request->txtQuanlity;
         $detail_export->save();
         $price = BillExport::find($id);
         $sl = DetailProduct::find($request->selectDetailProductId);
-        $quantity = DB::table('bill_export')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice * $request->txtQuanlity]);
+        $gia = DB::table('bill_export')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $id_detail_product->promotion_price * $request->txtQuanlity]);
         $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
         return redirect("admin/don-hang/chi-tiet/them/".$id)->with("message","Thêm chi tiết hóa đơn bán thành công");
 

@@ -68,13 +68,12 @@ class CartController extends Controller
         }
         else{
             $this->validate($request,[
-                "note" => "required",
-                "phone" => "required",
+                "phone" => "required|numeric",
                 "address" => "required",
                 "name" => "required",
             ], [
-                "note.required" => "Bạn phải nhập ghi chú",
                 "phone.required" => "Bạn phải nhập số điện thoại",
+                "phone.numeric"    => "Số điện thoại phải là số",
                 "address.required" => "Bạn phải nhập địa chỉ",
                 "name.required" => "Bạn phải nhập họ tên",
             ]);

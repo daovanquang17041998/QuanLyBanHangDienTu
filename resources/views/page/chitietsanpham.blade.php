@@ -63,6 +63,9 @@
                         @foreach($sanpham_tuongtu as $sptt)
                         <div class="col-sm-4">
                             <div class="single-item">
+                                @if($sptt->promotion_price!=0)
+                                    <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                                @endif
                                 <div class="single-item-header">
                                     <a href="{{route('chitietsanpham',$sptt->id)}}"><img src="uploads/product/{{$sptt->image}}" alt="" height="230px" width="180px"></a>
                                 </div>

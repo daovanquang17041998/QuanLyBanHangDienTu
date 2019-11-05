@@ -9,20 +9,20 @@
                         </h1>
                     </div>
                         @if(session('message'))
-                            <div class="alert alert-success">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <strong>Success</strong>
-                                {{session('message')}}
-                            </div>
-                        @endif
-                        @if(session('error'))
-                            <div class="alert alert-danger">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                <strong>Warning</strong>
-                                {{session('error')}}
-                            </div>
-                        @endif
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Success</strong>
+                        {{session('message')}}
                     </div>
+                @endif
+                @if(session('error'))
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        <strong>Warning</strong>
+                        {{session('error')}}
+                    </div>
+                @endif
+            </div>
                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr align="center">

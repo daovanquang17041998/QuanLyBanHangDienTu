@@ -33,6 +33,7 @@
                                 <th>Ngày mua</th>
                                 <th>Phương thức thanh toán</th>
                                 <th>Tổng tiền</th>
+                                <th>Trạng thái</th>
                                 <th>Thêm</th>
                                 <th>Xóa</th>
                                 <th>Sửa</th>
@@ -70,6 +71,13 @@
                                 <td>
                                    {{number_format($bill->totalmoney)}}<u>đ</u>
                                 </td>
+                                <td><?php
+                                    if($bill->status)
+                                        echo "Đã thanh toán";
+                                    else{
+                                        echo "Chưa thanh toán";
+                                    }
+                                    ?></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/don-hang/chi-tiet/them/{{$bill->id}}">Thêm</a></td>
                                 <td class="center"><i class="fa fa-trash-o fa-fw "></i><a href="admin/don-hang/xoa/{{$bill->id}}" class='btn-del'> Xoá</a></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="admin/don-hang/sua/{{$bill->id}}">Sửa</a></td>

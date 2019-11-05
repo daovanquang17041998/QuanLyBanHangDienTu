@@ -46,10 +46,10 @@
                     <div class="form-group">
                         <label>Trạng thái</label>
                         <label class="radio-inline">
-                            <input name="rdoNew" value="1" {{$bill_export->status == 1 ? 'checked': ''}} type="radio">Thanh toán
+                            <input name="rdoNew" value="1" @if($bill_export->status == 1) checked @endif type="radio">Đã thanh toán
                         </label>
                         <label class="radio-inline">
-                            <input name="rdoNew" value="0" {{$bill_export->status == 0 ? 'checked': ''}}type="radio">Chưa thanh toán
+                            <input name="rdoNew" value="0" @if($bill_export->status == 0) checked @endif type="radio">Chưa thanh toán
                         </label>
                     </div>
                     <div class="form-group">
@@ -62,7 +62,10 @@
                     </div>
                     <div class="form-group">
                         <label>Ghi chú</label>
-                        <textarea class="form-control" name="txtNote" placeholder="Nhập ghi chú">{{$bill_export->note}}</textarea>
+                        <textarea id="note" class="form-control" name="txtNote" placeholder="Nhập ghi chú">{{$bill_export->note}}</textarea>
+                        <script type="text/javascript" language="javascript">
+                            CKEDITOR.replace('note');
+                        </script>
                     </div>
                     <button type="submit" class="btn btn-default" name='ok'>Lưu lại</button>
                     <a href="admin/don-hang/danh-sach" class="btn btn-default">Trở về</a>

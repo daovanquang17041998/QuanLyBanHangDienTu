@@ -38,10 +38,6 @@
                                     <option value='{{$id_detail_export->id}}'>{{$id_detail_export->id}}</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Đơn giá</label>
-                            <input class="form-control" name="txtPrice" placeholder="Nhập đơn giá" value="{{old('txtPrice')}}"/>
-                        </div>
                             <div class="form-group">
                                 <label>Số lượng</label>
                                 <input class="form-control" name="txtQuanlity" placeholder="Nhập số lượng" value="{{old('txtQuanlity')}}"/>

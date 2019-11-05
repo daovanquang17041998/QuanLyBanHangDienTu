@@ -2,6 +2,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Color;
+use App\DetailBillExport;
+use App\DetailBillImport;
 use App\DetailProduct;
 use App\Memory;
 use App\Screem;
@@ -187,6 +189,18 @@ class ProductController extends Controller
     }
     public function getDelDetailProduct($id)
     {
+        $detail_bill_import = DetailBillImport::all();
+        foreach ($detail_bill_import as $detail_bill_imports):
+            if($detail_bill_imports->id_detail_product==$id){
+                return redirect("admin/san-pham/danh-sach")->with('error','Không thể xóa chi tiết sản phẩm này');
+            }
+        endforeach;
+        $detail_bill_export = DetailBillExport::all();
+        foreach ($detail_bill_export as $detail_bill_exports):
+            if($detail_bill_exports->id_detail_product==$id){
+                return redirect("admin/san-pham/danh-sach")->with('error','Không thể xóa chi tiết sản phẩm này');
+            }
+        endforeach;
         $product = DetailProduct::find($id);
         $product->delete();
         return redirect("admin/san-pham/danh-sach")->with('message','xóa thành công');
