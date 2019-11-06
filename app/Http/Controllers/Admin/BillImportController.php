@@ -86,12 +86,17 @@ class BillImportController extends Controller
         $detail_import->id_bill_import=$id;
         $detail_import->id_detail_product = $request->selectDetailProductId;
         $id_detail_product = DetailProduct::find( $request->selectDetailProductId);
-        $detail_import->price = $id_detail_product->promotion_price;
+        if($id_detail_product->promotion_price){
+            $detail_import->price = $id_detail_product->promotion_price;
+        }
+        else{
+            $detail_import->price = $id_detail_product->unit_price;
+        }
         $detail_import->quanlity = $request->txtQuanlity;
         $detail_import->save();
         $price = BillImport::find($id);
         $sl = DetailProduct::find($request->selectDetailProductId);
-        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $id_detail_product->promotion_price * $request->txtQuanlity]);
+        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney +  $detail_import->price * $request->txtQuanlity]);
         $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
         return redirect("admin/nhap-hang/chi-tiet/them/".$id)->with("message","Thêm chi tiết hóa đơn nhập thành công");
 
@@ -125,7 +130,12 @@ class BillImportController extends Controller
         $gia_cu = $detail_import->price;
         $detail_import->id_detail_product = $request->selectDetailBillImportId;
         $id_detail_product = DetailProduct::find( $request->selectDetailBillImportId);
-        $detail_import->price = $id_detail_product->promotion_price;
+        if($id_detail_product->promotion_price){
+            $detail_import->price = $id_detail_product->promotion_price;
+        }
+        else{
+            $detail_import->price = $id_detail_product->unit_price;
+        }
         $detail_import->quanlity = $request->txtQuanlity;
         $pro = $detail_import->detail_product->id;
         $bill = $detail_import->bill_import->id;

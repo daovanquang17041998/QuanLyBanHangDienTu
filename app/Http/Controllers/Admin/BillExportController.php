@@ -117,12 +117,17 @@ class BillExportController extends Controller
         $detail_export->id_detail_product = $request->selectDetailProductId;
         $detail_export->id_bill_export = $id;
         $id_detail_product = DetailProduct::find( $request->selectDetailProductId);
-        $detail_export->price = $id_detail_product->promotion_price;
+        if($id_detail_product->promotion_price){
+            $detail_export->price = $id_detail_product->promotion_price;
+        }
+        else{
+            $detail_export->price = $id_detail_product->unit_price;
+        }
         $detail_export->quanlity = $request->txtQuanlity;
         $detail_export->save();
         $price = BillExport::find($id);
         $sl = DetailProduct::find($request->selectDetailProductId);
-        $gia = DB::table('bill_export')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $id_detail_product->promotion_price * $request->txtQuanlity]);
+        $gia = DB::table('bill_export')->where('id',$id)->update(['totalmoney'=> $price->totalmoney +  $detail_export->price * $request->txtQuanlity]);
         $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
         return redirect("admin/don-hang/chi-tiet/them/".$id)->with("message","Thêm chi tiết hóa đơn bán thành công");
 
@@ -155,12 +160,17 @@ class BillExportController extends Controller
         $gia_cu = $detail_export->price;
         $detail_export->id_detail_product = $request->selectDetailBillExportId;
         $id_detail_product = DetailProduct::find( $request->selectDetailBillExportId);
-        $detail_export->price = $id_detail_product->promotion_price;
+        if($id_detail_product->promotion_price){
+            $detail_export->price = $id_detail_product->promotion_price;
+        }
+        else{
+            $detail_export->price = $id_detail_product->unit_price;
+        }
         $detail_export->quanlity = $request->txtQuanlity;
         $pro = $detail_export->detail_product->id;
         $bill = $detail_export->bill_export->id;
         $quan= DB::table('detail_product')->where('id',$pro)->update(['quanlity'=> $detail_export->detail_product->quanlity + $cu - $request->txtQuanlity]);
-        $total = DB::table('bill_export')->where('id',$bill)->update(['totalmoney'=> $detail_export->bill_export->totalmoney - $gia_cu*$cu + $request->txtQuanlity*$id_detail_product->promotion_price]);
+        $total = DB::table('bill_export')->where('id',$bill)->update(['totalmoney'=> $detail_export->bill_export->totalmoney - $gia_cu*$cu + $request->txtQuanlity*$detail_export->price]);
         $detail_export->save();
         return redirect("admin/don-hang/danh-sach")->with("message","Sửa chi tiết đơn hàng thành công");
     }
