@@ -83,7 +83,7 @@
                     <div class="form-group">
                         <label>Ảnh đại diện</label>
                         <img src="../public/uploads/users/{{Auth::user()->avatar}}" height="100" width="100">
-                        <input type="file" class="form-control" name="avatar" placeholder="Nhập hình đại diện" value="{!! Auth::user()->avatar !!}"/>
+                        <input type="file" class="form-control" name="avatar" placeholder="Nhập hình đại diện" value="{{Auth::user()->avatar}}"/>
                     </div>
                     <div class="form-block">
                         <button type="submit" class="btn btn-primary">Lưu</button>
