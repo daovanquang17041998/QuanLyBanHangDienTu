@@ -48,6 +48,14 @@
                         <input type="text" name="fullname" id="your_last_name" value="{!! Auth::user()->fullname!!}">
                     </div>
                     <div class="form-block">
+                        <label for="phone">Mật khẩu*</label>
+                        <input type="password" id="phone" name="password">
+                    </div>
+                    <div class="form-block">
+                        <label for="phone">Nhập lại Mật khẩu*</label>
+                        <input type="password" id="phone" name="repassword">
+                    </div>
+                    <div class="form-block">
                         <label for="email">Địa chỉ email*</label>
                         <input type="email" name="email" id="email" value="{!! Auth::user()->email!!}">
                     </div>
@@ -76,10 +84,6 @@
                         <label>Ảnh đại diện</label>
                         <img src="../public/uploads/users/{{Auth::user()->avatar}}" height="100" width="100">
                         <input type="file" class="form-control" name="avatar" placeholder="Nhập hình đại diện" value="{!! Auth::user()->avatar !!}"/>
-                    </div>
-                    <div class="form-block">
-                        <label for="phone">Mật khẩu*</label>
-                        <input type="password" id="phone" name="password">
                     </div>
                     <div class="form-block">
                         <button type="submit" class="btn btn-primary">Lưu</button>

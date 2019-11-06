@@ -34,16 +34,20 @@
                         @endif
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label>Họ tên</label>
+                                <label>Họ tên*</label>
                                 <input class="form-control" name="txtFullName" placeholder="Điền vào họ và tên User" value="{!! old('txtFullName') !!}"/>
                             </div>
                             <div class="form-group">
-                                <label>Email</label>
+                                <label>Email*</label>
                                 <input type='email' class="form-control" name="txtEmail" placeholder="Nhập vào Email"  value="{{ old('txtEmail') }}"/>
                             </div> 
                             <div class="form-group">
-                                <label>Mật khẩu</label>
+                                <label>Mật khẩu*</label>
                                 <input type='password' class="form-control" name="txtPass" placeholder="Nhập vào Mật khẩu" />
+                            </div>
+                            <div class="form-group">
+                                <label>Nhập lại Mật khẩu*</label>
+                                <input type='password' class="form-control" name="repassword" placeholder="Nhập lại Mật khẩu" />
                             </div>
                             <div class="form-group">
                                 <label style="margin-right: 20px">Giới tính</label>
@@ -55,15 +59,15 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <label>Số điện thoại</label>
+                                <label>Số điện thoại*</label>
                                 <input type='number' class="form-control" name="txtPhoneNumber" placeholder="Nhập vào số điện thoại" />
                             </div>
                             <div class="form-group">
-                                <label>Ngày sinh</label>
+                                <label>Ngày sinh*</label>
                                 <input type='date' class="form-control" name="txtBirthday" placeholder="Nhập vào ngày sinh" />
                             </div>
                             <div class="form-group">
-                                <label>Địa chỉ</label>
+                                <label>Địa chỉ*</label>
                                 <input type='text' class="form-control" name="txtAddress" placeholder="Nhập vào địa chỉ" />
                             </div>
                             <div class="form-group">

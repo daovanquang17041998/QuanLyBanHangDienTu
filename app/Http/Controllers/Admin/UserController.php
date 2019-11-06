@@ -22,6 +22,7 @@ class UserController extends Controller
             'txtFullName' => 'required|max:250',
             'txtAddress' => 'required|max:250',
             'txtPass' => 'required|max:12|min:6',
+            'repassword'=>'required|same:txtPass|min:6|max:12',
             'txtPhoneNumber' => 'required|numeric',
             'txtBirthday' => 'required',
     	],[
@@ -33,6 +34,10 @@ class UserController extends Controller
             "txtPass.required"    => "Bạn phải nhập mật khẩu",
             "txtPass.min"    => "Mật khẩu ít nhất 6 kí tự",
             "txtPass.max"    => "Mật khẩu không quá 12 kí tự",
+            "repassword.required"    => "Bạn phải nhập lại mật khẩu",
+            "repassword.same"    => "Mật khẩu không khớp nhau",
+            "repassword.min"    => "Nhập lại mật khẩu ít nhất 6 kí tự",
+            "repassword.max"    => "Nhập lại mật khẩu không quá 12 kí tự",
             "txtPhoneNumber.required"    => "Bạn phải nhập số điện thoại",
             "txtPhoneNumber.numeric"    => "Số điện thoại phải là số",
             "txtBirthday.required"    => "Bạn phải nhập ngày sinh",
