@@ -21,6 +21,10 @@
                             </a>
                         </li>
                         <li class="divider"></li>
+                        <li>
+                            <a href="{{route('trang-chu')}}"><i class="fa fa-users fa-fw"></i>Trang người dùng</a>
+                        </li>
+                        <li class="divider"></li>
                         <li><a href="{{url('admin/logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                         @endif

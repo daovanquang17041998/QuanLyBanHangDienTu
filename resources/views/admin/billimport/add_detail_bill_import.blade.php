@@ -28,7 +28,7 @@
                             <label>Tên sản phẩm</label><br>
                             <select class="form-control" name="selectDetailProductId">
                                 @foreach($detail_product as $detail_products)
-                                    <option value='{{$detail_products->id}}'>{{$detail_products->product->name}}</option>
+                                    <option value='{{$detail_products->id}}'>{{$detail_products->product->name.'/ '.$detail_products->color->name.'/ '.$detail_products->memory->name.'/ '.$detail_products->screem->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -37,10 +37,6 @@
                             <select class="form-control" name="selectBillImportId">
                                     <option value='{{$id_detail_product->id}}'>{{$id_detail_product->id}}</option>
                             </select>
-                        </div>
-                        <div class="form-group">
-                            <label>Đơn giá</label>
-                            <input class="form-control" name="txtPrice" placeholder="Nhập đơn giá" value="{{old('txtPrice')}}"/>
                         </div>
                             <div class="form-group">
                                 <label>Số lượng</label>
@@ -51,7 +47,7 @@
                         <a href="admin/nhap-hang/chi-tiet/{{$id_detail_product->id}}" class="btn btn-default">Trở về</a>
                         </div>
                     {{csrf_field()}}
-                    <form>
+                    </form>
                 </div>
             </div>
         </div>

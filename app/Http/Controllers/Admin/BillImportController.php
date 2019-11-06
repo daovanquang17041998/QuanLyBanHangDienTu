@@ -77,23 +77,21 @@ class BillImportController extends Controller
     public function postAddDetailBillImport(Request $request,$id)
     {
         $this->validate($request,[
-            "txtPrice" => "required|numeric",
             "txtQuanlity" => "required|numeric",
         ], [
-            "txtPrice.required" => "Bạn phải nhập đơn giá",
-            "txtPrice.numeric" => "Đơn giá phải là số",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
             "txtQuanlity.numeric" => "Số lượng phải là số",
         ]);
         $detail_import = new DetailBillImport;
         $detail_import->id_bill_import=$id;
         $detail_import->id_detail_product = $request->selectDetailProductId;
-        $detail_import->price = $request->txtPrice;
+        $id_detail_product = DetailProduct::find( $request->selectDetailProductId);
+        $detail_import->price = $id_detail_product->promotion_price;
         $detail_import->quanlity = $request->txtQuanlity;
         $detail_import->save();
         $price = BillImport::find($id);
         $sl = DetailProduct::find($request->selectDetailProductId);
-        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $request->txtPrice * $request->txtQuanlity]);
+        $quantity = DB::table('bill_import')->where('id',$id)->update(['totalmoney'=> $price->totalmoney + $id_detail_product->promotion_price * $request->txtQuanlity]);
         $soluong = DB::table('detail_product')->where('id',$request->selectDetailProductId)->update(['quanlity'=> $sl->quanlity + $request->txtQuanlity]);
         return redirect("admin/nhap-hang/chi-tiet/them/".$id)->with("message","Thêm chi tiết hóa đơn nhập thành công");
 

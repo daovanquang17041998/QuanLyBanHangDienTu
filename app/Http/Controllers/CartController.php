@@ -8,6 +8,7 @@ use App\DetailProduct;
 use App\User;
 use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class CartController extends Controller
@@ -24,6 +25,16 @@ class CartController extends Controller
                'image'=> $detail->image
         )
        ]);
+        $userId = auth()->user()->id;
+        \Cart::session($userId)->add([
+            'id'=>$id,
+            'name'=> $detail->product->name,
+            'quantity'=> 1,
+            'price'=> $detail->promotion_price,
+            'attributes' => array(
+                'image'=> $detail->image
+            )
+        ]);
        return redirect()->back();
     }
 

@@ -28,7 +28,7 @@
                             <label>Tên sản phẩm</label><br>
                             <select class="form-control" name="selectDetailProductId">
                                 @foreach($detail_product as $detail_products)
-                                    <option value='{{$detail_products->id}}'>{{$detail_products->product->name}}</option>
+                                    <option value='{{$detail_products->id}}'>{{$detail_products->product->name.'/ '.$detail_products->color->name.'/ '.$detail_products->memory->name.'/ '.$detail_products->screem->name}}</option>
                                 @endforeach
                             </select>
                         </div>
