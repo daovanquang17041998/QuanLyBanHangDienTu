@@ -105,12 +105,11 @@
                                            Cửa hàng sẽ gửi hàng đến địa chỉ của bạn. Bạn xem hàng rồi thanh toán cho nhân viên cửa hàng.
                                         </div>
                                     </li>
-
                                     <li class="payment_method_cheque">
                                         <input id="payment_method_cheque" type="radio" class="input-radio" name="payment" value="0" data-order_button_text="">
                                         <label for="payment_method_cheque">Chuyển khoản </label>
-                                        <div class="payment_box payment_method_cheque" style="display: none;">
-                                            Vui lòng gửi séc của bạn đến Trọng Quang Mobie, Số 3, Huyện Sóc Sơn, Thành phố Hà Nội.
+                                        <div class="payment_box payment_method_cheque" style="display: block;">
+                                            Bạn vui lòng chuyển Tiền qua số tài khoản:0231231232 với nội dung là: ID + Họ tên + Tên sản phẩm + ngày đặt.
                                         </div>
                                     </li>
 

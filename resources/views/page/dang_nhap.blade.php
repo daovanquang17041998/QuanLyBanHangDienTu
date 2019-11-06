@@ -16,14 +16,30 @@
 
 <div class="container">
     <div id="content">
-
         <form action="{{route('dangnhap')}}" method="post" class="beta-form-checkout">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="row">
-                <div class="col-sm-3"></div>
-                @if(Session::has('flag'))
-                <div class="alert alect-{{Session::get('flag')}}">{{Session::get('message')}}</div>
+                @if(count($errors)>0)
+                    <div class="alert alert-danger">
+                        @foreach($errors ->all() as $err)
+                            {{$err}}<br>
+                        @endforeach
+                    </div>
                 @endif
+                    @if(session('message'))
+                        <div class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Success</strong>
+                            {{session('message')}}
+                        </div>
+                    @endif
+                    @if(session('error'))
+                        <div class="alert alert-danger">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Warning</strong>
+                            {{session('error')}}
+                        </div>
+                    @endif
                 <div class="col-sm-6">
                     <h4>Đăng nhập</h4>
                     <div class="space20">&nbsp;</div>

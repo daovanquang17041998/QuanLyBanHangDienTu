@@ -56,12 +56,11 @@ class PageController extends Controller
 
         $credenttials = array('email'=>$request->email,'password'=>$request->password);
         if(Auth::attempt($credenttials)){
-            return redirect()->route('trang-chu')->with(['flag'=>'success','message'=>'Đăng nhập thành công']);
+            return redirect()->route('trang-chu')->with('success','Đăng nhập thành công');
         }
         else{
-            return redirect()->back()->with(['flag'=>'danger','message'=>'Đăng nhập không thành công']);
+            return redirect()->back()->with('error','Đăng nhập không thành công. Sai tài khoản hoặc mật khẩu');
         }
-
     }
     public function getSignup(){
         return view('page.dang_ky');
@@ -112,7 +111,7 @@ class PageController extends Controller
         else
             $user->avatar ="";
         $user->save();
-        return redirect()->back()->with("Đã tạo tài khoản thành công");
+        return redirect()->back()->with('message','Đã tạo tài khoản thành công');
     }
     public function getLogout(){
         Auth::logout();
@@ -127,5 +126,56 @@ class PageController extends Controller
             ->orwhere('a.unit_price',$request->key)->get();
         return view('page.search',compact('detail_product'));
     }
-
+  public function getInfoUser(){
+      return view('page.profile');
+  }
+  public function getEditUser(){
+      return view('page.edit_profile');
+  }
+  public function postEditUser(Request $request){
+      $this->validate($request,[
+          'email' => 'required|email',
+          'fullname' => 'required|max:250',
+          'address' => 'required|max:250',
+          'password' => 'required|max:12|min:6',
+          'phone' => 'required|numeric',
+          'birthday' => 'required',
+      ],[
+          "email.email"    => "Chưa đúng định dạng email",
+          "email.required"    => "Bạn phải nhập email",
+          "fullname.required"    => "Bạn phải nhập tên",
+          "fullname.max"    => "Tên không quá 250 kí tự",
+          "password.required"    => "Bạn phải nhập mật khẩu",
+          "password.min"    => "Mật khẩu ít nhất 6 kí tự",
+          "password.max"    => "Mật khẩu không quá 12 kí tự",
+          "phone.required"    => "Bạn phải nhập số điện thoại",
+          "phone.numeric"    => "Số điện thoại phải là số",
+          "birthday.required"    => "Bạn phải nhập ngày sinh",
+          "address.required"    => "Bạn phải nhập địa chỉ",
+          "address.max"    => "Địa chỉ không quá 250 kí tự",
+      ]);
+      $user = User::find(Auth::user()->id);
+      $user->fullname = $request->fullname;
+      $user->email = $request->email;
+      $user->password = bcrypt($request->password);
+      $user->phone = $request->phone;
+      $user->gender = $request->rdoGender;
+      $user->birthday = $request->birthday;
+      $user->status = Auth::user()->status;
+      $user->level = Auth::user()->level;
+      $user->address = $request->address;
+      $user->address = $request->address;
+      $get_image = $request->file('avatar');
+      if($get_image){
+          $get_name_image = $get_image->getClientOriginalName();
+          $get_image->move('uploads/users',$get_name_image);
+          $user->avatar = $get_name_image;
+          $user->save();
+          return redirect('profile/sua')->with('message','Sửa thông tin thành công');
+      }
+      else
+      $user->avatar = "user.jpg";
+      $user->save();
+      return redirect('profile/sua')->with('message','Sửa thông tin thành công');
+  }
 }

@@ -18,9 +18,9 @@ Route::group(['prefix'=>'profile'],function (){
 
     Route::get('thongtin','PageController@getInfoUser');
 
-    Route::get('sua/{id}','PageController@getEditUser');
+    Route::get('sua','PageController@getEditUser');
 
-    Route::post('sua/{id}','PageController@postEditUser');
+    Route::post('sua','PageController@postEditUser');
 });
 
 Route::get('tim-kiem',['as'=>'search', 'uses'=>'PageController@getSearch']);

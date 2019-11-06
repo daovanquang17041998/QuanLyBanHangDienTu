@@ -58,24 +58,3 @@
             </div>
         </div>
 @endsection
-@section('script')
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('.view-size').click(function (){
-                var id = $(this).attr('data-viewid');
-
-                $.ajax({
-                    url: "admin/ajax/view-size",
-                    type: "post",
-                    data: "product_id="+id,
-                    async: true,
-                    success:function(data)
-                    {  
-                        $(".modal-body").html(data);
-                    }
-                 });
-             });
-        });
-        
-    </script>
-@endsection
