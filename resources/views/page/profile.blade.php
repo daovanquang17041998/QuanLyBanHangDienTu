@@ -64,6 +64,9 @@
                     </div>
                     <div class="form-block">
                         <a href="profile/sua" class="btn btn-primary">Sửa thông tin</a>
+                        @if(Auth::user()->level == 1)
+                        <a href="admin/" class="btn btn-primary">Trang quản trị</a>
+                        @endif
                     </div>
                 </div>
                 <div class="col-sm-6"></div>
