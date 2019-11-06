@@ -114,11 +114,8 @@ class BillImportController extends Controller
 
     public function postEditDetailBillImport(Request $request, $id){
         $this->validate($request,[
-            "txtPrice" => "required|numeric",
             "txtQuanlity" => "required|numeric",
         ], [
-            "txtPrice.required" => "Bạn phải nhập đơn giá",
-            "txtPrice.numeric" => "Đơn giá phải là số",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
             "txtQuanlity.numeric" => "Số lượng phải là số",
         ]);
@@ -127,7 +124,8 @@ class BillImportController extends Controller
         $cu =  $detail_import->quanlity;
         $gia_cu = $detail_import->price;
         $detail_import->id_detail_product = $request->selectDetailBillImportId;
-        $detail_import->price = $request->txtPrice;
+        $id_detail_product = DetailProduct::find( $request->selectDetailBillImportId);
+        $detail_import->price = $id_detail_product->promotion_price;
         $detail_import->quanlity = $request->txtQuanlity;
         $pro = $detail_import->detail_product->id;
         $bill = $detail_import->bill_import->id;

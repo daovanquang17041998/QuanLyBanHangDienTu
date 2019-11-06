@@ -145,11 +145,8 @@ class BillExportController extends Controller
 
     public function postEditDetailBillExport(Request $request, $id){
         $this->validate($request,[
-            "txtPrice" => "required|numeric",
             "txtQuanlity" => "required|numeric",
         ], [
-            "txtPrice.required" => "Bạn phải nhập giá",
-            "txtPrice.numeric" => "Giá phải là số",
             "txtQuanlity.required" => "Bạn phải nhập số lượng",
             "txtQuanlity.numeric" => "Số lượng phải là số",
         ]);
@@ -157,12 +154,13 @@ class BillExportController extends Controller
         $cu =  $detail_export->quanlity;
         $gia_cu = $detail_export->price;
         $detail_export->id_detail_product = $request->selectDetailBillExportId;
-        $detail_export->price = $request->txtPrice;
+        $id_detail_product = DetailProduct::find( $request->selectDetailBillExportId);
+        $detail_export->price = $id_detail_product->promotion_price;
         $detail_export->quanlity = $request->txtQuanlity;
         $pro = $detail_export->detail_product->id;
         $bill = $detail_export->bill_export->id;
         $quan= DB::table('detail_product')->where('id',$pro)->update(['quanlity'=> $detail_export->detail_product->quanlity + $cu - $request->txtQuanlity]);
-        $total = DB::table('bill_export')->where('id',$bill)->update(['totalmoney'=> $detail_export->bill_export->totalmoney - $gia_cu*$cu + $request->txtQuanlity*$request->txtPrice]);
+        $total = DB::table('bill_export')->where('id',$bill)->update(['totalmoney'=> $detail_export->bill_export->totalmoney - $gia_cu*$cu + $request->txtQuanlity*$id_detail_product->promotion_price]);
         $detail_export->save();
         return redirect("admin/don-hang/danh-sach")->with("message","Sửa chi tiết đơn hàng thành công");
     }

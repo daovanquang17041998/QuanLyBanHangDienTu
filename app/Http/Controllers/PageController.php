@@ -120,6 +120,7 @@ class PageController extends Controller
     }
     public function getLogout(){
         Auth::logout();
+        \Cart::clear();
         return redirect()->route('trang-chu');
     }
     public function getSearch(Request $request){

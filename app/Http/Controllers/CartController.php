@@ -25,16 +25,6 @@ class CartController extends Controller
                'image'=> $detail->image
         )
        ]);
-        $userId = auth()->user()->id;
-        \Cart::session($userId)->add([
-            'id'=>$id,
-            'name'=> $detail->product->name,
-            'quantity'=> 1,
-            'price'=> $detail->promotion_price,
-            'attributes' => array(
-                'image'=> $detail->image
-            )
-        ]);
        return redirect()->back();
     }
 
