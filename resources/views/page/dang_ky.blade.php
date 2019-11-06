@@ -52,6 +52,14 @@
                         <input type="email" name="email" id="email">
                     </div>
                     <div class="form-block">
+                        <label for="phone">Mật khẩu*</label>
+                        <input type="password" id="phone" name="password">
+                    </div>
+                    <div class="form-block">
+                        <label for="phone">Nhập lại Mật khẩu*</label>
+                        <input type="password" id="phone" name="repassword">
+                    </div>
+                    <div class="form-block">
                         <label for="adress">Địa chỉ*</label>
                         <input type="text" name="address" id="adress" value="Hà nội">
                     </div>
@@ -87,10 +95,6 @@
                         <label class="radio-inline">
                             <input name="quyen" value="0" type="radio" checked="">Người dùng
                         </label>
-                    </div>
-                    <div class="form-block">
-                        <label for="phone">Mật khẩu*</label>
-                        <input type="password" id="phone" name="password">
                     </div>
                     <div class="form-block">
                         <button type="submit" class="btn btn-primary">Đăng ký</button>
