@@ -3,7 +3,7 @@
 <div class="inner-header">
     <div class="container">
         <div class="pull-left">
-            <h6 class="inner-title">Tài khoản</h6>
+            <h6 class="inner-title">Tài khoản người dùng</h6>
         </div>
         <div class="pull-right">
             <div class="beta-breadcrumb">
@@ -53,7 +53,7 @@
                            Dùng
                         @else
                             Không dùng
-                        @endif
+                         @endif
                     </div>
                     <div class="form-block">
                         <label style="margin-right: 20px">Quyền hạn: </label>@if(Auth::user()->level == 1)
