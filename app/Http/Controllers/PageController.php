@@ -20,8 +20,8 @@ class PageController extends Controller
     public function getIndexPage()
     {
         $slide = Slide::all();
-        $new_product = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->where('b.status','=',1)->paginate(8);
-        $sale_product = DetailProduct::where('promotion_price','<>',0)->paginate(4);
+        $new_product = DetailProduct::where('unit_price','<>',0)->paginate(4);
+        $sale_product = DetailProduct::where('promotion_price','<>',0)->paginate(8);
         return view('page.trangchu',compact('slide','new_product','sale_product'));
     }
     public function getLoaisanpham($type){
@@ -37,10 +37,10 @@ class PageController extends Controller
     public function getChitietsanpham(Request $request){
         $detail_product   = DetailProduct::where('id',$request->id)->first();
         $detail= DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
-        select('a.*','b.*','c.id as idcate','c.*')->where('a.id',$request->id)->first();
+        select('a.*','b.*','c.*','c.id as idcate')->where('a.id',$request->id)->first();
         $sanpham_tuongtu = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->join('categories_product as c','b.id_category','=','c.id')->
-        select('a.*','b.name')->where('c.id',$detail->idcate)->paginate(6);
-        $sanpham_noibat = DB::table('detail_product as a')->join('products as b','a.id_product','=','b.id')->where('b.status','=',1)->paginate(8);
+        select('a.*','b.name')->where('c.id', $detail->idcate)->paginate(6);
+        $sanpham_noibat = DetailProduct::where('unit_price','<>',0)->paginate(8);
         return view('page.chitietsanpham',compact('detail_product','sanpham_tuongtu','sanpham_noibat'));
     }
     public function getLienhe(){

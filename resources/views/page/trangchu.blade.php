@@ -28,12 +28,50 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="beta-products-list">
-                            <h4>Sản phẩm nổi bật</h4>
+                            <div class="beta-products-list">
+                                <h4>Sản phẩm khuyến mãi</h4>
+                                <div class="beta-products-details">
+                                    <p class="pull-left">Tìm thấy {{count($sale_product)}} sản phẩm khuyễn mãi</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row">
+                                    @foreach($sale_product as $sale)
+                                        <div class="col-sm-3">
+                                            <div class="single-item">
+                                                @if($sale->promotion_price!=0)
+                                                    <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+                                                @endif
+                                                <div class="single-item-header">
+                                                    @if(!$sale->quanlity)
+                                                        <span style="position: absolute; background-color: red;color: white;">Tạm hết hàng</span>
+                                                    @endif
+                                                    <a href="{{route('chitietsanpham',$sale->id)}}"><img src="uploads/product/{{$sale->image}}" alt="" height="250px"></a>
+                                                </div>
+                                                <div class="single-item-body">
+                                                    <p class="single-item-title">{{$sale->product->name}}</p>
+                                                    <p class="single-item-price" style="font-size: 18px">
+                                                        <span class="flash-del">{{number_format($sale->unit_price)}}đ</span>
+                                                        <span class="flash-sale">{{number_format($sale->promotion_price)}}đ</span>
+                                                    </p>
+                                                </div>
+                                                <div class="single-item-caption">
+                                                    <a class="add-to-cart pull-left" href="{{route('themgiohang',$sale->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                                    <a class="beta-btn primary" href="{{route('chitietsanpham',$sale->id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space10">&nbsp;</div>
+                                    @endforeach
+                                </div>
+                                <div class="row">{{$sale_product->links()}}</div>
+                            </div>
+
+                            <h4>Tất cả sản phẩm</h4>
                             <div class="beta-products-details">
                                 <p class="pull-left">Tìm thấy {{count($new_product)}} sản phẩm</p>
                                 <div class="clearfix"></div>
                             </div>
-
                             <div class="row">
                                 @foreach($new_product as $new)
                                     <div class="col-sm-3">
@@ -72,44 +110,6 @@
                         <div class="row">{{$new_product->links()}}</div>
                         <div class="space50">&nbsp</div>
 
-                        <div class="beta-products-list">
-                            <h4>Sản phẩm khuyến mãi</h4>
-                            <div class="beta-products-details">
-                                <p class="pull-left">Tìm thấy {{count($sale_product)}} sản phẩm khuyễn mãi</p>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="row">
-                                @foreach($sale_product as $sale)
-                                    <div class="col-sm-3">
-                                        <div class="single-item">
-                                            @if($sale->promotion_price!=0)
-                                                <div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
-                                            @endif
-                                            <div class="single-item-header">
-                                                @if(!$sale->quanlity)
-                                                    <span style="position: absolute; background-color: red;color: white;">Tạm hết hàng</span>
-                                                @endif
-                                                <a href="{{route('chitietsanpham',$sale->id)}}"><img src="uploads/product/{{$sale->image}}" alt="" height="250px"></a>
-                                            </div>
-                                            <div class="single-item-body">
-                                                <p class="single-item-title">{{$sale->product->name}}</p>
-                                                <p class="single-item-price" style="font-size: 18px">
-                                                    <span class="flash-del">{{number_format($sale->unit_price)}}đ</span>
-                                                    <span class="flash-sale">{{number_format($sale->promotion_price)}}đ</span>
-                                                </p>
-                                            </div>
-                                            <div class="single-item-caption">
-                                                <a class="add-to-cart pull-left" href="{{route('themgiohang',$sale->id)}}"><i class="fa fa-shopping-cart"></i></a>
-                                                <a class="beta-btn primary" href="{{route('chitietsanpham',$sale->id)}}">Chi tiết<i class="fa fa-chevron-right"></i></a>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="space10">&nbsp;</div>
-                                @endforeach
-                            </div>
-                            <div class="row">{{$sale_product->links()}}</div>
-                        </div>
                     </div>
                 </div>
             </div>

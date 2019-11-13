@@ -15,12 +15,12 @@ class CartController extends Controller
 {
     public function getAddToCart(Request $request,$id){
        $detail =  DetailProduct::select('id','id_product','unit_price','promotion_price','quanlity','image')->find($id);
-        $id_detail_product = DetailProduct::find($id);
-        if($id_detail_product->promotion_price){
-            $detail->price = $id_detail_product->promotion_price;
+        $id_detail_products = DetailProduct::find($id);
+        if($id_detail_products->promotion_price){
+            $detail->price = $id_detail_products->promotion_price;
         }
         else{
-            $detail->price = $id_detail_product->unit_price;
+            $detail->price = $id_detail_products->unit_price;
         }
        if(!$detail) return redirect(route('trang-chu'));
        \Cart::add([
@@ -93,7 +93,7 @@ class CartController extends Controller
             $customer->address = $request->address;
             $customer->phone = $request->phone;
             $customer->note = $request->note;
-            $customer->status = 1;
+            $customer->status = 0;
             $customer->payment = $request->payment;
             $customer->save();
 
